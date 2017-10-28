@@ -1,0 +1,28 @@
+zstyle ':prezto:*:*' case-sensitive 'yes'
+zstyle ':prezto:*:*' color 'yes'
+zstyle ':prezto:load' zmodule \
+  'attr' \
+  'stat'
+zstyle ':prezto:load' zfunction \
+  'zargs' \
+  'zmv'
+
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'completion' \
+  'prompt' \
+  'git' \
+  'syntax-highlighting' \
+  'autosuggestions'
+
+zstyle ':prezto:module:git:alias' skip 'yes'
+zstyle ':prezto:module:autosuggestions:color' found 'fg=242'
+zstyle ':prezto:module:editor' key-bindings 'emacs'
+zstyle ':prezto:module:prompt' theme 'sorin'
+zstyle ':prezto:module:prompt' pwd-length 'long'
+zstyle ':prezto:module:prompt' show-return-val 'yes'

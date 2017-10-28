@@ -1,0 +1,14 @@
+[rebase]
+	autoStash = true
+	autoSquash = true
+[commit]
+	verbose = true
+	gpgsign = true
+	template = /Users/billie/.gitmessage
+[user]
+	name = Billie Thompson
+	email = billie@billiecodes.com
+	signingkey = 78BFCAB0
+[core]
+	editor = atom-beta --wait
+	excludesfile = /Users/billie/.gitignore
