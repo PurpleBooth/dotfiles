@@ -2,12 +2,17 @@
 # Terminal Style                                                    #
 #####################################################################
 
+# Colours
 export CLICOLOR=1
+source <(gdircolors)
+
+# ZPrezto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 zprezto-update > /dev/null
 
+# Brew
 if brew command command-not-found-init > /dev/null 2>&1; then
-  eval "$(brew command-not-found-init)"
+  source <(brew command-not-found-init)
 fi
 
 #####################################################################
