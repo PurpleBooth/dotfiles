@@ -15,6 +15,7 @@ if brew command command-not-found-init > /dev/null 2>&1; then
   source <(brew command-not-found-init)
 fi
 
+
 #####################################################################
 # Auto-completion                                                   #
 #####################################################################
@@ -34,13 +35,23 @@ export EDITOR="atom-beta --wait"
 export VISUAL="${EDITOR}"
 export GPG_TTY=$(tty)
 export CODEDIR="$(grealpath ${HOME}/Code)"
+export GOCODEDIR="${CODEDIR}/golang"
+export GOPATH="${GOCODEDIR}"
+
+
+#####################################################################
+# Path                                                              #
+#####################################################################
+
+export PATH="${GOCODEDIR}/bin:${PATH}"
+export PATH="${HOME}/.bin:${PATH}"
+
 
 #####################################################################
 # Aliases                                                           #
 #####################################################################
 
 alias atom="atom-beta"
-alias git="hub"
 alias grep="$(which grep) --color=always"
 alias ll="$(which ls) -lrathF"
 alias realpath="grealpath"
