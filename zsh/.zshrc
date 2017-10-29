@@ -57,3 +57,4 @@ alias ll="$(which ls) -lrathF"
 alias realpath="grealpath"
 alias man="info"
 alias more="less"
+function git() { hub $@; } # This ensures auto-complete still works
