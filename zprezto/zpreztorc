@@ -14,11 +14,11 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'directory' \
   'spectrum' \
-  'completion' \
-  'prompt' \
   'git' \
+  'completion' \
   'syntax-highlighting' \
-  'autosuggestions'
+  'autosuggestions' \
+  'prompt'
 
 zstyle ':prezto:module:git:alias' skip 'yes'
 zstyle ':prezto:module:autosuggestions:color' found 'fg=242'
