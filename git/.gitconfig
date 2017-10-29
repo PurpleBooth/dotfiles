@@ -12,5 +12,3 @@
 [core]
 	editor = atom-beta --wait
 	excludesfile = /Users/billie/.gitignore
-[log]
-	showSignature = true
