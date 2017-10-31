@@ -38,6 +38,13 @@ export CODEDIR="$(grealpath ${HOME}/Code)"
 export GOCODEDIR="${CODEDIR}/golang"
 export GOPATH="${GOCODEDIR}"
 
+###############################################################################
+# Functions                                                                   #
+###############################################################################
+
+function use_java () {
+  export JAVA_HOME="$(/usr/libexec/java_home -v ${1})"
+}
 
 #####################################################################
 # Path                                                              #
