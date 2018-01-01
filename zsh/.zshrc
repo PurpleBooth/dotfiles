@@ -26,6 +26,7 @@ source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 source <(kubectl completion zsh)
 source <(helm completion zsh)
+source "${HOME}/.cargo/env"
 
 #####################################################################
 # Environment Variables                                             #
@@ -53,7 +54,6 @@ function use_java () {
 export PATH="${GOCODEDIR}/bin:${PATH}"
 export PATH="${HOME}/.bin:${PATH}"
 
-
 #####################################################################
 # Aliases                                                           #
 #####################################################################
@@ -62,6 +62,6 @@ alias atom="atom-beta"
 alias grep="$(which grep) --color=always"
 alias ll="$(which ls) -lrathF"
 alias realpath="grealpath"
-alias man="info"
 alias more="less"
+
 function git() { hub $@; } # This ensures auto-complete still works
