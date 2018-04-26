@@ -8,7 +8,7 @@
 [user]
 	name = Billie Thompson
 	email = billie@billiecodes.com
-	signingkey = 78BFCAB0
+	signingkey = 3E11CEE536F2F35ADFA89EB81AE6157163816A8F
 [core]
 	editor = atom-beta --wait
 	excludesfile = /Users/billie/.gitignore

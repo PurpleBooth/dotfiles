@@ -8,7 +8,10 @@ source <(gdircolors)
 
 # ZPrezto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-zprezto-update > /dev/null
+zprezto-update > /dev/null &!
+
+# TLDR Autoupdate
+tldr --update &!
 
 # Brew
 if brew command command-not-found-init > /dev/null 2>&1; then
