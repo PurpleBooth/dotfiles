@@ -1,0 +1,113 @@
+tap "cloudfoundry/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+
+## programming
+# Java
+cask "java"
+cask "java8"
+brew "maven"
+
+# Go
+brew "go"
+brew "dep"
+
+# Node JS
+brew "node"
+
+# Python
+brew "pyenv"
+
+# Ruby
+brew "rbenv"
+
+# Bash
+brew "bash"
+brew "shellcheck"
+brew "yq"
+
+# Git
+brew "git"
+brew "hub"
+brew "git-crypt"
+brew "mercurial"
+
+# UML
+brew "plantuml"
+
+# Formatter
+brew "prettier"
+
+
+cask "jetbrains-toolbox"
+
+## ops
+# K8S
+brew "kubernetes-helm"
+cask "google-cloud-sdk"
+# HTTP
+brew "httpie"
+brew "wget"
+# S3
+brew "s3cmd"
+# Terraform
+brew "terraform"
+# Travis
+brew "travis"
+# CF
+brew "cloudfoundry/tap/bosh-cli"
+brew "cloudfoundry/tap/bbl"
+brew "cloudfoundry/tap/cf-cli"
+# Docker
+cask "docker"
+# Selenium
+cask "chromedriver"
+
+
+
+# Enhancements
+brew "autojump"
+brew "coreutils"
+brew "pidof"
+brew "tree"
+brew "watch"
+
+# searchers
+brew "ripgrep"
+brew "the_silver_searcher"
+cask "alfred"
+
+## Büro
+# gnupg
+brew "pinentry-mac"
+brew "gnupg"
+
+# passwords
+brew "pwgen"
+cask "1password-beta"
+cask "1password-cli"
+
+# help
+brew "tldr"
+brew "translate-shell"
+# zsh
+brew "zsh"
+
+# fonts
+cask "font-fira-code"
+
+# browsers
+cask "firefox"
+cask "google-chrome"
+
+# editors
+cask "atom-beta"
+cask "skitch"
+
+# chat
+cask "keybase"
+cask "skype"
+cask "slack-beta"
