@@ -82,4 +82,4 @@ zprezto-update > /dev/null &!
 tldr --update &!
 
 # Packages
-make -f "$CODEDIR/dotfiles/Makefile" package-sync > /dev/null &!
+make -f "$CODEDIR/dotfiles/Makefile" "sync-$LAPTOP_NAME" > /dev/null &!
