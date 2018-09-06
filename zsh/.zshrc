@@ -65,6 +65,7 @@ export PATH="${HOME}/.bin:${PATH}"
 # Aliases                                                           #
 #####################################################################
 
+alias zsh-rc-reload="builtin . ~/.zshrc"
 alias atom="atom-beta"
 alias grep="$(which grep) --color=always"
 alias ll="$(which ls) -lrathF"
