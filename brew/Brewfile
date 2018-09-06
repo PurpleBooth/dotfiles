@@ -75,6 +75,9 @@ brew "coreutils"
 brew "pidof"
 brew "tree"
 brew "watch"
+brew "fswatch"
+
+# DNS
 brew "bind"
 
 # searchers
@@ -83,7 +86,6 @@ brew "ripgrep"
 brew "the_silver_searcher"
 cask "alfred"
 
-## Büro
 # gnupg
 brew "pinentry-mac"
 brew "gnupg"

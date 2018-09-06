@@ -7,5 +7,6 @@ show-help:
 ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 ## Install or update all the packages in the brewfile
+.PHONY: package-sync
 package-sync:
 	brew bundle --file=$(ROOT_DIR)/brew/Brewfile
