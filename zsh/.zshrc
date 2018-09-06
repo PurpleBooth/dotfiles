@@ -42,6 +42,10 @@ export CODEDIR="$(grealpath ${HOME}/Code)"
 export GOCODEDIR="${CODEDIR}/golang"
 export GOPATH="${GOCODEDIR}"
 
+if [ -f "${HOME}/.envsecret" ]; then
+    source "${HOME}/.envsecret"
+fi
+
 ###############################################################################
 # Functions                                                                   #
 ###############################################################################
