@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+rm -f "$HOME/.zshrc"
+ln -s "$SCRIPT_DIR/../.zshrc" "$HOME/.zshrc"
+
+rm -f "$HOME/.zshenv"
+ln -s "$SCRIPT_DIR/../.zshenv" "$HOME/.zshenv"

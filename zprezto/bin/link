@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+for rcfile in "$HOME"/.zprezto/runcoms/^README.md(.N); do
+  if [ ! -L "$HOME/.${rcfile:t}" ]
+  then
+      rm -f "$HOME/.${rcfile:t}"
+  fi
+
+  if [ ! -f "$HOME/.${rcfile:t}" ]; then
+     ln -s "$rcfile" "$HOME/.${rcfile:t}"
+  fi
+done

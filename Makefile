@@ -6,7 +6,18 @@ show-help:
 
 ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-## Install or update all the packages in the brewfile
 .PHONY: package-sync
+## Install or update all the packages in the brewfile
 package-sync:
 	brew bundle --file=$(ROOT_DIR)/brew/Brewfile
+
+.PHONY: link-zsh
+## Link zsh config
+link-zsh:
+	$(ROOT_DIR)/zsh/bin/link
+
+.PHONY: zprezto-sync
+## Install zprezto
+zprezto-sync:
+	$(ROOT_DIR)/zprezto/bin/install
+	$(ROOT_DIR)/zprezto/bin/link
