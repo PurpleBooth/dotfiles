@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
-.PHONY: show-help package-sync link-zsh zprezto-sync
+.PHONY: show-help package-sync link-zsh zprezto-sync link-vim link-git-work link-git-home link-git sync-home
 
 
 show-help:
@@ -10,7 +10,8 @@ ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 ## Install or update all the packages in the brewfile
 package-sync:
-	brew bundle --file=$(ROOT_DIR)/brew/Brewfile
+	$(ROOT_DIR)/brew/bin/install
+	$(ROOT_DIR)/brew/bin/bundle-install
 
 ## Link zsh config
 link-zsh:
@@ -21,5 +22,30 @@ zprezto-sync:
 	$(ROOT_DIR)/zprezto/bin/install
 	$(ROOT_DIR)/zprezto/bin/link
 
+## Link vim config
+link-vim:
+	$(ROOT_DIR)/vim/bin/link
+
+## Link gnupg config
+link-gnupg:
+	$(ROOT_DIR)/gnupg/bin/link
+
+## Link work git config
+link-git-work: link-git
+	$(ROOT_DIR)/git/bin/link-work
+
+## Link home git config
+link-git-home: link-git
+
+## Link git config
+link-git:
+	$(ROOT_DIR)/git/bin/link
+
 ## Install and link all packages for home
-sync-home: package-sync zprezto-sync link-zsh
+sync-home: sync link-git-home
+
+## Install and link all packages for work
+sync-work: sync link-git-work
+
+## Install and link all non-platform specific links
+sync: package-sync zprezto-sync link-zsh link-vim link-gnupg link-git

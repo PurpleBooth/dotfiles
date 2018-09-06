@@ -4,7 +4,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
-for FILENAME in .zshrc .zshenv
+for FILENAME in .gitconfig .gitmessage .gitignore
 do
   rm -f "$HOME/$FILENAME"
   ln -s "$SCRIPT_DIR/../$FILENAME" "$HOME/$FILENAME"

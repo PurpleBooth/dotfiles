@@ -24,6 +24,10 @@ brew "pyenv"
 # Ruby
 brew "rbenv"
 
+# Php
+tap "homebrew/php"
+brew "php"
+
 # Bash
 brew "bash"
 brew "shellcheck"
@@ -47,7 +51,7 @@ cask "jetbrains-toolbox"
 ## ops
 # K8S
 brew "kubernetes-helm"
-brew "minikube"
+cask "minikube"
 cask "google-cloud-sdk"
 # HTTP
 brew "httpie"
@@ -65,12 +69,15 @@ brew "cloudfoundry/tap/bbl"
 brew "cloudfoundry/tap/cf-cli"
 # Docker
 cask "docker"
+# virtual box
+cask "virtualbox"
 # Selenium
 cask "chromedriver"
-
-
+# concourse
+cask "fly"
 
 # Enhancements
+tap "homebrew/command-not-found"
 brew "autojump"
 brew "coreutils"
 brew "pidof"

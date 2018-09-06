@@ -519,7 +519,7 @@ from conveying the Program.
 ### 13. Use with the GNU Affero General Public License.
 
 Notwithstanding any other provision of this License, you have permission to
-link or combine any covered work with a work licensed under version 3 of the
+install or combine any covered work with a work licensed under version 3 of the
 GNU Affero General Public License into a single combined work, and to convey
 the resulting work. The terms of this License will continue to apply to the
 part which is the covered work, but the special requirements of the GNU Affero

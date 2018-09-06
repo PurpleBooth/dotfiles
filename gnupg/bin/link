@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+mkdir -p "$HOME/.gnupg"
+rm -f "$HOME/.gnupg/gpg-agent.conf"
+ln -s "$SCRIPT_DIR/../gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
