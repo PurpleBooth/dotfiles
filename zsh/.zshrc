@@ -8,10 +8,6 @@ source <(gdircolors)
 
 # ZPrezto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-zprezto-update > /dev/null &!
-
-# TLDR Autoupdate
-tldr --update &!
 
 # Brew
 if brew command command-not-found-init > /dev/null 2>&1; then
@@ -73,3 +69,15 @@ alias realpath="grealpath"
 alias more="less"
 
 function git() { hub $@; } # This ensures auto-complete still works
+
+#####################################################################
+# Update                                                            #
+#####################################################################
+
+zprezto-update > /dev/null &!
+
+# TLDR Autoupdate
+tldr --update &!
+
+# Packages
+make -f "$CODEDIR/dotfiles/Makefile" package-sync > /dev/null &!
