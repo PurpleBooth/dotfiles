@@ -29,7 +29,7 @@ brew "bash"
 brew "shellcheck"
 brew "yq"
 
-# Git
+# VCS
 brew "git"
 brew "hub"
 brew "git-crypt"
@@ -75,8 +75,10 @@ brew "coreutils"
 brew "pidof"
 brew "tree"
 brew "watch"
+brew "bind"
 
 # searchers
+brew "grep"
 brew "ripgrep"
 brew "the_silver_searcher"
 cask "alfred"
