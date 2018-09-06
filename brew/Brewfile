@@ -47,6 +47,7 @@ cask "jetbrains-toolbox"
 ## ops
 # K8S
 brew "kubernetes-helm"
+brew "minikube"
 cask "google-cloud-sdk"
 # HTTP
 brew "httpie"

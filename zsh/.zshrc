@@ -14,6 +14,7 @@ if brew command command-not-found-init > /dev/null 2>&1; then
   source <(brew command-not-found-init)
 fi
 
+source <(minikube completion zsh)
 
 #####################################################################
 # Auto-completion                                                   #
