@@ -51,7 +51,8 @@ cask "google-cloud-sdk"
 # HTTP
 brew "httpie"
 brew "wget"
-# S3
+# aws
+brew "awscli"
 brew "s3cmd"
 # Terraform
 brew "terraform"
