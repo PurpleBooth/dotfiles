@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
-.PHONY: show-help package-sync link-zsh zprezto-sync link-vim link-git-work link-git-home link-git sync-home
+.PHONY: show-help package-sync link-zsh zprezto-sync link-vim link-gnupg link-git-work link-git-home link-git sync-home sync-work sync
 
 
 show-help:
