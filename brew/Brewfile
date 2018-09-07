@@ -25,7 +25,6 @@ brew "pyenv"
 brew "rbenv"
 
 # Php
-tap "homebrew/php"
 brew "php"
 
 # Bash
