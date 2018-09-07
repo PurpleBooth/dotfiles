@@ -43,9 +43,9 @@ if [ -f "${HOME}/.envsecret" ]; then
     source "${HOME}/.envsecret"
 fi
 
-###############################################################################
-# Functions                                                                   #
-###############################################################################
+#####################################################################
+# Functions                                                         #
+#####################################################################
 
 function use_java () {
   export JAVA_HOME="$(/usr/libexec/java_home -v ${1})"
@@ -76,10 +76,10 @@ function git() { hub $@; } # This ensures auto-complete still works
 # Update                                                            #
 #####################################################################
 
-zprezto-update > /dev/null &!
-
 # TLDR Autoupdate
 tldr --update &!
 
 # Packages
-make -f "$CODEDIR/dotfiles/Makefile" "sync-$LAPTOP_NAME" > /dev/null &!
+($PACKAGE_OUT=$(make -f "$CODEDIR/dotfiles/Makefile" "sync-$LAPTOP_NAME" 2>&1) || echo "$PACKAGE_OUT") &!
+
+
