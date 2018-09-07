@@ -1,5 +1,4 @@
 tap "cloudfoundry/tap"
-tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
@@ -18,6 +17,13 @@ brew "dep"
 # Node JS
 brew "node"
 
+# Ruby
+brew "ruby"
+tap "homebrew/bundle"
+
+# Rust
+brew "rustup-init"
+
 # Python
 brew "pyenv"
 
@@ -31,6 +37,7 @@ brew "php"
 brew "bash"
 brew "shellcheck"
 brew "yq"
+brew "jq"
 
 # VCS
 brew "git"
@@ -50,11 +57,14 @@ cask "jetbrains-toolbox"
 ## ops
 # K8S
 brew "kubernetes-helm"
+brew "kubectl"
+brew "skaffold"
 cask "minikube"
 cask "google-cloud-sdk"
 # HTTP
 brew "httpie"
 brew "wget"
+brew "curl"
 # aws
 brew "awscli"
 brew "s3cmd"
@@ -75,6 +85,15 @@ cask "chromedriver"
 # concourse
 cask "fly"
 
+# hugo
+brew "hugo"
+
+# mkdocs
+brew "mkdocs"
+
+# gdb
+brew "gdb"
+
 # Enhancements
 tap "homebrew/command-not-found"
 brew "autojump"
@@ -83,6 +102,8 @@ brew "pidof"
 brew "tree"
 brew "watch"
 brew "fswatch"
+brew "pstree"
+brew "less"
 
 # DNS
 brew "bind"
@@ -99,6 +120,7 @@ brew "gnupg"
 
 # passwords
 brew "pwgen"
+cask "1password"
 cask "1password-beta"
 cask "1password-cli"
 
@@ -107,6 +129,7 @@ brew "tldr"
 brew "translate-shell"
 # zsh
 brew "zsh"
+brew "zsh-completions"
 
 # fonts
 cask "font-fira-code"
@@ -123,3 +146,9 @@ cask "skitch"
 cask "keybase"
 cask "skype"
 cask "slack-beta"
+
+# dropbox
+cask "dropbox"
+
+# games
+cask "steam"
