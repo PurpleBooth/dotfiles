@@ -38,6 +38,8 @@ export GPG_TTY=$(tty)
 export CODEDIR="$(grealpath ${HOME}/Code)"
 export GOCODEDIR="${CODEDIR}/golang"
 export GOPATH="${GOCODEDIR}"
+export GIT_DUET_CO_AUTHORED_BY="1"
+export GIT_DUET_GLOBAL="1"
 
 if [ -f "${HOME}/.envsecret" ]; then
     source "${HOME}/.envsecret"
@@ -81,5 +83,3 @@ tldr --update &!
 
 # Packages
 ($PACKAGE_OUT=$(make -f "$CODEDIR/dotfiles/Makefile" "sync-$LAPTOP_NAME" 2>&1) || echo "$PACKAGE_OUT") &!
-
-
