@@ -53,4 +53,4 @@ sync-home: sync link-git-home
 sync-work: sync link-git-work
 
 ## Install and link all non-platform specific links
-sync: package-sync zprezto-sync link-zsh link-vim link-gnupg link-git
+sync: package-sync zprezto-sync link-zsh link-vim link-gnupg link-git link-git-duet
