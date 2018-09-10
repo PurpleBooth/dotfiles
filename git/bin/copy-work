@@ -5,4 +5,4 @@ set -euo pipefail
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 rm -f "$HOME/.gitconfig"
-ln -s "$SCRIPT_DIR/../work-gitconfig" "$HOME/.gitconfig"
+cp "$SCRIPT_DIR/../work-gitconfig" "$HOME/.gitconfig"

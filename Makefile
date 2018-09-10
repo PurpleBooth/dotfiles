@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
-.PHONY: show-help package-sync link-zsh zprezto-sync link-vim link-gnupg link-git-work link-git-home link-git sync-home sync-work sync git-duet
+.PHONY: show-help package-sync link-zsh zprezto-sync link-vim link-gnupg copy-git-work copy-git-home copy-git sync-home sync-work sync git-duet
 
 
 show-help:
@@ -31,26 +31,25 @@ link-gnupg:
 	$(ROOT_DIR)/gnupg/bin/link
 
 ## Link work git config
-link-git-work: link-git
-	$(ROOT_DIR)/git/bin/link-work
+copy-git-work: copy-git
+	$(ROOT_DIR)/git/bin/copy-work
 
 ## Link home git config
-link-git-home: link-git
+copy-git-home: copy-git
 
 ## Link git config
-link-git:
-	$(ROOT_DIR)/git/bin/link
-
+copy-git:
+	$(ROOT_DIR)/git/bin/copy
 
 ## Link git-duet config
 link-git-duet:
 	$(ROOT_DIR)/git-duet/bin/link
 
 ## Install and link all packages for home
-sync-home: sync link-git-home
+sync-home: sync copy-git-home
 
 ## Install and link all packages for work
-sync-work: sync link-git-work
+sync-work: sync copy-git-work
 
 ## Install and link all non-platform specific links
-sync: package-sync zprezto-sync link-zsh link-vim link-gnupg link-git link-git-duet
+sync: package-sync zprezto-sync link-zsh link-vim link-gnupg copy-git link-git-duet
