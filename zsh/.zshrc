@@ -14,8 +14,6 @@ if brew command command-not-found-init > /dev/null 2>&1; then
   source <(brew command-not-found-init)
 fi
 
-source <(minikube completion zsh)
-
 #####################################################################
 # Auto-completion                                                   #
 #####################################################################
@@ -24,7 +22,9 @@ fpath=("$(brew --prefix)/share/zsh-completions" $fpath)
 source "$(brew --prefix)/share/zsh/site-functions"
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "$(brew --prefix)/etc/profile.d/autojump.sh"
 source <(kubectl completion zsh)
+source <(minikube completion zsh)
 source <(helm completion zsh)
 source "${HOME}/.cargo/env"
 

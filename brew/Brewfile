@@ -108,6 +108,7 @@ brew "watch"
 brew "fswatch"
 brew "pstree"
 brew "less"
+brew "autojump"
 
 # DNS
 brew "bind"
