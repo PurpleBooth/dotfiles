@@ -43,6 +43,10 @@ brew "jq"
 brew "git"
 brew "hub"
 brew "git-crypt"
+
+tap "git-duet/tap"
+brew "git-duet"
+
 brew "mercurial"
 
 # UML
