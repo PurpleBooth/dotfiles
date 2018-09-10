@@ -146,6 +146,7 @@ cask "skitch"
 cask "keybase"
 cask "skype"
 cask "slack-beta"
+cask "zoomus"
 
 # dropbox
 cask "dropbox"
