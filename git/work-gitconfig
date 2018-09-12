@@ -7,7 +7,7 @@
 	template = /Users/billie/.gitmessage
 [user]
 	name = Billie Thompson
-	email = billie@armakuni.co.uk
+	email = billie.thompson@armakuni.co.uk
 	signingkey = 6CA28611CA015C3570A544D8202D9F1FBDF1FC60
 [core]
 	editor = atom-beta --wait
