@@ -100,7 +100,7 @@ brew "gdb"
 
 # Enhancements
 tap "homebrew/command-not-found"
-brew "autojump"
+brew "fasd"
 brew "coreutils"
 brew "pidof"
 brew "tree"
@@ -126,7 +126,6 @@ brew "gnupg"
 # passwords
 brew "pwgen"
 cask "1password"
-cask "1password-beta"
 cask "1password-cli"
 
 # help
