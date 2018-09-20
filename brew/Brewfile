@@ -108,7 +108,6 @@ brew "watch"
 brew "fswatch"
 brew "pstree"
 brew "less"
-brew "autojump"
 
 # DNS
 brew "bind"
@@ -145,6 +144,7 @@ cask "google-chrome"
 # editors
 cask "atom-beta"
 cask "skitch"
+cask "grammarly"
 
 # chat
 cask "keybase"
