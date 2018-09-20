@@ -7,3 +7,4 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 brew update
 brew bundle --file="$SCRIPT_DIR/../Brewfile"
 brew bundle cleanup --force --file="$SCRIPT_DIR/../Brewfile"
+
