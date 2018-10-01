@@ -72,6 +72,7 @@ alias ll="$(which ls) -lrathF"
 alias realpath="grealpath"
 alias more="less"
 alias o="fasd -ae open"
+alias oo="fasd -sae open"
 
 function git() { hub $@; } # This ensures auto-complete still works
 
