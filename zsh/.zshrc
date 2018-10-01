@@ -30,9 +30,8 @@ source "${HOME}/.cargo/env"
 
 #####################################################################
 # Environment Variables                                             #
-#####################################################################
-
-export _FASD_BACKENDS="native current spotlight"
+#####################################################################     
+export _FASD_BACKENDS="native current spotlight recently-used viminfo"
 export EDITOR="atom-beta --wait"
 export VISUAL="${EDITOR}"
 export GPG_TTY=$(tty)
