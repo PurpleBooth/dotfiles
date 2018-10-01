@@ -41,6 +41,12 @@ copy-git-home: copy-git
 copy-git:
 	$(ROOT_DIR)/git/bin/copy
 
+
+## Link fasd config
+link-fasd:
+	$(ROOT_DIR)/fasd/bin/link
+
+
 ## Link git-duet config
 link-git-duet:
 	$(ROOT_DIR)/git-duet/bin/link
@@ -52,4 +58,4 @@ sync-home: sync copy-git-home
 sync-work: sync copy-git-work
 
 ## Install and link all non-platform specific links
-sync: package-sync zprezto-sync link-zsh link-vim link-gnupg copy-git link-git-duet
+sync: package-sync zprezto-sync link-zsh link-fasd link-vim link-gnupg copy-git link-git-duet
