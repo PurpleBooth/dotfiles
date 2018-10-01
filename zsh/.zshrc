@@ -72,6 +72,14 @@ alias ll="$(which ls) -lrathF"
 alias realpath="grealpath"
 alias more="less"
 
+function o() { 
+  FOUND_FILE=$( fasd -a $@ )
+
+  if [[ -n "$FOUND_FILE" ]] ; then
+    open "$FOUND_FILE"
+  fi
+}
+
 function git() { hub $@; } # This ensures auto-complete still works
 
 #####################################################################
