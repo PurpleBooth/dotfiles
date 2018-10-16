@@ -66,6 +66,7 @@ export PATH="${HOME}/.bin:${PATH}"
 alias whatismyip='dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'\''"'\'' '\''{ print $2}'\'''
 alias zsh-rc-reload="builtin . ~/.zshrc"
 alias atom="atom-beta"
+alias apm="apm-beta"
 alias grep="$(which grep) --color=always"
 alias ll="$(which ls) -lrathF"
 alias realpath="grealpath"

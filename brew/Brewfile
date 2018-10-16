@@ -147,6 +147,7 @@ cask "google-chrome"
 cask "atom-beta"
 cask "skitch"
 cask "grammarly"
+brew "imagemagick"
 
 # chat
 cask "keybase"
