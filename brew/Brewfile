@@ -11,6 +11,8 @@ cask "java8"
 brew "maven"
 
 # Go
+tap "alecthomas/homebrew-tap"
+brew "gometalinter"
 brew "go"
 brew "dep"
 
