@@ -71,6 +71,8 @@ cask "google-cloud-sdk"
 brew "httpie"
 brew "wget"
 brew "curl"
+# citrix
+cask "citrix-workspace"
 # aws
 brew "awscli"
 brew "s3cmd"
