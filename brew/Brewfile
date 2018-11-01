@@ -142,7 +142,7 @@ brew "zsh-completions"
 cask "font-fira-code"
 
 # browsers
-cask "firefox"
+cask "firefox-nightly"
 cask "google-chrome"
 
 # editors
