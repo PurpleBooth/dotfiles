@@ -14,6 +14,8 @@ if brew command command-not-found-init > /dev/null 2>&1; then
   source <(brew command-not-found-init)
 fi
 
+bindkey '^R' history-incremental-search-backward
+
 #####################################################################
 # Auto-completion                                                   #
 #####################################################################
