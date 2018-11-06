@@ -31,7 +31,7 @@ source "${HOME}/.cargo/env"
 #####################################################################
 # Environment Variables                                             #
 #####################################################################     
-export EDITOR="atom-beta --wait"
+export EDITOR="vim"
 export VISUAL="${EDITOR}"
 export GPG_TTY=$(tty)
 export CODEDIR="$(grealpath ${HOME}/Code)"
@@ -67,8 +67,8 @@ alias whatismyip='dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -
 alias zsh-rc-reload="builtin . ~/.zshrc"
 alias atom="atom-beta"
 alias apm="apm-beta"
-alias grep="$(which grep) --color=always"
-alias ll="$(which ls) -lrathF"
+alias grep="grep --color=auto"
+alias ll="ls --color=auto -lrathF"
 alias realpath="grealpath"
 alias more="less"
 alias o="fasd -ae open"

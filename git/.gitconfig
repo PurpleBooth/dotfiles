@@ -10,7 +10,7 @@
 	email = billie@billiecodes.com
 	signingkey = 3E11CEE536F2F35ADFA89EB81AE6157163816A8F
 [core]
-	editor = "atom-beta --wait"
+	editor = "vim"
 	excludesfile = /Users/billie/.gitignore
 [branch "master"]
 	rebase = true

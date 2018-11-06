@@ -15,11 +15,17 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'git' \
+  'gnu-utility' \
   'completion' \
   'syntax-highlighting' \
   'autosuggestions' \
-  'prompt'
+  'prompt' \
+  'fasd' \
+  'homebrew' \
+  'osx' \
+  'archive'
 
+zstyle ':prezto:module:terminal' auto-title 'yes'
 zstyle ':prezto:module:git:alias' skip 'yes'
 zstyle ':prezto:module:autosuggestions:color' found 'fg=242'
 zstyle ':prezto:module:editor' key-bindings 'emacs'
