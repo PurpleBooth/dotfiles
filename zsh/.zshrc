@@ -12,6 +12,13 @@ if brew command command-not-found-init > /dev/null 2>&1; then
 fi
 
 export SPACESHIP_EXIT_CODE_SHOW="true"
+export SPACESHIP_GIT_STATUS_ADDED="✚"
+export SPACESHIP_GIT_STATUS_MODIFIED="✹"
+export SPACESHIP_GIT_STATUS_DELETED="✖"
+export SPACESHIP_GIT_STATUS_RENAMED="➜"
+export SPACESHIP_GIT_STATUS_UNMERGED="═"
+export SPACESHIP_GIT_STATUS_UNTRACKED="✭"
+export SPACESHIP_GIT_STATUS_STASHED="§"
 
 # ZPrezto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -33,7 +40,7 @@ source "${HOME}/.cargo/env"
 
 #####################################################################
 # Environment Variables                                             #
-#####################################################################     
+#####################################################################
 export EDITOR="vim"
 export VISUAL="${EDITOR}"
 export GPG_TTY=$(tty)
