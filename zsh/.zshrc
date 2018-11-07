@@ -6,14 +6,15 @@
 export CLICOLOR=1
 source <(gdircolors)
 
-# ZPrezto
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-
 # Brew
 if brew command command-not-found-init > /dev/null 2>&1; then
   source <(brew command-not-found-init)
 fi
 
+export SPACESHIP_EXIT_CODE_SHOW="true"
+
+# ZPrezto
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 bindkey '^R' history-incremental-search-backward
 
 #####################################################################

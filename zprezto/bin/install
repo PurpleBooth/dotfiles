@@ -8,5 +8,9 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git "$TEMP_DIR/.zp
 rm -rf "$TEMP_DIR/.zprezto/runcoms/zpreztorc"
 ln -s "$SCRIPT_DIR/../zpreztorc" "$TEMP_DIR/.zprezto/runcoms/zpreztorc"
 
+git clone https://github.com/belak/prezto-contrib "$TEMP_DIR/.zprezto/contrib"
+(cd "$TEMP_DIR/.zprezto/contrib" && git submodule init)
+(cd "$TEMP_DIR/.zprezto/contrib" && git submodule update)
+
 rm -rf "$HOME/.zprezto"
 mv "$TEMP_DIR/.zprezto" "$HOME/.zprezto"
