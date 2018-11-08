@@ -29,5 +29,5 @@ zstyle ':prezto:load' pmodule \
 zstyle ':prezto:module:terminal' auto-title 'yes'
 zstyle ':prezto:module:git:alias' skip 'yes'
 zstyle ':prezto:module:autosuggestions:color' found 'fg=242'
-zstyle ':prezto:module:editor' key-bindings 'emacs'
-zstyle ':prezto:module:prompt' theme 'spaceship'
+zstyle ':prezto:module:editor' key-bindings 'vi'
+zstyle ':prezto:module:prompt' theme 'garrett'
