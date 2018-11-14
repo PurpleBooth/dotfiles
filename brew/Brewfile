@@ -142,6 +142,7 @@ cask "font-fira-code"
 
 # browsers
 cask "firefox-nightly"
+cask "firefox"
 cask "google-chrome"
 
 # editors
