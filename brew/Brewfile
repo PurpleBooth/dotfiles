@@ -115,6 +115,8 @@ brew "watch"
 brew "fswatch"
 brew "pstree"
 brew "less"
+cask "flycut"
+cask "visual-studio-code"
 
 # DNS
 brew "bind"
