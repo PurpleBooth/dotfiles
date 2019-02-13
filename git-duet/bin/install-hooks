@@ -2,7 +2,5 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-
 git duet-install-hook pre-commit
 git duet-install-hook prepare-commit-msg

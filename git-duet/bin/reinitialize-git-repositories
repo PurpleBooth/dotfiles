@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+find "$HOME" -type d -name .git -exec git init {}/.. \;

@@ -10,45 +10,49 @@ ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 ## Install or update all the packages in the brewfile
 install-packages:
-	$(ROOT_DIR)/brew/bin/install
-	$(ROOT_DIR)/brew/bin/bundle-install
+	"$(ROOT_DIR)/brew/bin/install"
+	"$(ROOT_DIR)/brew/bin/bundle-install"
 
 ## Link zsh config
 configure-zsh:
-	$(ROOT_DIR)/zsh/bin/link
+	"$(ROOT_DIR)/zsh/bin/link"
 
 ## Install and link zprezto
 install-zprezto:
-	$(ROOT_DIR)/zprezto/bin/install
-	$(ROOT_DIR)/zprezto/bin/link
+	"$(ROOT_DIR)/zprezto/bin/install"
+	"$(ROOT_DIR)/zprezto/bin/link"
 
 ## Link vim config
 configure-vim:
-	$(ROOT_DIR)/vim/bin/link
+	"$(ROOT_DIR)/vim/bin/link"
 
 ## Link gnupg config
 configure-gnupg:
-	$(ROOT_DIR)/gnupg/bin/link
+	"$(ROOT_DIR)/gnupg/bin/link"
 
 ## Copy work git config
 configure-git-for-work: configure-git
-	$(ROOT_DIR)/git/bin/copy-work
+	"$(ROOT_DIR)/git/bin/copy-work"
 
 ## Copy home git config
 configure-git-for-home: configure-git
 
 ## Copy git config
 configure-git:
-	$(ROOT_DIR)/git/bin/copy
+	"$(ROOT_DIR)/git/bin/copy"
 
 ## Link fasd config
 configure-fasd:
-	$(ROOT_DIR)/fasd/bin/link
+	"$(ROOT_DIR)/fasd/bin/link"
 
 ## Link git-duet config and install git hooks
 configure-git-duet:
-	$(ROOT_DIR)/git-duet/bin/link
-	$(ROOT_DIR)/git-duet/bin/install-hooks
+	"$(ROOT_DIR)/git-duet/bin/link"
+	"$(ROOT_DIR)/git-duet/bin/install-hooks"
+
+## Configure all existing git repositories for git-duet
+configure-git-repositories-for-git-duet: configure-git-duet
+	"$(ROOT_DIR)/git-duet/bin/reinitialize-git-repositories"
 
 ## Install and link all packages for home
 sync-home: sync configure-git-for-home
