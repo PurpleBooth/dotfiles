@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+MSG="$1"
+
+check_for_duplicate() {
+    test "" = "$(grep "^$2: " "$1" |
+        sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
+        cat "$1"
+        echo >&2 Duplicate "$2" lines.
+        exit 1
+    }
+}
+
+check_for_duplicate "$MSG" Signed-off-by 
+check_for_duplicate "$MSG" Co-authored-by

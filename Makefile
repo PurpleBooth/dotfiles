@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
-.PHONY: configure-fasd configure-git configure-git-duet show-help configure-git-for-home configure-git-for-work configure-git-repositories-for-git-duet configure-gnupg configure-vim configure-zsh install-packages install-zprezto sync sync-work sync-home
+.PHONY: configure-fasd configure-git configure-git-duet show-help configure-git-for-home configure-git-for-work reinitialize-git-repositories configure-gnupg configure-vim configure-zsh install-packages install-zprezto sync sync-work sync-home
 
 ## This help screen
 show-help:
@@ -33,6 +33,7 @@ configure-gnupg:
 ## Copy work git config
 configure-git-for-work: configure-git
 	"$(ROOT_DIR)/git/bin/copy-work"
+	"$(ROOT_DIR)/git/bin/install-hook-work"
 
 ## Copy home git config
 configure-git-for-home: configure-git
@@ -40,6 +41,7 @@ configure-git-for-home: configure-git
 ## Copy git config
 configure-git:
 	"$(ROOT_DIR)/git/bin/copy"
+	"$(ROOT_DIR)/git/bin/install-hook"
 
 ## Link fasd config
 configure-fasd:
@@ -50,9 +52,9 @@ configure-git-duet:
 	"$(ROOT_DIR)/git-duet/bin/link"
 	"$(ROOT_DIR)/git-duet/bin/install-hooks"
 
-## Configure all existing git repositories for git-duet
-configure-git-repositories-for-git-duet: configure-git-duet
-	"$(ROOT_DIR)/git-duet/bin/reinitialize-git-repositories"
+## Configure all existing git repositories with hooks from templates
+reinitialize-git-repositories:
+	"$(ROOT_DIR)/git/bin/reinitialize-git-repositories"
 
 ## Install and link all packages for home
 sync-home: sync configure-git-for-home
