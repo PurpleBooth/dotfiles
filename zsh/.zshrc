@@ -59,8 +59,6 @@ bindkey -M vicmd '?' history-incremental-search-backward
 
 alias realpath="grealpath"
 alias more="less"
-alias atom="atom-beta"
-alias apm="apm-beta"
 
 function whatismyip() { dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}'; }
 function ll() { ls -lrathF $@; }
