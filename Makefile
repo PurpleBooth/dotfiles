@@ -35,9 +35,6 @@ configure-git-for-work: configure-git
 	"$(ROOT_DIR)/git/bin/copy-work"
 	"$(ROOT_DIR)/git/bin/install-hook-work"
 
-## Copy home git config
-configure-git-for-home: configure-git
-
 ## Copy git config
 configure-git:
 	"$(ROOT_DIR)/git/bin/copy"
@@ -57,7 +54,7 @@ reinitialize-git-repositories:
 	"$(ROOT_DIR)/git/bin/reinitialize-git-repositories"
 
 ## Install and link all packages for home
-sync-home: sync configure-git-for-home
+sync-home: sync
 
 ## Install and link all packages for work
 sync-work: sync configure-git-for-work
