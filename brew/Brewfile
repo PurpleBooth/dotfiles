@@ -76,8 +76,7 @@ cask "google-cloud-sdk"
 brew "httpie"
 brew "wget"
 brew "curl"
-# citrix
-cask "citrix-workspace"
+
 # aws
 brew "awscli"
 brew "s3cmd"
@@ -123,7 +122,6 @@ brew "bind"
 
 # searchers
 brew "grep"
-brew "ripgrep"
 brew "the_silver_searcher"
 cask "alfred"
 
@@ -152,7 +150,6 @@ cask "firefox"
 cask "google-chrome"
 
 # editors
-cask "atom-beta"
 cask "skitch"
 cask "grammarly"
 brew "imagemagick"
