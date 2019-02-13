@@ -8,9 +8,9 @@ check_for_duplicate() {
     test "" = "$(grep "^$2: " "$1" |
         sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
         cat "$1"
-        cat << EOF
-    Your commit not have the same name duplicated in the Signed-off-by field"
-EOF
+        echo
+        echo "Your commit not have the same name duplicated in the $2 field"
+        
         exit 1
     }
 }
