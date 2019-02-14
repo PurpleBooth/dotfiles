@@ -9,7 +9,7 @@ check_for_duplicate() {
         sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
         cat "$1" >&2
         echo >&2
-        echo "Your commit not have the same name duplicated in the $2 field" >&2
+        echo "Your commit cannot have the same name duplicated in the $2 field" >&2
         
         exit 1
     }
