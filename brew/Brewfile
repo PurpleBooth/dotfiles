@@ -38,6 +38,8 @@ brew "php"
 # Haskell
 brew "haskell-stack"
 
+cask "postman"
+
 # Bash
 brew "bash"
 brew "shellcheck"
