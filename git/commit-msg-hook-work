@@ -7,9 +7,9 @@ MSG="$1"
 check_for_duplicate() {
     test "" = "$(grep "^$2: " "$1" |
         sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
-        cat "$1"
-        echo
-        echo "Your commit not have the same name duplicated in the $2 field"
+        cat "$1" >&2
+        echo >&2
+        echo "Your commit not have the same name duplicated in the $2 field" >&2
         
         exit 1
     }
@@ -17,8 +17,8 @@ check_for_duplicate() {
 
 check_for_tracker_id() {
     if ! grep -qE '\[(([Dd]elivers|[Ff]ixes|[Ff]inishes) #[0-9]+|(#[0-9]+))([ ,]#[0-9]+)?\]' "$1";then
-        cat "$1"
-        cat << EOF
+        cat "$1" >&2
+        ( 1>&2 cat << EOF
     Your commit message must contain the a pivotal tracker story id in the format [#4576346] somewhere in the message"
     Examples:
     [Delivers #12345678]
@@ -29,7 +29,7 @@ check_for_tracker_id() {
     [#12345678],[#12345884]
     This will address [#12345884]
 EOF
-
+        )
 
         exit 1
     fi
