@@ -7,7 +7,7 @@
 	template = /Users/billie/.gitmessage
 [user]
 	name = Billie Thompson
-	email = billie.thompson@armakuni.co.uk
+	email = billie.thompson@armakuni.com
 	signingkey = ED8BDAFEAE321FDB63DE806F3A814DF2CD71B086
 [core]
 	editor = vim
