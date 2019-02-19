@@ -3,12 +3,14 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
+tap "coursier/formulas"
 
 ## programming
 # Java
 cask "java"
 cask "java8"
 brew "maven"
+brew "coursier/formulas/coursier"
 
 # Go
 tap "alecthomas/homebrew-tap"
