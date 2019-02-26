@@ -110,6 +110,7 @@ brew "gdb"
 
 # Enhancements
 tap "homebrew/command-not-found"
+cask "shiftit"
 brew "fasd"
 brew "coreutils"
 brew "pidof"
