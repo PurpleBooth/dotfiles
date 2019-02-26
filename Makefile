@@ -81,3 +81,8 @@ update: install-packages update-tldr
 ## Update TLDR's documentation index
 update-tldr: install-packages
 	"$(ROOT_DIR)/tldr/bin/update"
+
+.PHONY: lint-shell
+## Lint shell scripts
+lint-shell: 
+	find . -path "*/bin/*" -type f \( -exec shellcheck {} \; -o -quit \) 

@@ -1,15 +1,27 @@
 #####################################################################
 # Environment Variables                                             #
 #####################################################################
+
+# System Defaults
 export EDITOR="vim"
 export VISUAL="${EDITOR}"
+export LANG="de_DE.UTF-8"
+
+# GPG
 export GPG_TTY=$(tty)
+
+# Favourites
 export CODEDIR="$(grealpath ${HOME}/Code)"
+
+# Golang
 export GOCODEDIR="${CODEDIR}/golang"
 export GOPATH="${GOCODEDIR}"
+
+# Git Duet
 export GIT_DUET_CO_AUTHORED_BY="1"
 export GIT_DUET_GLOBAL="1"
 
+# Not committed
 if [ -f "${HOME}/.envsecret" ]; then
     source "${HOME}/.envsecret"
 fi
