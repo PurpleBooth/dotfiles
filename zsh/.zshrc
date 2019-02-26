@@ -71,8 +71,5 @@ function use_java () { export JAVA_HOME="$(/usr/libexec/java_home -v ${1})"; }
 # Update                                                            #
 #####################################################################
 
-# TLDR Autoupdate
-tldr --update &!
-
-# Packages
-($PACKAGE_OUT=$(make -f "$CODEDIR/dotfiles/Makefile" "sync-$LAPTOP_NAME" 2>&1) || echo "$PACKAGE_OUT") &!
+# Everything
+(PACKAGE_OUT=$(make -f "$CODEDIR/dotfiles/Makefile" "update" -j 10 2>&1) || echo "$PACKAGE_OUT") &! 

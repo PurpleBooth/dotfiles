@@ -1,10 +1,9 @@
 .DEFAULT_GOAL := show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
-.PHONY: configure-fasd configure-git configure-git-duet show-help configure-git-for-home configure-git-for-work reinitialize-git-repositories configure-gnupg configure-vim configure-zsh install-packages install-zprezto sync sync-work sync-home
-
 ## This help screen
 show-help:
 	@echo "$$(tput bold)Available rules:$$(tput sgr0)";echo;sed -ne"/^## /{h;s/.*//;:d" -e"H;n;s/^## //;td" -e"s/:.*//;G;s/\\n## /---/;s/\\n/ /g;p;}" ${MAKEFILE_LIST}|LC_ALL='C' sort -f|awk -F --- -v n=$$(tput cols) -v i=19 -v a="$$(tput setaf 6)" -v z="$$(tput sgr0)" '{printf"%s%*s%s ",a,-i,$$1,z;m=split($$2,w," ");l=n-i;for(j=1;j<=m;j++){l-=length(w[j])+1;if(l<= 0){l=n-i-length(w[j])-1;printf"\n%*s ",-i," ";}printf"%s ",w[j];}printf"\n";}'
+.PHONY: show-help
 
 ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
@@ -12,52 +11,74 @@ ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 install-packages:
 	"$(ROOT_DIR)/brew/bin/install"
 	"$(ROOT_DIR)/brew/bin/bundle-install"
+.PHONY: install-packages
 
 ## Link zsh config
-configure-zsh:
+configure-zsh: install-packages
 	"$(ROOT_DIR)/zsh/bin/link"
+.PHONY: configure-zsh
 
 ## Install and link zprezto
-install-zprezto:
+install-zprezto: install-packages configure-zsh
 	"$(ROOT_DIR)/zprezto/bin/install"
 	"$(ROOT_DIR)/zprezto/bin/link"
+.PHONY: install-zprezto
 
 ## Link vim config
-configure-vim:
+configure-vim: install-packages
 	"$(ROOT_DIR)/vim/bin/link"
+.PHONY: configure-vim
 
 ## Link gnupg config
-configure-gnupg:
+configure-gnupg: install-packages
 	"$(ROOT_DIR)/gnupg/bin/link"
+.PHONY: configure-gnupg
 
 ## Copy work git config
 configure-git-for-work: configure-git
 	"$(ROOT_DIR)/git/bin/copy-work"
 	"$(ROOT_DIR)/git/bin/install-hook-work"
+.PHONY: configure-git-for-work
 
 ## Copy git config
-configure-git:
+configure-git: install-packages
 	"$(ROOT_DIR)/git/bin/copy"
 	"$(ROOT_DIR)/git/bin/install-hook"
+.PHONY: configure-git
 
 ## Link fasd config
-configure-fasd:
+configure-fasd: install-packages
 	"$(ROOT_DIR)/fasd/bin/link"
+.PHONY: configure-fasd
 
 ## Link git-duet config and install git hooks
-configure-git-duet:
+configure-git-duet: install-packages configure-git
 	"$(ROOT_DIR)/git-duet/bin/link"
 	"$(ROOT_DIR)/git-duet/bin/install-hooks"
+.PHONY: configure-git-duet
 
 ## Configure all existing git repositories with hooks from templates
-reinitialize-git-repositories:
+reinitialize-git-repositories: install-packages configure-git configure-git-duet
 	"$(ROOT_DIR)/git/bin/reinitialize-git-repositories"
+.PHONY: reinitialize-git-repositories
 
 ## Install and link all packages for home
 sync-home: sync
+.PHONY: sync-home
 
 ## Install and link all packages for work
 sync-work: sync configure-git-for-work
+.PHONY: sync-work
 
 ## Install and link all non-platform specific links
 sync: install-packages install-zprezto configure-zsh configure-fasd configure-vim configure-gnupg configure-git configure-git-duet
+.PHONY: sync-home
+
+## Update assorted packages that benefit from being regularly kept up to date
+update: install-packages update-tldr
+.PHONY: update
+
+## Update TLDR's documentation index
+update-tldr: install-packages
+	"$(ROOT_DIR)/tldr/bin/update"
+.PHONY: update-tldr
