@@ -3,8 +3,16 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+BUNDLE_MTIME_FILE="$HOME/.dotfiles"
+BREWFILE="$SCRIPT_DIR/../Brewfile"
+
+if [ -f "$BUNDLE_MTIME_FILE" ] && [ -z "$(find "$BUNDLE_MTIME_FILE" -mmin +$((60 * 24)))" ]; then
+	exit 0
+fi
 
 brew update
-brew bundle --file="$SCRIPT_DIR/../Brewfile"
-brew bundle cleanup --force --file="$SCRIPT_DIR/../Brewfile"
+brew bundle --file="$BREWFILE"
+brew bundle cleanup --force --file="$BREWFILE"
 brew upgrade
+brew cleanup
+touch "$BUNDLE_MTIME_FILE"
