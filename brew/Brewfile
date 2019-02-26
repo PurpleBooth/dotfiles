@@ -48,7 +48,7 @@ brew "shellcheck"
 brew "yq"
 brew "jq"
 brew "yamllint"
-
+brew "shfmt"
 
 # VCS
 brew "git"

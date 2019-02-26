@@ -62,9 +62,6 @@ source <(gdircolors)
 # ZPrezto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
-# Reverse Search
-bindkey -M vicmd '?' history-incremental-search-backward
-
 #####################################################################
 # Aliases                                                           #
 #####################################################################

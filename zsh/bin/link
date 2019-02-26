@@ -2,10 +2,9 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
-for FILENAME in .zshrc .zshenv
-do
-  rm -f "$HOME/$FILENAME"
-  ln -s "$SCRIPT_DIR/../$FILENAME" "$HOME/$FILENAME"
+for FILENAME in .zshrc .zshenv; do
+	rm -f "$HOME/$FILENAME"
+	ln -s "$SCRIPT_DIR/../$FILENAME" "$HOME/$FILENAME"
 done

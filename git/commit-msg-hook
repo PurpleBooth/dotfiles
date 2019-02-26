@@ -5,15 +5,15 @@ set -euo pipefail
 MSG="$1"
 
 check_for_duplicate() {
-    test "" = "$(grep "^$2: " "$1" |
-        sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
-        cat "$1" >&2
-        echo >&2
-        echo "Your commit cannot have the same name duplicated in the $2 field" >&2
-        
-        exit 1
-    }
+	test "" = "$(grep "^$2: " "$1" |
+		sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
+		cat "$1" >&2
+		echo >&2
+		echo "Your commit cannot have the same name duplicated in the $2 field" >&2
+
+		exit 1
+	}
 }
 
-check_for_duplicate "$MSG" Signed-off-by 
+check_for_duplicate "$MSG" Signed-off-by
 check_for_duplicate "$MSG" Co-authored-by

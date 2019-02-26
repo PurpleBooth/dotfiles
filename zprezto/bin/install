@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 TEMP_DIR=$(mktemp -d)
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "$TEMP_DIR/.zprezto"
 rm -rf "$TEMP_DIR/.zprezto/runcoms/zpreztorc"

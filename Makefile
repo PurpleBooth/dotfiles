@@ -85,4 +85,10 @@ update-tldr: install-packages
 .PHONY: lint-shell
 ## Lint shell scripts
 lint-shell: install-packages
-	find . -path "*/bin/*" -type f \( -exec shellcheck {} \; -o -quit \) 
+	shfmt -f "$(ROOT_DIR)" | xargs shellcheck
+	shfmt -d "$(ROOT_DIR)"
+
+.PHONY: format-shell
+## Format shell scripts
+format-shell: install-packages
+	shfmt -w -s "$(ROOT_DIR)"
