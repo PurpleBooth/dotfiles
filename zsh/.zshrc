@@ -72,4 +72,4 @@ function use_java () { export JAVA_HOME="$(/usr/libexec/java_home -v ${1})"; }
 #####################################################################
 
 # Everything
-(PACKAGE_OUT=$(make -f "$CODEDIR/dotfiles/Makefile" "update" -j 10 2>&1) || echo "$PACKAGE_OUT") &! 
+(PACKAGE_OUT=$(make -f "$CODEDIR"/dotfiles/Makefile "update" -j 10 2>&1) || echo "$PACKAGE_OUT") &!
