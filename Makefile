@@ -84,5 +84,5 @@ update-tldr: install-packages
 
 .PHONY: lint-shell
 ## Lint shell scripts
-lint-shell: 
+lint-shell: install-packages
 	find . -path "*/bin/*" -type f \( -exec shellcheck {} \; -o -quit \) 
