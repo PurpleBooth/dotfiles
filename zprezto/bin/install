@@ -2,6 +2,10 @@
 
 set -euo pipefail
 
+if [ -d "$HOME/.zprezto" ] && [ -z "$(find "$HOME/.zprezto" -mmin +$((60 * 24)))" ]; then
+	exit 0
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 TEMP_DIR=$(mktemp -d)
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "$TEMP_DIR/.zprezto"

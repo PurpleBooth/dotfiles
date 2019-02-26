@@ -82,6 +82,11 @@ update: install-packages update-tldr
 update-tldr: install-packages
 	"$(ROOT_DIR)/tldr/bin/update"
 
+
+.PHONY: lint
+## Lint everything
+lint: lint-shell
+
 .PHONY: lint-shell
 ## Lint shell scripts
 lint-shell: install-packages
