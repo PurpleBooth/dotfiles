@@ -49,6 +49,7 @@ brew "yq"
 brew "jq"
 brew "yamllint"
 brew "shfmt"
+brew "gettext"
 
 # VCS
 brew "git"
