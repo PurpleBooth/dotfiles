@@ -69,7 +69,7 @@ sync-home: sync
 ## Install and link all packages for work
 sync-work: sync configure-git-for-work
 
-.PHONY: sync-home
+.PHONY: sync
 ## Install and link all non-platform specific links
 sync: install-packages install-zprezto configure-zsh configure-fasd configure-vim configure-gnupg configure-git configure-git-duet
 
