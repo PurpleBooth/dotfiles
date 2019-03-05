@@ -82,6 +82,10 @@ update: install-packages update-tldr
 update-tldr: install-packages
 	"$(ROOT_DIR)/tldr/bin/update"
 
+.PHONY: generate-secret-envs
+## Generate secrets env file from 1password
+generate-secret-envs: install-packages
+	"$(ROOT_DIR)/1password/bin/generate-envsecret"
 
 .PHONY: lint
 ## Lint everything
@@ -97,8 +101,3 @@ lint-shell: install-packages
 ## Format shell scripts
 format-shell: install-packages
 	shfmt -w -s "$(ROOT_DIR)"
-
-.PHONY: generate-secret-envs
-## Generate secrets env file from 1password
-generate-secret-envs: install-packages
-	"$(ROOT_DIR)/1password/bin/generate-secrets-from-1password"
