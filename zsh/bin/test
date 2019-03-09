@@ -46,3 +46,10 @@
   [ "$status" -eq 0 ]
   [[ "${lines[0]}" =~ less ]]
 }
+
+@test "realpath exists" {
+  run zsh --login -c "realpath /tmp"
+
+  [ "$status" -eq 0 ]
+  [[ "${lines[0]}" == "/private/tmp" ]]
+}
