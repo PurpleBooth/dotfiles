@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := show-help
 ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 SETUP_DEPS = install-packages install-zprezto configure-zsh configure-fasd configure-vim configure-gnupg configure-git configure-git-duet
-EXEC_TESTS = find . -name "test" -type f -perm +111 \( -exec {} \; -o -quit \)
+EXEC_TESTS = ./*/*/test
 
 .PHONY: show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
