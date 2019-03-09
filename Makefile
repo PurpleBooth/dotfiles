@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := show-help
-ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+THIS_FILE := $(lastword $(MAKEFILE_LIST))
+ROOT_DIR:=$(shell dirname $(realpath $(THIS_FILE)))
 SETUP_DEPS = install-packages install-zprezto configure-zsh configure-fasd configure-vim configure-gnupg configure-git configure-git-duet
-EXEC_TESTS = ./*/*/test
 
 .PHONY: show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
@@ -69,12 +69,12 @@ reinitialize-git-repositories: install-packages configure-git configure-git-duet
 .PHONY: setup-home
 ## Install and link all packages for home
 setup-home: $(SETUP_DEPS)
-	$(EXEC_TESTS)
+	@$(MAKE) -f $(THIS_FILE) test
 
 .PHONY: setup-work
 ## Install and link all packages for work
 setup-work: $(SETUP_DEPS) configure-git-for-work
-	$(EXEC_TESTS)
+	@$(MAKE) -f $(THIS_FILE) test
 
 .PHONY: update
 ## Update assorted packages that benefit from being regularly kept up to date
@@ -93,7 +93,7 @@ generate-secret-envs: install-packages
 .PHONY: test
 ## Test environment is setup
 test:
-	$(EXEC_TESTS)
+	"$(ROOT_DIR)"/*/bin/test
 
 .PHONY: lint
 ## Lint everything
