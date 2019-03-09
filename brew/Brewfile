@@ -4,8 +4,10 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "coursier/formulas"
+tap "homebrew/bundle"
+tap "git-duet/tap"
+tap "homebrew/command-not-found"
 
-## programming
 # Java
 cask "java"
 cask "java8"
@@ -23,7 +25,6 @@ brew "node"
 
 # Ruby
 brew "ruby"
-tap "homebrew/bundle"
 
 # Rust
 brew "rustup-init"
@@ -40,25 +41,30 @@ brew "php"
 # Haskell
 brew "haskell-stack"
 
+# IDEs
 cask "postman"
+cask "jetbrains-toolbox"
+cask "visual-studio-code"
 
-# Bash
+# JSON
+brew "jq"
+
+# YAML
+brew "yq"
+brew "yamllint"
+
+# Shell
 brew "bash"
 brew "shellcheck"
-brew "yq"
-brew "jq"
-brew "yamllint"
 brew "shfmt"
 brew "gettext", link: true
+brew "bats"
 
 # VCS
 brew "git"
 brew "hub"
 brew "git-crypt"
-
-tap "git-duet/tap"
 brew "git-duet"
-
 brew "mercurial"
 
 # UML
@@ -67,16 +73,13 @@ brew "plantuml"
 # Formatter
 brew "prettier"
 
-
-cask "jetbrains-toolbox"
-
-## ops
 # K8S
 brew "kubernetes-helm"
 brew "kubectl"
 brew "skaffold"
 cask "minikube"
 cask "google-cloud-sdk"
+
 # HTTP
 brew "httpie"
 brew "wget"
@@ -85,20 +88,27 @@ brew "curl"
 # aws
 brew "awscli"
 brew "s3cmd"
+
 # Terraform
 brew "terraform"
+
 # Travis
 brew "travis"
+
 # CF
 brew "cloudfoundry/tap/bosh-cli"
 brew "cloudfoundry/tap/bbl"
 brew "cloudfoundry/tap/cf-cli"
+
 # Docker
 cask "docker"
+
 # virtual box
 cask "virtualbox"
+
 # Selenium
 cask "chromedriver"
+
 # concourse
 cask "fly"
 
@@ -109,10 +119,11 @@ brew "mkdocs"
 # gdb
 brew "gdb"
 
-# Enhancements
-tap "homebrew/command-not-found"
+# Desktop Utils
+cask "flycut"
 cask "shiftit"
-brew "fasd"
+
+# CLI Utils
 brew "coreutils"
 brew "pidof"
 brew "tree"
@@ -120,8 +131,10 @@ brew "watch"
 brew "fswatch"
 brew "pstree"
 brew "less"
-cask "flycut"
-cask "visual-studio-code"
+
+# Text Editors
+cask "grammarly"
+brew "vim"
 
 # DNS
 brew "bind"
@@ -130,6 +143,7 @@ brew "bind"
 brew "grep"
 brew "the_silver_searcher"
 cask "alfred"
+brew "fasd"
 
 # gnupg
 brew "pinentry-mac"
@@ -155,9 +169,8 @@ cask "firefox-nightly"
 cask "firefox"
 cask "google-chrome"
 
-# editors
+# Image Editors
 cask "skitch"
-cask "grammarly"
 brew "imagemagick"
 
 # chat
