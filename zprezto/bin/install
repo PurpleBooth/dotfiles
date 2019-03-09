@@ -11,6 +11,8 @@ TEMP_DIR=$(mktemp -d)
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "$TEMP_DIR/.zprezto"
 rm -rf "$TEMP_DIR/.zprezto/runcoms/zpreztorc"
 ln -s "$SCRIPT_DIR/../zpreztorc" "$TEMP_DIR/.zprezto/runcoms/zpreztorc"
+rm -rf "$TEMP_DIR/.zprezto/runcoms/zlogout"
+ln -s "$SCRIPT_DIR/../zlogout" "$TEMP_DIR/.zprezto/runcoms/zlogout"
 
 git clone https://github.com/belak/prezto-contrib "$TEMP_DIR/.zprezto/contrib"
 (cd "$TEMP_DIR/.zprezto/contrib" && git submodule init)

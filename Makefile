@@ -1,10 +1,13 @@
 .DEFAULT_GOAL := show-help
 ROOT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+SETUP_DEPS = install-packages install-zprezto configure-zsh configure-fasd configure-vim configure-gnupg configure-git configure-git-duet
+EXEC_TESTS = find . -name "test" -type f -perm +111 \( -exec {} \; -o -quit \)
+
 .PHONY: show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
 ## This help screen
 show-help:
-	@echo "$$(tput bold)Available rules:$$(tput sgr0)";echo;sed -ne"/^## /{h;s/.*//;:d" -e"H;n;s/^## //;td" -e"s/:.*//;G;s/\\n## /---/;s/\\n/ /g;p;}" ${MAKEFILE_LIST}|LC_ALL='C' sort -f|awk -F --- -v n=$$(tput cols) -v i=19 -v a="$$(tput setaf 6)" -v z="$$(tput sgr0)" '{printf"%s%*s%s ",a,-i,$$1,z;m=split($$2,w," ");l=n-i;for(j=1;j<=m;j++){l-=length(w[j])+1;if(l<= 0){l=n-i-length(w[j])-1;printf"\n%*s ",-i," ";}printf"%s ",w[j];}printf"\n";}'
+	@echo "$$(tput bold)Available rules:$$(tput sgr0)";echo;sed -ne"/^## /{h;s/.*//;:d" -e"H;n;s/^## //;td" -e"s/:.*//;G;s/\\n## /---/;s/\\n/ /g;p;}" ${MAKEFILE_LIST}|LC_ALL='C' sort -f|awk -F --- -v n=$$(tput cols) -v i=29 -v a="$$(tput setaf 6)" -v z="$$(tput sgr0)" '{printf"%s%*s%s ",a,-i,$$1,z;m=split($$2,w," ");l=n-i;for(j=1;j<=m;j++){l-=length(w[j])+1;if(l<= 0){l=n-i-length(w[j])-1;printf"\n%*s ",-i," ";}printf"%s ",w[j];}printf"\n";}'
 
 .PHONY: install-packages
 ## Install or update all the packages in the brewfile
@@ -16,6 +19,8 @@ install-packages:
 ## Link zsh config
 configure-zsh: install-packages
 	"$(ROOT_DIR)/zsh/bin/link"
+	"$(ROOT_DIR)/zsh/bin/fix-compaudit"
+	"$(ROOT_DIR)/zsh/bin/make-default-shell"
 
 .PHONY: install-zprezto
 ## Install and link zprezto
@@ -61,17 +66,15 @@ configure-git-duet: install-packages configure-git
 reinitialize-git-repositories: install-packages configure-git configure-git-duet
 	"$(ROOT_DIR)/git/bin/reinitialize-git-repositories"
 
-.PHONY: sync-home
+.PHONY: setup-home
 ## Install and link all packages for home
-sync-home: sync
+setup-home: $(SETUP_DEPS)
+	$(EXEC_TESTS)
 
-.PHONY: sync-work
+.PHONY: setup-work
 ## Install and link all packages for work
-sync-work: sync configure-git-for-work
-
-.PHONY: sync
-## Install and link all non-platform specific links
-sync: install-packages install-zprezto configure-zsh configure-fasd configure-vim configure-gnupg configure-git configure-git-duet
+setup-work: $(SETUP_DEPS) configure-git-for-work
+	$(EXEC_TESTS)
 
 .PHONY: update
 ## Update assorted packages that benefit from being regularly kept up to date
@@ -86,6 +89,11 @@ update-tldr: install-packages
 ## Generate secrets env file from 1password
 generate-secret-envs: install-packages
 	"$(ROOT_DIR)/1password/bin/generate-envsecret"
+
+.PHONY: test
+## Test environment is setup
+test:
+	$(EXEC_TESTS)
 
 .PHONY: lint
 ## Lint everything

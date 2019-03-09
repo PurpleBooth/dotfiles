@@ -1,0 +1,7 @@
+#!/usr/bin/env bats
+
+@test "git is installed and runs" {
+  run git -h 
+
+  [ "$status" -eq 129 ]
+}

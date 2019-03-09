@@ -1,0 +1,7 @@
+#!/usr/bin/env bats
+
+@test "tldr is installed and runs" {
+  run tldr curl
+
+  [ "$status" -eq 0 ]
+}

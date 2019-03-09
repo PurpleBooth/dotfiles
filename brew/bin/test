@@ -1,0 +1,369 @@
+#!/usr/bin/env bats
+
+@test "brew installed" {
+  run brew -h
+
+  [ "$status" -eq 0 ]
+}
+
+
+@test "java installed" {
+  run java -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "java 1.8 installed" {
+  export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)";
+  run java -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "mvn installed" {
+  run mvn -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "coursier installed" {
+  run coursier -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "gometalinter installed" {
+  run gometalinter
+
+  [ "$status" -eq 0 ]
+}
+
+@test "go installed" {
+  run go
+
+  [ "$status" -eq 2 ]
+}
+
+@test "dep installed" {
+  run dep -h
+
+  [ "$status" -eq 2 ]
+}
+
+@test "node installed" {
+  run node -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "ruby installed" {
+  run ruby -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "rustup-init installed" {
+  run rustup-init -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "pyenv installed" {
+  run pyenv -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "rbenv installed" {
+  run rbenv -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "php installed" {
+  run php -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "stack installed" {
+  run stack --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "jq installed" {
+  run jq --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "yq installed" {
+  run yq --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "yamllint installed" {
+  run yamllint --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "bash installed" {
+  run bash --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "shellcheck installed" {
+  run shellcheck
+
+  [ "$status" -eq 3 ]
+}
+
+@test "shfmt installed" {
+  run shfmt -version
+
+  [ "$status" -eq 0 ]
+}
+
+@test "envsubst installed" {
+  run envsubst --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "hub installed" {
+  run hub --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "git crypt installed" {
+  run git crypt
+
+  [ "$status" -eq 2 ]
+}
+
+@test "hg installed" {
+  run hg
+
+  [ "$status" -eq 0 ]
+}
+
+@test "plantuml installed" {
+  run plantuml -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "prettier installed" {
+  run prettier -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "helm installed" {
+  run helm -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "kubectl installed" {
+  run kubectl -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "skaffold installed" {
+  run skaffold -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "gcloud installed" {
+  run gcloud -h
+
+  [ "$status" -eq 0 ]
+}
+
+@test "http installed" {
+  run http --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "wget installed" {
+  run wget --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "curl installed" {
+  run curl --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "aws cli installed" {
+  run bash -c "set -euo pipefail && aws help | cat"
+
+  [ "$status" -eq 0 ]
+}
+
+@test "s3cmd installed" {
+  run s3cmd --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "terraform installed" {
+  run terraform --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "travis installed" {
+  run travis help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "bosh installed" {
+  run bosh --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "bbl installed" {
+  run bbl --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "cf installed" {
+  run cf --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "docker installed" {
+  run docker --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "chromedriver installed" {
+  run chromedriver --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "fly installed" {
+  run fly help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "hugo installed" {
+  run hugo --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "mkdocs installed" {
+  run mkdocs --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "gdb installed" {
+  run gdb --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "gnu core utils installed" {
+  run gtrue
+
+  [ "$status" -eq 0 ]
+}
+
+@test "pidof installed" {
+  run pidof
+
+  [ "$status" -eq 0 ]
+}
+
+@test "watch installed" {
+  run watch --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "fswatch installed" {
+  run fswatch --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "pstree installed" {
+  run pstree
+
+  [ "$status" -eq 0 ]
+}
+
+@test "less installed" {
+  run bash -c "set -euo pipefail && less --help | cat"
+
+  [ "$status" -eq 0 ]
+}
+
+@test "dig installed" {
+  run dig google.co.uk
+
+  [ "$status" -eq 0 ]
+}
+
+@test "grep installed" {
+  run zsh -c "echo test | grep test"
+
+  [ "$status" -eq 0 ]
+}
+
+@test "ag installed" {
+  run ag --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "gpg installed" {
+  run gpg --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "pwgen installed" {
+  run pwgen
+
+  [ "$status" -eq 0 ]
+}
+
+@test "op installed" {
+  run op --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "trans installed" {
+  run trans --help
+
+  [ "$status" -eq 0 ]
+}
+
+@test "imagemagick installed" {
+  run convert -version
+
+  [ "$status" -eq 0 ]
+}

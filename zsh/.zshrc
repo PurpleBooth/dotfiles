@@ -46,6 +46,7 @@ source <(kubectl completion zsh)
 source <(minikube completion zsh)
 source <(helm completion zsh)
 source "${HOME}/.cargo/env"
+source "${HOME}/.travis/travis.sh"
 
 if brew command command-not-found-init > /dev/null 2>&1; then
   source <(brew command-not-found-init)

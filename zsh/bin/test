@@ -1,0 +1,15 @@
+#!/usr/bin/env bats
+
+
+@test "there are no compaudit issues" {
+  run zsh -c "autoload -U compaudit && compaudit"
+
+  [ "$status" -eq 0 ]
+}
+
+@test "zsh is installed and runs" {
+  run zsh --login --interactive -c "echo hello"
+
+  [ "$status" -eq 0 ]
+  [ "${lines[0]}" = "hello" ]
+}

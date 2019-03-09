@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if ! AUDIT_PROBLEMS="$(zsh -c "autoload -U compaudit && compaudit" 2>/dev/null)"; then
+	sudo echo
+	echo "$AUDIT_PROBLEMS" | xargs sudo chown -R "$USER"
+fi
+
+echo "$AUDIT_PROBLEMS" | xargs chmod -R go-w

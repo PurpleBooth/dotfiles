@@ -7,6 +7,7 @@ tap "coursier/formulas"
 tap "homebrew/bundle"
 tap "git-duet/tap"
 tap "homebrew/command-not-found"
+tap "alecthomas/homebrew-tap"
 
 # Java
 cask "java"
@@ -15,7 +16,6 @@ brew "maven"
 brew "coursier/formulas/coursier"
 
 # Go
-tap "alecthomas/homebrew-tap"
 brew "gometalinter"
 brew "go"
 brew "dep"

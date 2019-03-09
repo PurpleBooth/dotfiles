@@ -11,8 +11,7 @@ if [ -f "$BUNDLE_MTIME_FILE" ] && [ -z "$(find "$BUNDLE_MTIME_FILE" -mmin +$((60
 fi
 
 brew update
+brew upgrade
 brew bundle --file="$BREWFILE"
 brew bundle cleanup --force --file="$BREWFILE"
-brew upgrade
-brew cleanup
 touch "$BUNDLE_MTIME_FILE"

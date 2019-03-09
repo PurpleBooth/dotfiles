@@ -1,0 +1,7 @@
+#!/usr/bin/env bats
+
+@test "git solo is installed and runs" {
+  run git solo bt
+
+  [ "$status" -eq 0 ]
+}
