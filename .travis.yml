@@ -1,0 +1,9 @@
+os: osx
+
+env:
+- TARGET=sync-home
+- TARGET=sync-work
+- TARGET=lint
+- TARGET=show-help
+
+script: sed -i '' '/virtualbox/d' ./brew/Brewfile  ./brew/Brewfile && make $TARGET
