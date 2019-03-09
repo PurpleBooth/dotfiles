@@ -19,7 +19,6 @@ install-packages:
 ## Link zsh config
 configure-zsh: install-packages
 	"$(ROOT_DIR)/zsh/bin/link"
-	"$(ROOT_DIR)/zsh/bin/fix-compaudit"
 	"$(ROOT_DIR)/zsh/bin/make-default-shell"
 
 .PHONY: install-zprezto
@@ -27,6 +26,7 @@ configure-zsh: install-packages
 install-zprezto: install-packages configure-zsh
 	"$(ROOT_DIR)/zprezto/bin/install"
 	"$(ROOT_DIR)/zprezto/bin/link"
+	"$(ROOT_DIR)/zsh/bin/fix-compaudit"
 
 .PHONY: configure-vim
 ## Link vim config

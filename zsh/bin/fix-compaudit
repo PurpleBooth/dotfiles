@@ -2,9 +2,20 @@
 
 set -euo pipefail
 
-if ! AUDIT_PROBLEMS="$(zsh -c "autoload -U compaudit && compaudit" 2>/dev/null)"; then
-	sudo echo
-	echo "$AUDIT_PROBLEMS" | xargs sudo chown -R "$USER"
+mapfile -t AUDIT_PROBLEMS < <(zsh -c "autoload -U compaudit && compaudit" 2>/dev/null)
+
+if [ "${#AUDIT_PROBLEMS[@]}" -eq 0 ]; then
+	exit 0
 fi
 
-echo "$AUDIT_PROBLEMS" | xargs chmod -R go-w
+for FILE in "${AUDIT_PROBLEMS[@]}"; do
+	if [ "$(gstat -c '%U' "$FILE")" != "$USER" ]; then
+		echo "gaining ownership: $FILE"
+		sudo chown -R "$USER" "$FILE"
+	fi
+
+	if gstat -c "%A" "$FILE" | grep -qE '(.{2}w.{7}|.{5}w.{4})'; then
+		echo "removing non-user write: $FILE"
+		chmod -R go-w "$FILE"
+	fi
+done

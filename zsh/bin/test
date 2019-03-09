@@ -1,9 +1,13 @@
 #!/usr/bin/env bats
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
-@test "there are no compaudit issues" {
-  run zsh -c "autoload -U compaudit && compaudit"
+@test "fix-compaudit fixes compuaudit issues" {
+  chmod -R o+w /usr/local/share/zsh/
+  
+  run bash "./zsh/bin/fix-compaudit"
 
+  echo $status
   [ "$status" -eq 0 ]
 }
 
