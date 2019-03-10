@@ -50,9 +50,6 @@ setopt auto_cd
 zmodload zsh/terminfo
 
 # ZPlug
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
-
-
 source "$ZPLUG_HOME/init.zsh"
 
 zplug "lib/history", from:oh-my-zsh
@@ -64,15 +61,15 @@ zplug "modules/fasd", from:prezto
 zplug "eendroroy/alien"
 zplug "b4b4r07/enhancd", use:init.sh
 
-if ! zplug check --verbose; then
-    zplug install
-fi
-
 ZPLUG_MTIME_FILE="$HOME/.zplug"
 
-if ! [ -f "$ZPLUG_MTIME_FILE" ] || [ -n "$(find "$ZPLUG_MTIME_FILE" -mmin +$((60 * 24 * 30)))" ]; then
-	touch "$ZPLUG_MTIME_FILE"
-  zplug update
+if ! zplug check --verbose; then
+    zplug install
+else
+    if ! [ -f "$ZPLUG_MTIME_FILE" ] || [ -n "$(find "$ZPLUG_MTIME_FILE" -mmin +$((60 * 24 * 30)))" ]; then
+        touch "$ZPLUG_MTIME_FILE"
+        zplug update
+    fi
 fi
 
 if zplug check "zsh-users/zsh-autosuggestions"; then
