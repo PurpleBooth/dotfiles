@@ -5,7 +5,8 @@
 # System Defaults
 export EDITOR="vim"
 export VISUAL="${EDITOR}"
-export LANG="de_DE.UTF-8"
+export LC_ALL="de_DE.UTF-8"
+export LANG="$LC_ALL"
 
 # GPG
 export GPG_TTY=$(tty)
