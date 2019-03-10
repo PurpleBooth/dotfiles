@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := show-help
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 ROOT_DIR:=$(shell dirname $(realpath $(THIS_FILE)))
-SETUP_DEPS = install-packages install-zprezto configure-zsh configure-fasd configure-vim configure-gnupg configure-git configure-git-duet
+SETUP_DEPS = install-packages configure-zsh configure-fasd configure-vim configure-gnupg configure-git configure-git-duet
 
 .PHONY: show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
@@ -20,13 +20,6 @@ install-packages:
 configure-zsh: install-packages
 	"$(ROOT_DIR)/zsh/bin/link"
 	"$(ROOT_DIR)/zsh/bin/make-default-shell"
-
-.PHONY: install-zprezto
-## Install and link zprezto
-install-zprezto: install-packages configure-zsh
-	"$(ROOT_DIR)/zprezto/bin/install"
-	"$(ROOT_DIR)/zprezto/bin/link"
-	"$(ROOT_DIR)/zsh/bin/fix-compaudit"
 
 .PHONY: configure-vim
 ## Link vim config

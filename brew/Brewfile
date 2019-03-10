@@ -143,7 +143,6 @@ brew "bind"
 brew "grep"
 brew "the_silver_searcher"
 cask "alfred"
-brew "fasd"
 
 # gnupg
 brew "pinentry-mac"
@@ -157,9 +156,11 @@ cask "1password-cli"
 # help
 brew "tldr"
 brew "translate-shell"
+
 # zsh
 brew "zsh"
-brew "zsh-completions"
+brew "zplug"
+brew "fzy"
 
 # fonts
 cask "font-fira-code"

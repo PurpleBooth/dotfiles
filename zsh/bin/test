@@ -5,55 +5,14 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 @test "fix-compaudit fixes compuaudit issues" {
   chmod -R o+w /usr/local/share/zsh/
   
-  run bash "./zsh/bin/fix-compaudit"
+  run ./zsh/bin/fix-compaudit
 
-  echo $status
   [ "$status" -eq 0 ]
 }
 
 @test "zsh is installed and runs" {
-  run zsh --login --interactive -c "echo hello"
+  run zsh -c "echo hello"
 
   [ "$status" -eq 0 ]
   [ "${lines[0]}" = "hello" ]
-}
-
-@test "whatismyip gets an external ip" {
-  run zsh --login --interactive -c "whatismyip"
-
-  [[ "${lines[0]}" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]
-  [ "$status" -eq 0 ]
-}
-
-@test "ll lists directories" {
-  run zsh --login --interactive -c "ll"
-
-  [ "$status" -eq 0 ]
-}
-
-@test "I can access hub via git" {
-  run zsh --login --interactive -c "git | grep pull-request"
-
-  [ "$status" -eq 0 ]
-}
-
-@test "use java can change the version of java to use" {
-  run zsh --login --interactive -c "use_java 1.8 && java -version"
-
-  [ "$status" -eq 0 ]
-  [[ "${lines[0]}" =~ \"1\.8 ]]
-}
-
-@test "Less is more" {
-  run zsh --login -c "more"
-
-  [ "$status" -eq 0 ]
-  [[ "${lines[0]}" =~ less ]]
-}
-
-@test "realpath exists" {
-  run zsh --login -c "realpath /tmp"
-
-  [ "$status" -eq 0 ]
-  [[ "${lines[0]}" == "/private/tmp" ]]
 }

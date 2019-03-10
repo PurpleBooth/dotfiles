@@ -1,9 +1,7 @@
 #!/usr/bin/env bats
 
 @test "vim is installed and runs" {
-  TEMP_FILE="$(mktemp)"
-  echo "test" > "$TEMP_FILE"
-  run vim "+set ff=unix" "+wq" "$TEMP_FILE"
+  run vim --help
 
   [ "$status" -eq 0 ]
 }

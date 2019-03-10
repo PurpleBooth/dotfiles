@@ -21,6 +21,9 @@ export GOPATH="${GOCODEDIR}"
 export GIT_DUET_CO_AUTHORED_BY="1"
 export GIT_DUET_GLOBAL="1"
 
+# Zplug
+export ZPLUG_HOME="$(brew --prefix)/opt/zplug"
+
 # Not committed
 if [ -f "${HOME}/.envsecret" ]; then
     source "${HOME}/.envsecret"
@@ -32,6 +35,49 @@ fi
 
 export PATH="${GOCODEDIR}/bin:${PATH}"
 export PATH="${HOME}/.bin:${PATH}"
+
+#####################################################################
+# Terminal Style                                                    #
+#####################################################################
+
+# Colours
+export CLICOLOR=1
+source <(gdircolors)
+
+# ZSH
+setopt auto_cd
+zmodload zsh/terminfo
+
+# ZPlug
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
+export ALIEN_THEME="soft"
+export ENHANCD_DISABLE_DOT="1"
+export ENHANCD_DISABLE_HYPHEN="1"
+export ENHANCD_DOT_SHOW_FULLPATH="1"
+
+source "$ZPLUG_HOME/init.zsh"
+
+zplug "lib/history", from:oh-my-zsh
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "modules/gnu-utility", from:prezto
+zplug "modules/fasd", from:prezto
+zplug "eendroroy/alien"
+zplug "b4b4r07/enhancd", use:init.sh
+
+if ! zplug check --verbose; then
+    zplug install
+fi
+
+ZPLUG_MTIME_FILE="$HOME/.zplug"
+
+if ! [ -f "$ZPLUG_MTIME_FILE" ] || [ -n "$(find "$ZPLUG_MTIME_FILE" -mmin +$((60 * 24 * 30)))" ]; then
+	touch "$ZPLUG_MTIME_FILE"
+  zsh --interactive -c "zplug update"
+fi
+
+zplug load
 
 #####################################################################
 # Auto-Complete                                                     #
@@ -53,17 +99,6 @@ if brew command command-not-found-init > /dev/null 2>&1; then
 fi
 
 #####################################################################
-# Terminal Style                                                    #
-#####################################################################
-
-# Colours
-export CLICOLOR=1
-source <(gdircolors)
-
-# ZPrezto
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-
-#####################################################################
 # Aliases                                                           #
 #####################################################################
 
@@ -83,3 +118,4 @@ function use_java () { export JAVA_HOME="$(/usr/libexec/java_home -v ${1})"; }
 
 # Everything
 (PACKAGE_OUT=$(make -f "$CODEDIR"/dotfiles/Makefile "update" -j 10 2>&1) || echo "$PACKAGE_OUT") &!
+

@@ -1,8 +1,0 @@
-#!/usr/bin/env bats
-
-@test "z works" {
-  run zsh --interactive -c "z \"/tmp\" && echo AT: \$PWD && exit 0"
-
-  [ "$status" -eq 0 ]
-  [ "${lines[-1]}" == "AT: /tmp" ]
-}
