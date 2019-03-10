@@ -80,6 +80,7 @@ fi
 
 if zplug check "eendroroy/alien"; then
   export ALIEN_THEME="soft"
+  export USE_NERD_FONT=1
 fi
 
 if zplug check "b4b4r07/enhancd"; then

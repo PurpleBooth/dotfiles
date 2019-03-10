@@ -164,6 +164,7 @@ brew "fzy"
 
 # fonts
 cask "font-fira-code"
+cask "font-firacode-nerd-font"                       
 
 # browsers
 cask "firefox-nightly"
