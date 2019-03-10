@@ -15,11 +15,11 @@ Manually install the theme [DotGov](https://github.com/lysyi3m/macos-terminal-th
 To setup the home profile run
 
 ```
-make sync-home
+make setup-home
 ```
 
 To setup the work profile run
 
 ```
-make sync-work
+make setup-work
 ```
