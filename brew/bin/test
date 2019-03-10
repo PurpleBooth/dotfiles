@@ -224,12 +224,6 @@
   [ "$status" -eq 0 ]
 }
 
-@test "travis installed" {
-  run travis help
-
-  [ "$status" -eq 0 ]
-}
-
 @test "bosh installed" {
   run bosh --help
 
@@ -244,12 +238,6 @@
 
 @test "cf installed" {
   run cf --help
-
-  [ "$status" -eq 0 ]
-}
-
-@test "docker installed" {
-  run docker --help
 
   [ "$status" -eq 0 ]
 }
