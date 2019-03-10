@@ -10,4 +10,5 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-sensible'
 call plug#end()
 
-let g:airline_theme='understated'
+set t_Co=256
+let g:airline_theme='wombat'
