@@ -74,7 +74,7 @@ ZPLUG_MTIME_FILE="$HOME/.zplug"
 
 if ! [ -f "$ZPLUG_MTIME_FILE" ] || [ -n "$(find "$ZPLUG_MTIME_FILE" -mmin +$((60 * 24 * 30)))" ]; then
 	touch "$ZPLUG_MTIME_FILE"
-  zsh --interactive -c "zplug update"
+  zplug update
 fi
 
 zplug load
