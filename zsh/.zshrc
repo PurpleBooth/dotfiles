@@ -50,17 +50,14 @@ zmodload zsh/terminfo
 
 # ZPlug
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
-export ALIEN_THEME="soft"
-export ENHANCD_DISABLE_DOT="1"
-export ENHANCD_DISABLE_HYPHEN="1"
-export ENHANCD_DOT_SHOW_FULLPATH="1"
+
 
 source "$ZPLUG_HOME/init.zsh"
 
 zplug "lib/history", from:oh-my-zsh
-zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "modules/gnu-utility", from:prezto
 zplug "modules/fasd", from:prezto
 zplug "eendroroy/alien"
@@ -77,7 +74,32 @@ if ! [ -f "$ZPLUG_MTIME_FILE" ] || [ -n "$(find "$ZPLUG_MTIME_FILE" -mmin +$((60
   zplug update
 fi
 
+if zplug check "zsh-users/zsh-autosuggestions"; then
+  export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
+fi
+
+if zplug check "eendroroy/alien"; then
+  export ALIEN_THEME="soft"
+fi
+
+if zplug check "b4b4r07/enhancd"; then
+  export ENHANCD_DISABLE_DOT="1"
+  export ENHANCD_DISABLE_HYPHEN="1"
+  export ENHANCD_DOT_SHOW_FULLPATH="1"
+fi
+
 zplug load
+
+if zplug check zsh-users/zsh-autosuggestions; then
+    ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
+    ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
+fi
+
+if zplug check zsh-users/zsh-history-substring-search; then
+    bindkey '\eOA' history-substring-search-up
+    bindkey '\eOB' history-substring-search-down
+fi
+
 
 #####################################################################
 # Auto-Complete                                                     #
