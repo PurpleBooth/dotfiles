@@ -88,6 +88,7 @@ brew "curl"
 # aws
 brew "awscli"
 brew "s3cmd"
+brew "aws-iam-authenticator"
 
 # Terraform
 brew "terraform"
