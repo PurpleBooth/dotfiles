@@ -80,6 +80,9 @@ brew "skaffold"
 cask "minikube"
 cask "google-cloud-sdk"
 
+# Serverless
+brew "serverless"
+
 # HTTP
 brew "httpie"
 brew "wget"
