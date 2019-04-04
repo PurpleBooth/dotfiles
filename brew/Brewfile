@@ -29,6 +29,9 @@ brew "ruby"
 # Rust
 brew "rustup-init"
 
+# Databases
+brew "postgresql"
+
 # Python
 brew "pyenv"
 brew "pipenv"
