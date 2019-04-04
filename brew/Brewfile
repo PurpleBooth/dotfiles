@@ -31,6 +31,7 @@ brew "rustup-init"
 
 # Python
 brew "pyenv"
+brew "pipenv"
 
 # Ruby
 brew "rbenv"
