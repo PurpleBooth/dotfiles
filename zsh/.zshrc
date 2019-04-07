@@ -58,8 +58,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "modules/gnu-utility", from:prezto
 zplug "modules/fasd", from:prezto
-zplug "eendroroy/alien"
 zplug "b4b4r07/enhancd", use:init.sh
+zplug "dracula/zsh", as:theme
 
 ZPLUG_MTIME_FILE="$HOME/.zplug"
 
@@ -74,11 +74,6 @@ fi
 
 if zplug check "zsh-users/zsh-autosuggestions"; then
   export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
-fi
-
-if zplug check "eendroroy/alien"; then
-  export ALIEN_THEME="soft"
-  export USE_NERD_FONT=1
 fi
 
 if zplug check "b4b4r07/enhancd"; then
