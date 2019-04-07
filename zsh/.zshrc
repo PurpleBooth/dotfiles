@@ -120,6 +120,8 @@ fi
 
 alias realpath="grealpath"
 alias more="less"
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
 
 function whatismyip() { dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}'; }
 function ll() { ls -lrathF $@; }
