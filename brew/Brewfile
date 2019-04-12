@@ -64,6 +64,7 @@ brew "shellcheck"
 brew "shfmt"
 brew "gettext", link: true
 brew "bats"
+brew "ttygif"
 
 # VCS
 brew "git"
