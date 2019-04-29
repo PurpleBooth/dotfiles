@@ -145,6 +145,7 @@ brew "less"
 # Text Editors
 cask "evernote"
 cask "grammarly"
+cask "kindle"
 brew "vim"
 
 # DNS
