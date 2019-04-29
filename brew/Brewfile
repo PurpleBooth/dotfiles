@@ -143,6 +143,7 @@ brew "pstree"
 brew "less"
 
 # Text Editors
+cask "evernote"
 cask "grammarly"
 brew "vim"
 
