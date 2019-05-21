@@ -129,6 +129,8 @@ function o() { fasd -ae open $@; }
 function oo() { fasd -sae open $@; }
 function git() { hub $@; } # This ensures auto-complete still works
 function use_java () { export JAVA_HOME="$(/usr/libexec/java_home -v ${1})"; }
+alias python=python3
+alias pip=pip3
 
 #####################################################################
 # Update                                                            #
