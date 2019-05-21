@@ -20,6 +20,9 @@ brew "gometalinter"
 brew "go"
 brew "dep"
 
+brew "sops"
+brew "ffmpeg"
+
 # Node JS
 brew "node"
 
