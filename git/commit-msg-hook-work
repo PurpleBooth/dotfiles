@@ -38,4 +38,4 @@ EOF
 
 check_for_duplicate "$MSG" Signed-off-by
 check_for_duplicate "$MSG" Co-authored-by
-check_for_tracker_id "$MSG"
+# check_for_tracker_id "$MSG"
