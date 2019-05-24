@@ -25,6 +25,7 @@ brew "ffmpeg"
 
 # Node JS
 brew "node"
+brew "yarn"
 
 # Ruby
 brew "ruby"
