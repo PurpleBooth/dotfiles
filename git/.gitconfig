@@ -12,5 +12,10 @@
 [core]
 	editor = "vim"
 	excludesfile = /Users/billie/.gitignore
+[branch]
+	autosetupmerge = true
+	sort=-committerdate # Sort branches by last commit date, descending.
+[rerere]
+	enabled = true
 [branch "master"]
 	rebase = true
