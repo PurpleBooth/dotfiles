@@ -70,6 +70,7 @@ brew "gettext", link: true
 brew "bats"
 brew "ttygif"
 brew "ffmpeg"
+cask "send-to-kindle"
 
 # VCS
 brew "git"
