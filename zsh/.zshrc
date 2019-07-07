@@ -131,6 +131,8 @@ function git() { hub $@; } # This ensures auto-complete still works
 function use_java () { export JAVA_HOME="$(/usr/libexec/java_home -v ${1})"; }
 alias python=python3
 alias pip=pip3
+alias dnsset="networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001 8.8.8.8 8.8.4.4 2001:4860:4860::8888 2001:4860:4860::8844"
+alias dnsunset="networksetup -setdnsservers Wi-Fi"
 
 #####################################################################
 # Update                                                            #
