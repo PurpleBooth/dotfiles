@@ -30,6 +30,8 @@ brew "yarn"
 # Ruby
 brew "ruby"
 
+cask "shadow"
+
 # Rust
 brew "rustup-init"
 
