@@ -187,6 +187,7 @@ cask "font-firacode-nerd-font"
 # browsers
 cask "firefox-nightly"
 cask "firefox"
+cask "brave-browser"
 cask "google-chrome"
 
 # Image Editors
