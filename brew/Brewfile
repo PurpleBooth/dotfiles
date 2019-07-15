@@ -8,6 +8,7 @@ tap "homebrew/bundle"
 tap "git-duet/tap"
 tap "homebrew/command-not-found"
 tap "alecthomas/homebrew-tap"
+tap "aws/tap"
 
 # Java
 cask "java"
@@ -106,6 +107,7 @@ brew "curl"
 brew "awscli"
 brew "s3cmd"
 brew "aws-iam-authenticator"
+brew "aws-sam-cli"
 
 # Terraform
 brew "terraform"
