@@ -10,6 +10,8 @@ tap "homebrew/command-not-found"
 tap "alecthomas/homebrew-tap"
 tap "aws/tap"
 
+
+cask "vyprvpn"
 # Java
 cask "java"
 cask "java8"
