@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if ! "$(brew --prefix)/bin/php" -m | grep -q "Xdebug" ; then
+	pecl install xdebug
+fi

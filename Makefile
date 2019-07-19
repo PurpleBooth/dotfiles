@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := show-help
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 ROOT_DIR:=$(shell dirname $(realpath $(THIS_FILE)))
-SETUP_DEPS = install-packages configure-zsh configure-fasd configure-vim configure-gnupg configure-git configure-git-duet
+SETUP_DEPS = install-packages configure-zsh configure-fasd configure-vim configure-gnupg configure-git configure-git-duet install-xdebug
 
 .PHONY: show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
@@ -14,6 +14,11 @@ show-help:
 install-packages:
 	"$(ROOT_DIR)/brew/bin/install"
 	"$(ROOT_DIR)/brew/bin/bundle-install"
+
+.PHONY: install-packages
+## Install xdebug for PHP
+install-xdebug:
+	"$(ROOT_DIR)/xdebug/bin/install"
 
 .PHONY: configure-zsh
 ## Link zsh config
