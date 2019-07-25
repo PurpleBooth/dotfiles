@@ -10,6 +10,8 @@ tap "homebrew/command-not-found"
 tap "alecthomas/homebrew-tap"
 tap "aws/tap"
 
+
+cask "whatsapp"
 brew "terragrunt"
 cask "vyprvpn"
 # Java
