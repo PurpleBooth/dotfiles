@@ -2,6 +2,6 @@
 
 set -euo pipefail
 
-if ! "$(brew --prefix)/bin/php" -m | grep -q "Xdebug" ; then
+if ! pecl shell-test xdebug ; then
 	pecl install xdebug
 fi
