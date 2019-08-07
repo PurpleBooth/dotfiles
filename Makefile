@@ -15,9 +15,9 @@ install-packages:
 	"$(ROOT_DIR)/brew/bin/install"
 	"$(ROOT_DIR)/brew/bin/bundle-install"
 
-.PHONY: install-packages
+.PHONY: install-xdebug
 ## Install xdebug for PHP
-install-xdebug:
+install-xdebug: install-packages
 	"$(ROOT_DIR)/xdebug/bin/install"
 
 .PHONY: configure-zsh
