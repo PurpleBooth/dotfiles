@@ -17,7 +17,7 @@ brew "terragrunt"
 cask "vyprvpn"
 # Java
 cask "java"
-cask "java8"
+cask "adoptopenjdk8"
 brew "maven"
 brew "coursier/formulas/coursier"
 
