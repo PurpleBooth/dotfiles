@@ -2,6 +2,6 @@
 
 set -euo pipefail
 
-if ! pecl shell-test xdebug ; then
+if ! pecl shell-test xdebug; then
 	pecl install xdebug
 fi
