@@ -88,6 +88,7 @@ brew "yq"
 brew "zplug"
 brew "zsh"
 
+cask "anaconda"
 cask "1password"
 cask "1password-cli"
 cask "adoptopenjdk8"
