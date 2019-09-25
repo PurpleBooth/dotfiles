@@ -139,7 +139,7 @@ alias dnsunset="networksetup -setdnsservers Wi-Fi"
 #####################################################################
 
 # Everything
-(PACKAGE_OUT=$(make -f "$CODEDIR"/dotfiles/Makefile "update" -j 10 2>&1) || echo "$PACKAGE_OUT") &!
+# (PACKAGE_OUT=$(make -f "$CODEDIR"/dotfiles/Makefile "update" -j 10 2>&1) || echo "$PACKAGE_OUT") &!
 
 
 eval "$(rbenv init -)"
