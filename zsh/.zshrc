@@ -59,7 +59,6 @@ zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "modules/gnu-utility", from:prezto
 zplug "modules/fasd", from:prezto
 zplug "b4b4r07/enhancd", use:init.sh
-zplug "dracula/zsh", as:theme
 
 ZPLUG_MTIME_FILE="$HOME/.zplug"
 
