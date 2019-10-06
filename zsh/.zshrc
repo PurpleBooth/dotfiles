@@ -95,6 +95,8 @@ if zplug check zsh-users/zsh-history-substring-search; then
 fi
 
 
+eval "$(starship init zsh)"
+
 #####################################################################
 # Auto-Complete                                                     #
 #####################################################################
