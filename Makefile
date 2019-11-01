@@ -122,3 +122,8 @@ lint-shell: install-packages
 ## Format shell scripts
 format-shell: install-packages
 	shfmt -w -s "$(ROOT_DIR)"
+
+.PHONY: format-brewfile
+## Orders the brew file
+format-brewfile:
+	bash -c "cat brew/Brewfile | sort | sed '/^[[:space:]]*$$/d' > brew/Brewfile.1 && mv brew/Brewfile.1 brew/Brewfile"
