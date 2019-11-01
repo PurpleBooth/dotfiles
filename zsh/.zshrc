@@ -25,6 +25,9 @@ export GIT_DUET_GLOBAL="1"
 # Zplug
 export ZPLUG_HOME="$(brew --prefix)/opt/zplug"
 
+# Shell Name
+export SHELL_NAME="zsh"
+
 # Not committed
 if [ -f "${HOME}/.envsecret" ]; then
     source "${HOME}/.envsecret"
@@ -106,7 +109,6 @@ source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 source <(fasd --init auto)
 source <(kubectl completion zsh)
-source <(minikube completion zsh)
 source <(helm completion zsh)
 source "${HOME}/.cargo/env"
 source "${HOME}/.travis/travis.sh"

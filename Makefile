@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := show-help
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 ROOT_DIR:=$(shell dirname $(realpath $(THIS_FILE)))
-SETUP_DEPS = install-packages configure-zsh configure-fasd configure-vim configure-gnupg configure-git configure-git-duet install-xdebug
+SETUP_DEPS = install-packages configure-zsh configure-bash configure-starship configure-fasd configure-vim configure-gnupg configure-git configure-git-duet install-xdebug
 
 .PHONY: show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
@@ -20,11 +20,21 @@ install-packages:
 install-xdebug: install-packages
 	"$(ROOT_DIR)/xdebug/bin/install"
 
+.PHONY: configure-starship
+## Link starship config
+configure-starship: install-packages
+	"$(ROOT_DIR)/starship/bin/link"
+
 .PHONY: configure-zsh
 ## Link zsh config
 configure-zsh: install-packages
 	"$(ROOT_DIR)/zsh/bin/link"
 	"$(ROOT_DIR)/zsh/bin/make-default-shell"
+
+.PHONY: configure-bash
+## Link bash config
+configure-bash: install-packages
+	"$(ROOT_DIR)/bash/bin/link"
 
 .PHONY: configure-vim
 ## Link vim config

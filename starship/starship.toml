@@ -1,0 +1,7 @@
+[memory_usage]
+disabled = false
+
+[env_var]
+variable = "SHELL_NAME"
+default = "unknown"
+style	= "bold white"
