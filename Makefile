@@ -118,6 +118,11 @@ lint-shell: install-packages
 	shfmt -f "$(ROOT_DIR)" | xargs shellcheck
 	shfmt -d "$(ROOT_DIR)"
 
+
+.PHONY: format
+## Format what we can
+format: format-shell format-brewfile
+
 .PHONY: format-shell
 ## Format shell scripts
 format-shell: install-packages
