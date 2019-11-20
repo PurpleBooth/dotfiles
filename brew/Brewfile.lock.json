@@ -1259,22 +1259,22 @@
         }
       },
       "terraform": {
-        "version": "0.12.15",
+        "version": "0.12.16",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/terraform-0.12.15.catalina.bottle.tar.gz",
-              "sha256": "bf50bfa57d5485078512842d329de18f80afc7194d29612ee3d56c35c2d538e6"
+              "url": "https://homebrew.bintray.com/bottles/terraform-0.12.16.catalina.bottle.tar.gz",
+              "sha256": "ddb02c7ddf6d33a7acf3e71d5ddcc81e71791f2a63d95a04bcbd89d658102a5c"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/terraform-0.12.15.mojave.bottle.tar.gz",
-              "sha256": "17c97801c7cbf589f80c63a6a5c1f58ec05da16059d3ac0ba1b22016e09a7b92"
+              "url": "https://homebrew.bintray.com/bottles/terraform-0.12.16.mojave.bottle.tar.gz",
+              "sha256": "a0dc81636a6e741ea4ec4fafbd3e4acacce060bce985c3791ecd5191e693f8c5"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/terraform-0.12.15.high_sierra.bottle.tar.gz",
-              "sha256": "95a83b7a8eba2b92e95da6fb3deb3c9ffe9cfa4f3315c3449934d79feec315e4"
+              "url": "https://homebrew.bintray.com/bottles/terraform-0.12.16.high_sierra.bottle.tar.gz",
+              "sha256": "0d14d96a594d8f35dec15aca851c3f1e6781d27da89191a1e3af74eef76cbc84"
             }
           }
         }
@@ -1607,6 +1607,31 @@
             }
           }
         }
+      },
+      "kotlin": {
+        "version": "1.3.60",
+        "bottle": false
+      },
+      "firebase-cli": {
+        "version": "7.8.0",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/firebase-cli-7.8.0.catalina.bottle.tar.gz",
+              "sha256": "89308dd5528de0964462378990f0faeb8aa6c02a8e51feaefc9afaf933d73edb"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/firebase-cli-7.8.0.mojave.bottle.tar.gz",
+              "sha256": "60c37ad9735fe4533e191a30919905d7107dfcddb0a528f7c5587854946c4e4b"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/firebase-cli-7.8.0.high_sierra.bottle.tar.gz",
+              "sha256": "12d1966755616ccf1e7423179ccd4cb39ba0ad2c688186d4d113807d87a334f5"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -1632,7 +1657,7 @@
         "version": "0.66.99"
       },
       "chromedriver": {
-        "version": "78.0.3904.70"
+        "version": "78.0.3904.105"
       },
       "deezer": {
         "version": "4.17.1"
@@ -1736,7 +1761,7 @@
         "revision": "18e16b3a5f06d38b66443ff9bb8af54d913125fb"
       },
       "cloudfoundry/tap": {
-        "revision": "a5812178f4f461e707a63fdfa6734d82528bbfbe"
+        "revision": "b872ba57dd6e3111e2a6cc566dd410eb73fbf796"
       },
       "coursier/formulas": {
         "revision": "50d084e0959e6f30dc93a87bbef712884f894aa1"
@@ -1748,30 +1773,30 @@
         "revision": "1a41629972a351085d297e2c336f8eda0dc771eb"
       },
       "homebrew/cask": {
-        "revision": "4e976831a7ed8b037e63e3e0d2fd1191cfacf267"
+        "revision": "9df4cf509907f6839847aaee518eff8a0bc7fc57"
       },
       "homebrew/cask-fonts": {
         "revision": "e927bee88cde81c9fb04b2ab3d4872482387ee51"
       },
       "homebrew/cask-versions": {
-        "revision": "56f2d23d641d4e6305fb19e17b672c8743731bf7"
+        "revision": "34b0240d997a08e69e1235af0e418551c5dbeb9e"
       },
       "homebrew/command-not-found": {
-        "revision": "6c9e85667acea8ba5b027a537450a160a50b9b85"
+        "revision": "f26bba9b3f233e2d38cfc39a877ac1d08a66532d"
       },
       "homebrew/core": {
-        "revision": "6998a8cae03335f729070f7405190d1ae425baf5"
+        "revision": "03addf34c9730dda2639bf4b6ec56b44538d8a7d"
       }
     }
   },
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.1.16-87-gd65ad9f",
+        "HOMEBREW_VERSION": "2.1.16-99-gfb978a7",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "6998a8cae03335f729070f7405190d1ae425baf5",
+        "Homebrew/homebrew-core": "03addf34c9730dda2639bf4b6ec56b44538d8a7d",
         "CLT": "1100.0.33.8",
-        "Xcode": "11.0",
+        "Xcode": "11.2.1",
         "macOS": "10.15.1"
       }
     }
