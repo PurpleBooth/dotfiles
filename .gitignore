@@ -175,3 +175,4 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 
+/brew/Brewfile.lock.json

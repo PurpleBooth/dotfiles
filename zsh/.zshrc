@@ -108,10 +108,9 @@ source "$(brew --prefix)/share/zsh/site-functions"
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 source <(fasd --init auto)
-source <(kubectl completion zsh)
-source <(helm completion zsh)
 source "${HOME}/.cargo/env"
 source "${HOME}/.travis/travis.sh"
+source <(thefuck --alias)
 
 if brew command command-not-found-init > /dev/null 2>&1; then
   source <(brew command-not-found-init)
@@ -134,8 +133,6 @@ function git() { hub $@; } # This ensures auto-complete still works
 function use_java () { export JAVA_HOME="$(/usr/libexec/java_home -v ${1})"; }
 alias python=python3
 alias pip=pip3
-alias dnsset="networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001 8.8.8.8 8.8.4.4 2001:4860:4860::8888 2001:4860:4860::8844"
-alias dnsunset="networksetup -setdnsservers Wi-Fi"
 
 #####################################################################
 # Update                                                            #
