@@ -9,14 +9,7 @@ brew "cloudfoundry/tap/cf-cli"
 brew "coreutils"
 brew "coursier/formulas/coursier"
 brew "curl"
-<<<<<<< HEAD
-brew "dep"
-brew "ffmpeg"
-brew "ffmpeg"
 brew "firebase-cli"
-brew "fswatch"
-=======
->>>>>>> Update
 brew "fzy"
 brew "gdb"
 brew "gettext", link: true
@@ -32,12 +25,7 @@ brew "httpie"
 brew "hub"
 brew "imagemagick"
 brew "jq"
-<<<<<<< HEAD
 brew "kotlin"
-brew "kubectl"
-brew "kubernetes-helm"
-=======
->>>>>>> Update
 brew "less"
 brew "node"
 brew "php"
@@ -95,7 +83,6 @@ cask "java"
 cask "jetbrains-toolbox"
 cask "keybase"
 cask "kindle"
-cask "postman"
 cask "shadow"
 cask "shiftit"
 cask "skype"
