@@ -7,9 +7,3 @@ STDIN=$(cat /dev/stdin)
 if ! echo "$STDIN" | git duet-prepare-commit-msg "$@"; then
 	exit $?
 fi
-
-exec </dev/tty
-if ! npx git-cz --hook; then
-	exit $?
-fi
-exec <&-
