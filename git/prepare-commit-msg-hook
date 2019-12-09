@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+exec </dev/tty
+STDIN=$(cat /dev/stdin)
+
+if ! echo "$STDIN" | npx git-cz --hook; then
+	exit $?
+fi
+
+if ! echo "$STDIN" | git duet-prepare-commit-msg "$@"; then
+	exit $?
+fi
+
+exec <&-

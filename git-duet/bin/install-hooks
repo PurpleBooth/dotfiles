@@ -3,4 +3,5 @@
 set -euo pipefail
 
 git duet-install-hook pre-commit
-git duet-install-hook prepare-commit-msg
+# git duet-install-hook prepare-commit-msg
+# installed via the hooks in git

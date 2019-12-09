@@ -50,7 +50,7 @@ configure-gnupg: install-packages
 ## Copy work git config
 configure-git-for-work: configure-git
 	"$(ROOT_DIR)/git/bin/copy-work"
-	"$(ROOT_DIR)/git/bin/install-hook-work"
+	"$(ROOT_DIR)/git/bin/install-hook"
 
 .PHONY: configure-git
 ## Copy git config
