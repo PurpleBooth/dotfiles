@@ -131,4 +131,8 @@ format-shell: install-packages
 .PHONY: format-brewfile
 ## Orders the brew file
 format-brewfile:
-	bash -c "cat brew/Brewfile | sort | sed '/^[[:space:]]*$$/d' > brew/Brewfile.1 && mv brew/Brewfile.1 brew/Brewfile"
+	cat brew/Brewfile | sort | sed '/^[[:space:]]*$$/d' > brew/Brewfile.1
+	mv brew/Brewfile.1 brew/Brewfile
+	grep '^t' brew/Brewfile > brew/Brewfile.1
+	grep -v '^t' brew/Brewfile >> brew/Brewfile.1
+	mv brew/Brewfile.1 brew/Brewfile
