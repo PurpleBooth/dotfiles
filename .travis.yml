@@ -2,8 +2,6 @@ os: osx
 language: minimal
 
 env:
-- TARGET=setup-home
-- TARGET=setup-work
 - TARGET=lint
 - TARGET=show-help
 
