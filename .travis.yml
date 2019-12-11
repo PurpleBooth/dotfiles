@@ -12,7 +12,8 @@ cache:
     - /Users/travis/Library/Caches/Homebrew
 
 before_script:
-  - brew remove swiftlint
+  - brew uninstall swiftlint
+  - brew uninstall php
   - sed -i '' '/steam/d' ./brew/Brewfile
   - sed -i '' '/virtualbox/d' ./brew/Brewfile
 
