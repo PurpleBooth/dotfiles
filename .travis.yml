@@ -13,7 +13,7 @@ cache:
 
 before_script:
   - brew uninstall swiftlint
-  - brew uninstall php
+  - rm -rf /usr/local/Cellar/php
   - sed -i '' '/steam/d' ./brew/Brewfile
   - sed -i '' '/virtualbox/d' ./brew/Brewfile
 
