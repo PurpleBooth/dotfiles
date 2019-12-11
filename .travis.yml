@@ -24,5 +24,5 @@ before_script:
 script:
   - make -j "$(sysctl -n hw.ncpu)" "$TARGET"
 
-after_script:
+before_cache:
   - cp -r "$(brew --cache)" /homebrew-cache
