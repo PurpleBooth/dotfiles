@@ -9,21 +9,16 @@ env:
 
 cache:
   directories:
-    - /homebrew-cache
+    - /Users/travis/Library/Caches/Homebrew
     - /usr/local/Caskroom
     - /usr/local/Cellar
     - /usr/local/Frameworks
     - /usr/local/Homebrew
 
 before_script:
-  - mkdir -p /homebrew-cache
-  - mv /homebrew-cache "$(brew --cache)"
   - brew remove swiftlint
   - sed -i '' '/steam/d' ./brew/Brewfile
   - sed -i '' '/virtualbox/d' ./brew/Brewfile
 
 script:
   - make -j "$(sysctl -n hw.ncpu)" "$TARGET"
-
-before_cache:
-  - cp -r "$(brew --cache)" /homebrew-cache
