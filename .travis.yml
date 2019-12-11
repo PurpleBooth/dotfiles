@@ -14,9 +14,10 @@ cache:
     - /usr/local/Frameworks
     - /usr/local/Homebrew
 
-script: |
-  brew remove swiftlint
-  sed -i '' '/steam/d' ./brew/Brewfile
-  sed -i '' '/virtualbox/d' ./brew/Brewfile
+before_script:
+  - brew remove swiftlint
+  - sed -i '' '/steam/d' ./brew/Brewfile
+  - sed -i '' '/virtualbox/d' ./brew/Brewfile
 
-  make -j "$(sysctl -n hw.ncpu)" "$TARGET"
+script:
+  - make -j "$(sysctl -n hw.ncpu)" "$TARGET"
