@@ -17,7 +17,7 @@ cache:
 
 before_script:
   - mkdir -p /homebrew-cache
-  - cp -r /homebrew-cache/* "$(brew --cache)"
+  - mv /homebrew-cache "$(brew --cache)"
   - brew remove swiftlint
   - sed -i '' '/steam/d' ./brew/Brewfile
   - sed -i '' '/virtualbox/d' ./brew/Brewfile
