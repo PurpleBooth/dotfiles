@@ -10,10 +10,6 @@ env:
 cache:
   directories:
     - /Users/travis/Library/Caches/Homebrew
-    - /usr/local/Caskroom
-    - /usr/local/Cellar
-    - /usr/local/Frameworks
-    - /usr/local/Homebrew
 
 before_script:
   - brew remove swiftlint
