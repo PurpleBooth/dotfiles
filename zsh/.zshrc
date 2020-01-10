@@ -153,3 +153,5 @@ eval "$(rbenv init -)"
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+source "$HOME/Library/Preferences/org.dystroy.broot/launcher/bash/br"
