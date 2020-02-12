@@ -84,11 +84,6 @@ setup-home: $(SETUP_DEPS)
 setup-work: $(SETUP_DEPS) configure-git-for-work
 	@$(MAKE) -f $(THIS_FILE) test
 
-.PHONY: force-brew-to-run
-## Force brew to run even if its run recently, the next time it's ran
-force-brew-to-run:
-	rm -f "$(HOME)/.dotfiles"
-
 .PHONY: update
 ## Update assorted packages that benefit from being regularly kept up to date
 update: install-packages update-tldr

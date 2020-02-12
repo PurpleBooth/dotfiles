@@ -3,32 +3,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
-BUNDLE_MTIME_FILE="$HOME/.dotfiles"
 BREWFILE="$SCRIPT_DIR/../Brewfile"
-FORCE=NO
-
-for I in "$@"; do
-	case "${I}" in
-	--force)
-		FORCE=YES
-		;;
-	*)
-		# unknown option
-		;;
-	esac
-done
-
-bundle_run_recently() {
-	[[ -f $BUNDLE_MTIME_FILE ]] && [[ -z "$(find "$BUNDLE_MTIME_FILE" -mmin +$((1440)))" ]]
-}
-
-skip_recently_ran_check() {
-	[[ $FORCE == "YES" ]]
-}
-
-if ! skip_recently_ran_check && bundle_run_recently; then
-	exit 0
-fi
 
 brew update
 brew upgrade
