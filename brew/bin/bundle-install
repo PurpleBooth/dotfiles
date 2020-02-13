@@ -11,4 +11,3 @@ brew cask upgrade
 brew bundle --file="$BREWFILE"
 brew bundle cleanup --force --file="$BREWFILE"
 mas upgrade
-touch "$BUNDLE_MTIME_FILE"
