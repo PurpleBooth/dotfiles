@@ -5,5 +5,5 @@ set -euo pipefail
 STDIN=$(cat /dev/stdin)
 
 if ! echo "$STDIN" | git duet-prepare-commit-msg "$@"; then
-	exit $?
+  exit $?
 fi

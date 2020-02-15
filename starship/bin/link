@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
 CONFIG_DIR="$HOME/.config"
 if [ ! -d "$CONFIG_DIR" ]; then
-	mkdir -p "$CONFIG_DIR"
+  mkdir -p "$CONFIG_DIR"
 fi
 
 FILENAME="starship.toml"
