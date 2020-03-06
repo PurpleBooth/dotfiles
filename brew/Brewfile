@@ -100,6 +100,8 @@ cask "firefox"
 cask "fly"
 cask "font-fira-code"
 cask "font-firacode-nerd-font"
+cask "font-jetbrains-mono"
+cask "font-jetbrainsmono-nerd-font"
 cask "google-chrome"
 cask "google-cloud-sdk"
 cask "grammarly"
@@ -121,3 +123,4 @@ cask "whatsapp"
 cask "zoomus"
 mas "Cyberduck", id: 409222199
 mas "Keynote", id: 409183694
+mas "NextDNS", id: 1464122853
