@@ -50,6 +50,12 @@ set -gx PATH "$HOME/.bin" $PATH
 set -gx PATH "/usr/local/opt/mysql-client/bin" $PATH
 
 #####################################################################
+# Autocomplete                                                      #
+#####################################################################
+
+brew command command-not-found-init > /dev/null; and . (brew command-not-found-init)
+
+#####################################################################
 # Terminal Style                                                    #
 #####################################################################
 
