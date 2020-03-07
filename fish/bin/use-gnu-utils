@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+FUNCTIONS_DIR="$HOME/.config/fish/functions"
+FUNCTION_TEMPLATE="$SCRIPT_DIR/../gnu-utils.fish.template"
+GNU_CMD_PREFIX="g"
+
+CORE_UTILS=(
+  '[' 'base64' 'basename' 'cat' 'chcon' 'chgrp' 'chmod' 'chown'
+  'chroot' 'cksum' 'comm' 'cp' 'csplit' 'cut' 'date' 'dd' 'df'
+  'dir' 'dircolors' 'dirname' 'du' 'echo' 'env' 'expand' 'expr'
+  'factor' 'false' 'fmt' 'fold' 'groups' 'head' 'hostid' 'id'
+  'install' 'join' 'kill' 'link' 'ln' 'logname' 'ls' 'md5sum'
+  'mkdir' 'mkfifo' 'mknod' 'mktemp' 'mv' 'nice' 'nl' 'nohup' 'nproc'
+  'od' 'paste' 'pathchk' 'pinee' 'pr' 'printenv' 'printf' 'ptx'
+  'pwd' 'readlink' 'realpath' 'rm' 'rmdir' 'runcon' 'seq' 'sha1sum'
+  'sha224sum' 'sha256sum' 'sha384sum' 'sha512sum' 'shred' 'shuf'
+  'sleep' 'sort' 'split' 'stat' 'stty' 'sum' 'sync' 'tac' 'tail'
+  'tee' 'test' 'timeout' 'touch' 'tr' 'true' 'truncate' 'tsort'
+  'tty' 'uname' 'unexpand' 'uniq' 'unlink' 'uptime' 'users' 'vdir'
+  'wc' 'who' 'whoami' 'yes'
+)
+BIN_UTILS=(
+  'addr2line' 'ar' 'c++filt' 'elfedit' 'nm' 'objcopy' 'objdump'
+  'ranlib' 'readelf' 'size' 'strings' 'strip'
+)
+
+FIND_UTILS=(
+  'find' 'locate' 'oldfind' 'updatedb' 'xargs'
+)
+LIBTOOL=(
+  'libtool' 'libtoolize'
+)
+MISC=(
+  'getopt' 'grep' 'indent' 'sed' 'tar' 'time' 'units' 'which'
+)
+
+ALL_GNU_CMDS=("${CORE_UTILS[@]}" "${BIN_UTILS[@]}" "${FIND_UTILS[@]}" "${LIBTOOL[@]}" "${MISC[@]}")
+
+mkdir -p "$FUNCTIONS_DIR"
+
+for GNU_CMD in "${ALL_GNU_CMDS[@]}"; do
+  PREFIXED_COMMAND="$GNU_CMD_PREFIX$GNU_CMD"
+  FUNCTION_FILE="$FUNCTIONS_DIR/$GNU_CMD.fish"
+  rm -f "$FUNCTION_FILE"
+
+  if [ -x "$(command -v "$PREFIXED_COMMAND")" ]; then
+    sed "s/___GNU_CMD___/$GNU_CMD/g" "$FUNCTION_TEMPLATE" |
+      sed "s/___PREFIXED_COMMAND___/$PREFIXED_COMMAND/g" >"$FUNCTION_FILE"
+  fi
+done
