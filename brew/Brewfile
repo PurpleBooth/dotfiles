@@ -31,7 +31,7 @@ brew "ffmpeg"
 brew "firebase-cli"
 brew "fish"
 brew "fswatch"
-brew "fzy"
+brew "fzf"
 brew "gdb"
 brew "gettext", link: true
 brew "git"
