@@ -1,3 +1,3 @@
 function ll
-    exa --grid -la -s modified --git $argv
+    exa --extended --grid -la -s modified --git $argv
 end
