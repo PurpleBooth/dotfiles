@@ -1,3 +1,3 @@
 function ll
-    ls -lrathF $argv
+    exa -la -s modified --git $argv
 end

@@ -38,8 +38,8 @@ configure-bash: install-packages
 .PHONY: configure-fish
 ## Link fish config
 configure-fish: install-packages
-	"$(ROOT_DIR)/fish/bin/link"
 	"$(ROOT_DIR)/fish/bin/use-gnu-utils"
+	"$(ROOT_DIR)/fish/bin/link"
 	"$(ROOT_DIR)/fish/bin/make-default-shell"
 
 .PHONY: configure-vim
