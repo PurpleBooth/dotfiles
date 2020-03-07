@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := show-help
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 ROOT_DIR:=$(shell dirname $(realpath $(THIS_FILE)))
-SETUP_DEPS = install-packages configure-zsh configure-bash configure-starship configure-fasd configure-vim configure-gnupg configure-git configure-git-duet install-xdebug
+SETUP_DEPS = install-packages configure-zsh configure-fish configure-bash configure-starship configure-fasd configure-vim configure-gnupg configure-git configure-git-duet install-xdebug
 
 .PHONY: show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
