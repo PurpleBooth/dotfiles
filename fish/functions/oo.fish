@@ -1,3 +1,3 @@
 function o
-   fasd -sae open $argv
+    fasd -sae open $argv
 end

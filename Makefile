@@ -128,6 +128,7 @@ format: format-shell format-brewfile
 ## Format shell scripts
 format-shell: install-packages
 	shfmt -w -s "$(ROOT_DIR)"
+	find "$(ROOT_DIR)" -name "*.fish" -o -name "*.fish.template" -exec fish_indent -w {} \;
 
 .PHONY: format-brewfile
 ## Orders the brew file
