@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+FISH_PATH="$(command -v fish)"
+
+if ! grep -q "$FISH_PATH" /etc/shells; then
+  echo | sudo gtee -a /etc/shells
+  echo "$FISH_PATH" | sudo gtee -a /etc/shells
+fi
+
+if [ "$SHELL" != "$FISH_PATH" ]; then
+  sudo chsh -s "$FISH_PATH" "$USER"
+fi

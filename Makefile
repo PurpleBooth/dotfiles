@@ -29,12 +29,17 @@ configure-starship: install-packages
 ## Link zsh config
 configure-zsh: install-packages
 	"$(ROOT_DIR)/zsh/bin/link"
-	"$(ROOT_DIR)/zsh/bin/make-default-shell"
 
 .PHONY: configure-bash
 ## Link bash config
 configure-bash: install-packages
 	"$(ROOT_DIR)/bash/bin/link"
+
+.PHONY: configure-fish
+## Link fish config
+configure-fish: install-packages
+	"$(ROOT_DIR)/fish/bin/link"
+	"$(ROOT_DIR)/fish/bin/make-default-shell"
 
 .PHONY: configure-vim
 ## Link vim config

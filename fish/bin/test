@@ -1,0 +1,10 @@
+#!/usr/bin/env bats
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+
+@test "fish is installed and runs" {
+  run fish -c "echo hello"
+
+  [ "$status" -eq 0 ]
+  [ "${lines[0]}" = "hello" ]
+}

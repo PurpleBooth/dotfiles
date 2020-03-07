@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+CONFIG_DIR="$HOME/.config/fish"
+
+mkdir -p "$CONFIG_DIR"
+
+for FILENAME in config.fish fishfile; do
+  rm -f "$CONFIG_DIR/$FILENAME"
+  ln -s "$SCRIPT_DIR/../$FILENAME" "$CONFIG_DIR/$FILENAME"
+done
