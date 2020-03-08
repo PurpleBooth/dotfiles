@@ -71,4 +71,6 @@ set -gx CLICOLOR 1
 set -gx LS_COLORS (dircolors -c $colorfile | string split ' ')[3]
 
 starship init fish | source
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
 status --is-login; and status --is-interactive; and exec byobu-launcher

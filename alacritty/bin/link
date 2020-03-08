@@ -11,3 +11,6 @@ DESTINATION_FILE="$DESTINATION_DIR/$FILENAME"
 mkdir -p "$DESTINATION_DIR"
 rm -f "$DESTINATION_FILE"
 ln -s "$SCRIPT_DIR/../$FILENAME" "$DESTINATION_FILE"
+
+rm -f "$HOME/.bin/alacritty"
+ln -s "/Applications/Alacritty.app/Contents/MacOS/alacritty" "$HOME/.bin/alacritty"
