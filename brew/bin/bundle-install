@@ -8,6 +8,7 @@ BREWFILE="$SCRIPT_DIR/../Brewfile"
 brew update
 brew upgrade
 brew cask upgrade
+mas upgrade
 brew bundle --file="$BREWFILE"
 brew bundle cleanup --force --file="$BREWFILE"
 mas upgrade
