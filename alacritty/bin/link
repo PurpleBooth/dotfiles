@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+
+FILENAME="alacritty.yml"
+DESTINATION_DIR="$HOME/.config/alacritty/"
+DESTINATION_FILE="$DESTINATION_DIR/$FILENAME"
+
+mkdir -p "$DESTINATION_DIR"
+rm -f "$DESTINATION_FILE"
+ln -s "$SCRIPT_DIR/../$FILENAME" "$DESTINATION_FILE"

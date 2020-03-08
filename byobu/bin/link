@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+
+DESTINATION_DIR="$HOME/.byobu"
+
+mkdir -p "$DESTINATION_DIR"
+
+for FILENAME in "keybindings.tmux" "profile.tmux"; do
+  DESTINATION_FILE="$DESTINATION_DIR/$FILENAME"
+  rm -f "$DESTINATION_FILE"
+  ln -s "$SCRIPT_DIR/../$FILENAME" "$DESTINATION_FILE"
+done
