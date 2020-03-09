@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+MY_IP="$(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}')"
+WAN_NAME="$(dig -x "$MY_IP" PTR +short)"
+echo "${WAN_NAME::-1} $MY_IP"

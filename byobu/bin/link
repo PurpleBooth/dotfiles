@@ -4,12 +4,18 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
-DESTINATION_DIR="$HOME/.byobu"
+DESTINATION_DIR="$HOME/.config/byobu"
 
-mkdir -p "$DESTINATION_DIR"
+mkdir -p "$DESTINATION_DIR/bin" "$DESTINATION_DIR/plugins"
 
-for FILENAME in "keybindings.tmux" "profile.tmux"; do
+for FILENAME in "keybindings.tmux" "profile.tmux" "status"; do
   DESTINATION_FILE="$DESTINATION_DIR/$FILENAME"
   rm -f "$DESTINATION_FILE"
   ln -s "$SCRIPT_DIR/../$FILENAME" "$DESTINATION_FILE"
 done
+
+rm -f "$DESTINATION_DIR/bin/120_wanip"
+ln -s "$SCRIPT_DIR/../wanip" "$DESTINATION_DIR/bin/120_wanip"
+
+rm -f "$DESTINATION_DIR/.tmux.conf"
+ln -s "$SCRIPT_DIR/../tmux.conf" "$DESTINATION_DIR/.tmux.conf"
