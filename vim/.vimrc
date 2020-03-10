@@ -1,4 +1,5 @@
 set mouse=a
+set clipboard=unnamed
 set t_Co=256
 let g:airline_powerline_fonts = 1
 let g:airline_theme='wombat'
@@ -11,6 +12,7 @@ endif
 
 call plug#begin()
 Plug 'vim-airline/vim-airline'
+Plug 'christoomey/vim-system-copy'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-sensible'
 Plug 'dracula/vim', { 'as': 'dracula' }
