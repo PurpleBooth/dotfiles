@@ -34,11 +34,10 @@ set -gx GIT_DUET_GLOBAL "1"
 set -gx GIT_DUET_SET_GIT_USER_CONFIG "1"
 
 # Enhancd
-set -gx ENHANCD_FILTER "fzf"
+set -gx ENHANCD_FILTER "fzy"
+set -gx ENHANCD_DISABLE_DOT "1"
+set -gx ENHANCD_DISABLE_HYPHEN "1"
 set -gx ENHANCD_DOT_SHOW_FULLPATH "1"
-
-# fzf
-set -gx FZF_DEFAULT_OPTS '--height 40% --cycle'
 
 # Shell Name
 set -gx SHELL_NAME "fish"
@@ -71,6 +70,8 @@ set -gx CLICOLOR 1
 set -gx LS_COLORS (dircolors -c $colorfile | string split ' ')[3]
 
 starship init fish | source
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
-status --is-login; and status --is-interactive; and exec byobu-launcher
+if status is-interactive
+and not set -q TMUX
+    exec tmux new-session -A -s main
+end

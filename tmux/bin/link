@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+
+
+mkdir -p "$HOME/.tmux/plugins"
+
+rm -f "$HOME/.tmux.conf"
+ln -s "$SCRIPT_DIR/../tmux.conf" "$HOME/.tmux.conf"
