@@ -54,6 +54,7 @@ end
 set -gx PATH "$GOCODEDIR/bin" $PATH
 set -gx PATH "$HOME/.bin" $PATH
 set -gx PATH "/usr/local/opt/mysql-client/bin" $PATH
+set -gx PATH "/usr/local//texlive/2019/bin/x86_64-darwin/" $PATH
 
 #####################################################################
 # Autocomplete                                                      #
