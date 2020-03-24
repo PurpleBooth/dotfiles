@@ -20,12 +20,6 @@
   [ "$status" -eq 0 ]
 }
 
-@test "coursier installed" {
-  run coursier -h
-
-  [ "$status" -eq 0 ]
-}
-
 @test "gometalinter installed" {
   run gometalinter
 
