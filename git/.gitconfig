@@ -8,7 +8,7 @@
 [user]
 	name = Billie Thompson
 	email = billie@billiecodes.com
-	signingkey = 3E11CEE536F2F35ADFA89EB81AE6157163816A8F
+	signingkey = CE99CAA5E2B0A8C2CE784EE9C1B4BA2DD53ACE1B
 [core]
 	editor = "vim"
 	excludesfile = ~/.gitignore
