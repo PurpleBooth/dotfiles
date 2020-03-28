@@ -17,6 +17,8 @@ set -gx EDITOR "vim"
 set -gx VISUAL "$EDITOR"
 set -gx LC_ALL "de_DE.UTF-8"
 set -gx LANG "$LC_ALL"
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx XDG_CACHE_HOME "$HOME/Library/Caches/"
 
 # GPG
 set -gx GPG_TTY (tty)
