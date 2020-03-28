@@ -4,5 +4,6 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
-rm -f "$HOME/.vimrc"
-ln -s "$SCRIPT_DIR/../.vimrc" "$HOME/.vimrc"
+mkdir -p "$XDG_CONFIG_HOME/vim"
+rm -f "$XDG_CONFIG_HOME/vim/.vimrc"
+ln -s "$SCRIPT_DIR/../.vimrc" "$XDG_CONFIG_HOME/vim/.vimrc"

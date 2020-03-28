@@ -3,8 +3,10 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+CONFIG_DIR="$HOME/.config/git/init-template"
+HOOKS_DIR="$CONFIG_DIR/hooks"
 
-mkdir -p "$HOME/.git-templates/hooks"
-git config --global init.templatedir "$HOME/.git-templates"
-cp "$SCRIPT_DIR/../commit-msg-hook" "$HOME/.git-templates/hooks/commit-msg"
-cp "$SCRIPT_DIR/../prepare-commit-msg-hook" "$HOME/.git-templates/hooks/prepare-commit-msg"
+mkdir -p "$HOOKS_DIR"
+git config --global init.templatedir "$CONFIG_DIR"
+cp "$SCRIPT_DIR/../commit-msg-hook" "$HOOKS_DIR/commit-msg"
+cp "$SCRIPT_DIR/../prepare-commit-msg-hook" "$HOOKS_DIR/prepare-commit-msg"

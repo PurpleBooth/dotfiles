@@ -4,14 +4,14 @@
 [commit]
 	verbose = true
 	gpgsign = true
-	template = ~/.gitmessage
+	template = ~/.config/git/message
 [user]
 	name = Billie Thompson
 	email = billie@billiecodes.com
 	signingkey = CE99CAA5E2B0A8C2CE784EE9C1B4BA2DD53ACE1B
 [core]
 	editor = "vim"
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.config/git/ignore
 [branch]
 	autosetupmerge = true
 	sort=-committerdate # Sort branches by last commit date, descending.

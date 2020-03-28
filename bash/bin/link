@@ -4,13 +4,16 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
-FILENAME=".bashrc"
+FILENAME="bashrc"
+CONFIG_PATH="$HOME/.config/bash"
 
-mkdir -P "$HOME/.config"
-mkdir -P "$HOME/Library/Caches/"
-mkdir -P "$HOME/.local/share"
-mkdir -P "$HOME/Library/Caches/run"
+mkdir -p "$CONFIG_PATH"
+mkdir -p "$HOME/Library/Caches/"
+mkdir -p "$HOME/.local/share"
+mkdir -p "$HOME/Library/Caches/run"
 
+rm -rf "$HOME/.bashrc"
+echo "source $HOME/.config/bash/bashrc" >"$HOME/.bashrc"
 
-rm -f "$HOME/$FILENAME"
-ln -s "$SCRIPT_DIR/../$FILENAME" "$HOME/$FILENAME"
+rm -f "$CONFIG_PATH/$FILENAME"
+ln -s "$SCRIPT_DIR/../$FILENAME" "$CONFIG_PATH/$FILENAME"

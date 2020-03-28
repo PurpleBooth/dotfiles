@@ -17,10 +17,18 @@ set -gx EDITOR "vim"
 set -gx VISUAL "$EDITOR"
 set -gx LC_ALL "de_DE.UTF-8"
 set -gx LANG "$LC_ALL"
+
+# XDG
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_CACHE_HOME "$HOME/Library/Caches/"
 set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_RUNTIME_DIR "$HOME/Library/Caches/run"
+
+# Vim
+set -gx VIMINIT ":source $XDG_CONFIG_HOME"/vim/.vimrc
+
+# GPG
+set -gx GNUPGHOME "$XDG_DATA_HOME/gnupg"
 
 # GPG
 set -gx GPG_TTY (tty)
@@ -36,9 +44,10 @@ set -gx GOPATH "$GOCODEDIR"
 set -gx GIT_DUET_CO_AUTHORED_BY "1"
 set -gx GIT_DUET_GLOBAL "1"
 set -gx GIT_DUET_SET_GIT_USER_CONFIG "1"
+set -gx GIT_DUET_AUTHORS_FILE "$XDG_CONFIG_HOME/git-duet/authors.yml"
 
 # Enhancd
-set -gx ENHANCD_FILTER "fzy"
+set -gx ENHANCD_FILTER "fzf"
 set -gx ENHANCD_DISABLE_DOT "1"
 set -gx ENHANCD_DISABLE_HYPHEN "1"
 set -gx ENHANCD_DOT_SHOW_FULLPATH "1"
@@ -47,8 +56,8 @@ set -gx ENHANCD_DOT_SHOW_FULLPATH "1"
 set -gx SHELL_NAME "fish"
 
 # Not committed
-if [ -f "$HOME/.envsecret" ]
-    source "$HOME/.envsecret"
+if [ -f "$HOME/.config/envsecret/envsecret" ]
+    source "$HOME/.config/envsecret/envsecret"
 end
 
 #####################################################################

@@ -4,7 +4,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
-mkdir -p "$HOME/.tmux/plugins"
+mkdir -p "$HOME/.config/tmux/plugins"
 
-rm -f "$HOME/.tmux.conf"
-ln -s "$SCRIPT_DIR/../tmux.conf" "$HOME/.tmux.conf"
+rm -f "$HOME/.config/tmux/tmux.conf"
+ln -s "$SCRIPT_DIR/../tmux.conf" "$HOME/.config/tmux/tmux.conf"

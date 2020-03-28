@@ -3,6 +3,8 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+CONFIG_DIR="$HOME/.config/git-duet"
 
-rm -f "$HOME/.git-authors"
-ln -s "$SCRIPT_DIR/../.git-authors" "$HOME/.git-authors"
+mkdir -p "$CONFIG_DIR"
+rm -f "$CONFIG_DIR/authors.yml"
+ln -s "$SCRIPT_DIR/../authors.yml" "$CONFIG_DIR/authors.yml"

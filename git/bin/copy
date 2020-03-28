@@ -4,7 +4,10 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
-for FILENAME in .gitconfig .gitmessage .gitignore; do
-  rm -f "$HOME/$FILENAME"
-  cp "$SCRIPT_DIR/../$FILENAME" "$HOME/$FILENAME"
+CONFIG_DIR="$HOME/.config/git"
+mkdir -p "$CONFIG_DIR"
+
+for FILENAME in config message ignore; do
+  rm -f "$CONFIG_DIR/$FILENAME"
+  cp "$SCRIPT_DIR/../$FILENAME" "$CONFIG_DIR/$FILENAME"
 done
