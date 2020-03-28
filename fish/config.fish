@@ -29,8 +29,6 @@ set -gx VIMINIT ":source $XDG_CONFIG_HOME"/vim/.vimrc
 
 # GPG
 set -gx GNUPGHOME "$XDG_DATA_HOME/gnupg"
-
-# GPG
 set -gx GPG_TTY (tty)
 
 # Favourites
