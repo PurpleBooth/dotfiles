@@ -7,6 +7,11 @@ CONFIG_DIR="$HOME/.config/fish"
 FUNCTION_DIR="functions"
 
 mkdir -p "$CONFIG_DIR"
+mkdir -P "$HOME/.config"
+mkdir -P "$HOME/Library/Caches/"
+mkdir -P "$HOME/.local/share"
+mkdir -P "$HOME/Library/Caches/run"
+
 
 for FILENAME in config.fish fishfile; do
   rm -f "$CONFIG_DIR/$FILENAME"

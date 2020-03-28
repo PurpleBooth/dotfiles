@@ -5,5 +5,12 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
 FILENAME=".bashrc"
+
+mkdir -P "$HOME/.config"
+mkdir -P "$HOME/Library/Caches/"
+mkdir -P "$HOME/.local/share"
+mkdir -P "$HOME/Library/Caches/run"
+
+
 rm -f "$HOME/$FILENAME"
 ln -s "$SCRIPT_DIR/../$FILENAME" "$HOME/$FILENAME"
