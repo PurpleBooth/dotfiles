@@ -39,6 +39,7 @@ brew "gettext", link: true
 brew "git"
 brew "git-crypt"
 brew "git-duet"
+brew "extract_url"
 brew "git-lfs"
 brew "github/gh/gh"
 brew "gnupg"
