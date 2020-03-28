@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := show-help
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 ROOT_DIR:=$(shell dirname $(realpath $(THIS_FILE)))
-SETUP_DEPS = install-packages configure-zsh configure-tmux configure-fish configure-bash configure-starship configure-fasd configure-vim configure-gnupg configure-git configure-git-duet
+SETUP_DEPS = install-packages configure-zsh configure-tmux configure-fish configure-bash configure-starship configure-fasd configure-vim configure-gnupg configure-git configure-git-duet configure-fzf
 
 .PHONY: show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
@@ -108,6 +108,11 @@ generate-secret-envs: install-packages
 ## Test environment is setup
 test:
 	"$(ROOT_DIR)"/*/bin/test
+
+.PHONY: configure-fzf
+## Configure fzf
+configure-fzf:
+	"$(ROOT_DIR)"/fzf/bin/configure
 
 .PHONY: lint
 ## Lint everything
