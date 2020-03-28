@@ -19,6 +19,8 @@ set -gx LC_ALL "de_DE.UTF-8"
 set -gx LANG "$LC_ALL"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_CACHE_HOME "$HOME/Library/Caches/"
+set -gx XDG_DATA_HOME "$HOME/.local/share"
+set -gx XDG_RUNTIME_DIR "$HOME/Library/Caches/run"
 
 # GPG
 set -gx GPG_TTY (tty)

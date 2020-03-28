@@ -7,6 +7,10 @@ export EDITOR="vim"
 export VISUAL="${EDITOR}"
 export LC_ALL="de_DE.UTF-8"
 export LANG="$LC_ALL"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/Library/Caches/"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_RUNTIME_DIR="$HOME/Library/Caches/run"
 
 # GPG
 export GPG_TTY=$(tty)
