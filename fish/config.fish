@@ -44,11 +44,6 @@ set -gx GIT_DUET_GLOBAL "1"
 set -gx GIT_DUET_SET_GIT_USER_CONFIG "1"
 set -gx GIT_DUET_AUTHORS_FILE "$XDG_CONFIG_HOME/git-duet/authors.yml"
 
-# Enhancd
-set -gx ENHANCD_FILTER "fzf-tmux"
-set -gx ENHANCD_DOT_ARG "..."
-set -gx ENHANCD_HYPHEN_ARG "="
-
 # Shell Name
 set -gx SHELL_NAME "fish"
 
