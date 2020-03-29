@@ -40,7 +40,6 @@ set -gx GOPATH "$GOCODEDIR"
 
 # Git Duet
 set -gx GIT_DUET_CO_AUTHORED_BY "1"
-set -gx GIT_DUET_GLOBAL "1"
 set -gx GIT_DUET_SET_GIT_USER_CONFIG "1"
 set -gx GIT_DUET_AUTHORS_FILE "$XDG_CONFIG_HOME/git-duet/authors.yml"
 

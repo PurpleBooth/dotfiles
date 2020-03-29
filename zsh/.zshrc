@@ -14,7 +14,6 @@ export GOPATH="${GOCODEDIR}"
 
 # Git Duet
 export GIT_DUET_CO_AUTHORED_BY="1"
-export GIT_DUET_GLOBAL="1"
 
 # Zplug
 export ZPLUG_HOME="$(brew --prefix)/opt/zplug"
