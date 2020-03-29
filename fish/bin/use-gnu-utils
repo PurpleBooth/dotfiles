@@ -43,11 +43,15 @@ mkdir -p "$FUNCTIONS_DIR"
 
 for GNU_CMD in "${ALL_GNU_CMDS[@]}"; do
   PREFIXED_COMMAND="$GNU_CMD_PREFIX$GNU_CMD"
+
+  if [ -f "$SCRIPT_DIR/../functions/$GNU_CMD.fish" ]; then
+    ## We don't want to overwrite anything we've already got that's custom
+    continue
+  fi
+
   FUNCTION_FILE="$FUNCTIONS_DIR/$GNU_CMD.fish"
   rm -f "$FUNCTION_FILE"
 
-  if [ -x "$(command -v "$PREFIXED_COMMAND")" ]; then
-    sed "s/___GNU_CMD___/$GNU_CMD/g" "$FUNCTION_TEMPLATE" |
-      sed "s/___PREFIXED_COMMAND___/$PREFIXED_COMMAND/g" >"$FUNCTION_FILE"
-  fi
+  sed "s/___GNU_CMD___/$GNU_CMD/g" "$FUNCTION_TEMPLATE" |
+    sed "s/___PREFIXED_COMMAND___/$PREFIXED_COMMAND/g" >"$FUNCTION_FILE"
 done

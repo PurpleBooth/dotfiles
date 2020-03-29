@@ -9,10 +9,4 @@ CONFIG_FILE="$GNU_DIR/gpg-agent.conf"
 
 mkdir -p "$GNU_DIR"
 chmod 700 "$GNU_DIR"
-
-if [ -f "$CONFIG_FILE" ]; then
-  rm -f "$CONFIG_FILE"
-fi
-
-ln -s "$SCRIPT_DIR/../gpg-agent.conf" "$CONFIG_FILE"
 chmod 600 "$CONFIG_FILE"

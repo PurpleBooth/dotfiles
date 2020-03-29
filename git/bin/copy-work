@@ -5,6 +5,10 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 CONFIG_DIR="$HOME/.config/git"
 
+##
+# Note: We copy these because we the default configuration is the home one.
+##
+
 mkdir -p "$CONFIG_DIR"
 rm -f "$CONFIG_DIR/config"
 cp "$SCRIPT_DIR/../work-gitconfig" "$CONFIG_DIR/config"

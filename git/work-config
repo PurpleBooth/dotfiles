@@ -19,3 +19,5 @@
 	enabled = true
 [branch "master"]
 	rebase = true
+[init]
+  templatedir = ~/.config/git/init-template

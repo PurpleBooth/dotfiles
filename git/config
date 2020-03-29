@@ -19,3 +19,13 @@
 	enabled = true
 [branch "master"]
 	rebase = true
+[init]
+  templatedir = ~/.config/git/init-template
+[duet "env"]
+	git-author-initials = bt
+	git-author-name = Billie Thompson
+	git-author-email = billie@billiecodes.com
+	mtime = 1585477982
+	git-committer-initials = 
+	git-committer-name = 
+	git-committer-email = 

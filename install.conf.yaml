@@ -1,0 +1,86 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+      force: true
+    shell:
+      stdin: true
+      stdout: true
+
+- clean: ["~"]
+
+- link:
+    # Convenience
+    ~/Documents/Code: ~/Code
+    # Bash
+    ~/.bashrc: bash/xdg-shim
+    ~/.config/bash/bashrc: bash/bashrc
+    # Fasd
+    ~/.fasdrc: fasd/.fasdrc
+    ~/.config/fasd/.fasdrc: fasd/.fasdrc
+    # Fish
+    ~/.config/fish/config.fish: fish/config.fish
+    ~/.config/fish/fishfile: fish/fishfile
+    ~/.config/fish/functions/:
+      glob: true
+      path: fish/functions/*
+    # Git
+    ~/.config/git/config: git/config
+    ~/.config/git/message: git/message
+    ~/.config/git/ignore: git/ignore
+    ~/.config/git/init-template/hooks/prepare-commit-msg: git/prepare-commit-msg-hook
+    ~/.config/git/init-template/hooks/commit-msg: git/commit-msg-hook
+    # Git Duet
+    ~/.config/git-duet/authors.yml: git-duet/authors.yml
+    # GnuPG
+    ~/.config/gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
+    # Starship
+    ~/.config/starship.toml: starship/starship.toml
+    # Tmux
+    ~/.config/tmux/tmux.conf: tmux/tmux.conf
+    # Vim
+    ~/.config/vim/.vimrc: vim/.vimrc
+    # ZSH
+    ~/.zshenv: zsh/.zshenv
+    ~/.config/zsh/.zshrc: zsh/.zshrc
+    # Kitty
+    ~/.config/kitty/kitty.conf: kitty/kitty.conf
+
+- create:
+    - ~/Code/
+    - ~/Downloads/
+    - ~/Documents/
+    - ~/Desktop/
+    - ~/Library/Caches/
+    - ~/Library/Caches/run/
+    - ~/.local/share/
+    # Tmux
+    - ~/.config/tmux/plugins
+
+- shell:
+    # Brew
+    - [./brew/bin/install]
+    - [./brew/bin/bundle-install]
+    - [./brew/bin/test]
+    # Fish
+    - [./fish/bin/use-gnu-utils]
+    - [./fish/bin/make-default-shell]
+    - [./fish/bin/test]
+    # Bash
+    - [./bash/bin/test]
+    # FZF
+    - [./fzf/bin/configure]
+    # Git
+    - [./git/bin/test]
+    # Git Duet
+    - [./git-duet/bin/test]
+    # GnuPG
+    - [./gnupg/bin/fix-permissions]
+    - [./gnupg/bin/test]
+    # TLDR
+    - [./tldr/bin/test]
+    # Vim
+    - [./vim/bin/test]
+    # ZSH
+    - [./zsh/bin/fix-compaudit]
+    - [./zsh/bin/test]
