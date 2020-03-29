@@ -79,6 +79,9 @@
       description: "🍻 Homebrew: Installing, removing and updating packages"
     - command: ./brew/bin/test
       description: "🍻 Homebrew: Testing packages installed"
+    # Crontab
+    - command: ./crontab/bin/set-crontab
+      description: " crontab: Install a crontab"
     # Fish
     - command: ./fish/bin/make-default-shell
       description: "🐠 fish: Setting as the default shell"
