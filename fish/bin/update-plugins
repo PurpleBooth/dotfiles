@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+FISH_PATH="$(command -v fish)"
+
+$FISH_PATH -c fisher

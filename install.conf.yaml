@@ -45,6 +45,7 @@
     ~/.config/zsh/.zshrc: zsh/.zshrc
     # Kitty
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
+    ~/.config/kitty/dracula.conf: kitty/dracula.conf
 
 - create:
     - ~/Code/
@@ -65,6 +66,7 @@
     # Fish
     - [./fish/bin/use-gnu-utils]
     - [./fish/bin/make-default-shell]
+    - [./fish/bin/update-plugins]
     - [./fish/bin/test]
     # Bash
     - [./bash/bin/test]
