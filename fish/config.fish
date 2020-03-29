@@ -1,4 +1,13 @@
 #####################################################################
+# Launch tmux                                                       #
+#####################################################################
+
+if status is-interactive
+and not set -q TMUX
+    exec tmux new-session -A -s main
+end
+
+#####################################################################
 # Plugins                                                           #
 #####################################################################
 
@@ -65,6 +74,7 @@ set -gx PATH "/usr/local//texlive/2019/bin/x86_64-darwin/" $PATH
 #####################################################################
 
 brew command command-not-found-init > /dev/null; and . (brew command-not-found-init)
+kitty + complete setup fish | source
 
 #####################################################################
 # Terminal Style                                                    #
@@ -75,8 +85,3 @@ set -gx CLICOLOR 1
 set -gx LS_COLORS (dircolors -c $colorfile | string split ' ')[3]
 
 starship init fish | source
-
-if status is-interactive
-and not set -q TMUX
-    exec tmux new-session -A -s main
-end
