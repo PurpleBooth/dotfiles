@@ -72,28 +72,34 @@
 
 - shell:
     # Brew
-    - [./brew/bin/install]
-    - [./brew/bin/bundle-install]
-    - [./brew/bin/test]
+    - [./brew/bin/install, "BREW: Installing if it's not already installed"]
+    - [
+        ./brew/bin/bundle-install,
+        "BREW: Installing, removing and updating packages",
+      ]
+    - [./brew/bin/test, "BREW: Testing packages installed"]
     # Fish
-    - [./fish/bin/make-default-shell]
-    - [./fish/bin/update-plugins]
-    - [./fish/bin/test]
+    - [./fish/bin/make-default-shell, "FISH: Setting as the default shell"]
+    - [./fish/bin/update-plugins, "FISH: Updating plugins"]
+    - [./fish/bin/test, "FISH: Testing it runs"]
     # Bash
-    - [./bash/bin/test]
+    - [./bash/bin/test, "BASH: Testing it runs"]
     # FZF
-    - [./fzf/bin/configure]
+    - [./fzf/bin/configure, "FZF: Installing shell extensions"]
     # Git
-    - [./git/bin/test]
+    - [./git/bin/test, "GIT: Testing it runs"]
     # Git Duet
-    - [./git-duet/bin/test]
+    - [./git-duet/bin/test, "GIT-DUET: Testing it runs"]
     # GnuPG
-    - [./gnupg/bin/fix-permissions]
-    - [./gnupg/bin/test]
+    - [
+        ./gnupg/bin/fix-permissions,
+        "GPG: Ensuring correct permissions on Configuration",
+      ]
+    - [./gnupg/bin/test, "GPG: Testing it runs"]
     # TLDR
-    - [./tldr/bin/test]
+    - [./tldr/bin/test, "TLDR: Testing it runs"]
     # Vim
-    - [./vim/bin/test]
+    - [./vim/bin/test, "VIM: Testing it runs"]
     # ZSH
-    - [./zsh/bin/fix-compaudit]
-    - [./zsh/bin/test]
+    - [./zsh/bin/fix-compaudit, "ZSH: Ensure no compaudit issues"]
+    - [./zsh/bin/test, "ZSH: Testing it runs"]
