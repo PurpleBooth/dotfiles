@@ -6,6 +6,7 @@
     shell:
       stdin: true
       stdout: true
+      stderr: true
     clean:
       force: true
 
@@ -72,34 +73,44 @@
 
 - shell:
     # Brew
-    - [./brew/bin/install, "BREW: Installing if it's not already installed"]
-    - [
-        ./brew/bin/bundle-install,
-        "BREW: Installing, removing and updating packages",
-      ]
-    - [./brew/bin/test, "BREW: Testing packages installed"]
+    - command: ./brew/bin/install
+      description: "🍻 Homebrew: Installing if it's not already installed"
+    - command: ./brew/bin/bundle-install
+      description: "🍻 Homebrew: Installing, removing and updating packages"
+    - command: ./brew/bin/test
+      description: "🍻 Homebrew: Testing packages installed"
     # Fish
-    - [./fish/bin/make-default-shell, "FISH: Setting as the default shell"]
-    - [./fish/bin/update-plugins, "FISH: Updating plugins"]
-    - [./fish/bin/test, "FISH: Testing it runs"]
+    - command: ./fish/bin/make-default-shell
+      description: "🐠 fish: Setting as the default shell"
+    - command: ./fish/bin/update-plugins
+      description: "🐠 fish: Updating plugins"
+    - command: ./fish/bin/test
+      description: "🐠 fish: Testing it runs"
     # Bash
-    - [./bash/bin/test, "BASH: Testing it runs"]
+    - command: ./bash/bin/test
+      description: " Bash: Testing it runs"
     # FZF
-    - [./fzf/bin/configure, "FZF: Installing shell extensions"]
-    # Git
-    - [./git/bin/test, "GIT: Testing it runs"]
+    - command: ./fzf/bin/configure
+      description: " fzf: Installing shell extensions"
+    # Git \
+    - command: ./git/bin/test
+      description: " Git: Testing it runs"
     # Git Duet
-    - [./git-duet/bin/test, "GIT-DUET: Testing it runs"]
+    - command: ./git-duet/bin/test
+      description: "👭 git-duet: Testing it runs"
     # GnuPG
-    - [
-        ./gnupg/bin/fix-permissions,
-        "GPG: Ensuring correct permissions on Configuration",
-      ]
-    - [./gnupg/bin/test, "GPG: Testing it runs"]
+    - command: ./gnupg/bin/fix-permissions
+      description: "🔐 GnuPG: Ensuring correct permissions on Configuration"
+    - command: ./gnupg/bin/test
+      description: "🔐 GnuPG: Testing it runs"
     # TLDR
-    - [./tldr/bin/test, "TLDR: Testing it runs"]
+    - command: ./tldr/bin/test
+      description: " tldr: Testing it runs"
     # Vim
-    - [./vim/bin/test, "VIM: Testing it runs"]
+    - command: ./vim/bin/test
+      description: " Vim: Testing it runs"
     # ZSH
-    - [./zsh/bin/fix-compaudit, "ZSH: Ensure no compaudit issues"]
-    - [./zsh/bin/test, "ZSH: Testing it runs"]
+    - command: ./zsh/bin/fix-compaudit
+      description: " Z shell: Ensure no compaudit issues"
+    - command: ./zsh/bin/test
+      description: " Z shell: Testing it runs"

@@ -176,3 +176,4 @@ fabric.properties
 .idea/httpRequests
 
 /brew/Brewfile.lock.json
+/install

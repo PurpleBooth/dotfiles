@@ -1,14 +1,6 @@
 .DEFAULT_GOAL := show-help
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 ROOT_DIR:=$(shell dirname $(realpath $(THIS_FILE)))
-PIP_PATH := $(shell command -v pip3)
-
-ifndef PIP_PATH
-	curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
-	python /tmp/get-pip.py
-	rm /tmp/get-pip.py
-	PIP_PATH := ~/Library/Python/2.7/bin/pip
-endif
 
 .PHONY: show-help
 # See <https://gist.github.com/klmr/575726c7e05d8780505a> for explanation.
@@ -19,8 +11,8 @@ show-help:
 .PHONY: setup-home
 ## Install and link all packages for home
 setup-home:
-	${PIP_PATH} install dotbot --upgrade
-	dotbot -c $(ROOT_DIR)/install.conf.yaml
+	cp dotbot/tools/git-submodule/install "$(ROOT_DIR)/install"
+	"$(ROOT_DIR)/install"
 
 .PHONY: setup-work
 ## Install and link all packages for work
@@ -44,7 +36,7 @@ format-markdown:
 .PHONY: format-shell
 ## Format shell scripts
 format-shell:
-	shfmt -w -s "$(ROOT_DIR)"
+	shfmt -w -s $(shell shfmt -f $(shell find "$(ROOT_DIR)" -maxdepth 1 -mindepth 1 -type d -not -name dotbot ))
 	find "$(ROOT_DIR)" -name "*.fish" -o -name "*.fish.template" -exec fish_indent -w {} \;
 
 .PHONY: format-brewfile
