@@ -6,6 +6,8 @@
     shell:
       stdin: true
       stdout: true
+    clean:
+      force: true
 
 - clean:
     ~/:
@@ -16,7 +18,8 @@
       recursive: true
     ~/.gnupg:
       recursive: true
-    ~/Documents/Code: ~
+    ~/Documents/Code:
+      force: false
 
 - link:
     # Convenience
