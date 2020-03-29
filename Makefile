@@ -39,7 +39,7 @@ format: format-shell format-brewfile format-markdown format-yaml
 .PHONY: format-markdown
 ## Format markdown files
 format-markdown:
-	fish -c "gfmfmt **.md"
+	fish -c "cd $(ROOT_DIR)/ && gfmfmt **.md"
 
 .PHONY: format-shell
 ## Format shell scripts
@@ -50,13 +50,18 @@ format-shell:
 .PHONY: format-brewfile
 ## Orders the brew file
 format-brewfile:
-	cat brew/Brewfile | sort | uniq | sed '/^[[:space:]]*$$/d' > brew/Brewfile.1
-	mv brew/Brewfile.1 brew/Brewfile
-	grep '^t' brew/Brewfile > brew/Brewfile.1
-	grep -v '^t' brew/Brewfile >> brew/Brewfile.1
-	mv brew/Brewfile.1 brew/Brewfile
+	cat $(ROOT_DIR)/brew/Brewfile | sort | uniq | sed '/^[[:space:]]*$$/d' > $(ROOT_DIR)/brew/Brewfile.1
+	mv $(ROOT_DIR)/brew/Brewfile.1 brew/Brewfile
+	grep '^t' $(ROOT_DIR)/brew/Brewfile > brew/Brewfile.1
+	grep -v '^t' $(ROOT_DIR)/brew/Brewfile >> $(ROOT_DIR)/brew/Brewfile.1
+	mv $(ROOT_DIR)/brew/Brewfile.1 $(ROOT_DIR)/brew/Brewfile
 
 .PHONY: format-yaml
 ## Format any yaml files
 format-yaml:
 	fish -c "prettier --write **.yml **.yaml"
+
+.PHONY: fish-generate-gnu-utils-functions
+## Regenerate the config files for gnu utils in fish
+generate-gnu-utils-functions:
+	"$(ROOT_DIR)/fish/bin/generate-gnu-utils-functions"

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
-FUNCTIONS_DIR="$HOME/.config/fish/functions"
+FUNCTIONS_DIR="$SCRIPT_DIR/../functions"
 FUNCTION_TEMPLATE="$SCRIPT_DIR/../gnu-utils.fish.template"
 GNU_CMD_PREFIX="g"
 
