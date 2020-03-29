@@ -12,6 +12,11 @@
       force: true
     ~/.config:
       recursive: true
+    ~/.tmux:
+      recursive: true
+    ~/.gnupg:
+      recursive: true
+    ~/Documents/Code: ~
 
 - link:
     # Convenience
@@ -68,7 +73,6 @@
     - [./brew/bin/bundle-install]
     - [./brew/bin/test]
     # Fish
-    - [./fish/bin/generate-gnu-utils-functions]
     - [./fish/bin/make-default-shell]
     - [./fish/bin/update-plugins]
     - [./fish/bin/test]
