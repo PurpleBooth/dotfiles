@@ -8,7 +8,7 @@
 [user]
 	name = Billie Thompson
 	email = billie.thompson@armakuni.com
-	signingkey = ED8BDAFEAE321FDB63DE806F3A814DF2CD71B086
+	signingkey = CBF8933292B63B581376E90668E1772BF69F3F0D
 [core]
 	editor = vim
 	excludesfile = ~/.config/git/ignore

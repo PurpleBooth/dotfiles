@@ -8,5 +8,7 @@ GNU_DIR="$XDG_DATA_HOME/gnupg"
 CONFIG_FILE="$GNU_DIR/gpg-agent.conf"
 
 mkdir -p "$GNU_DIR"
+touch "$CONFIG_FILE"
 chmod 700 "$GNU_DIR"
 chmod 600 "$CONFIG_FILE"
+gpg --list-keys

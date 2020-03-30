@@ -17,7 +17,7 @@ setup-home:
 .PHONY: setup-work
 ## Install and link all packages for work
 setup-work: setup-home
-	@$(MAKE) -f $(THIS_FILE) configure-git-for-work
+	./git/bin/copy-work
 
 .PHONY: generate-secret-envs
 ## Generate secrets env file from 1password

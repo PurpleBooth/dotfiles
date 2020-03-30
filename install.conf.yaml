@@ -46,7 +46,7 @@
     # Git Duet
     ~/.config/git-duet/authors.yml: git-duet/authors.yml
     # GnuPG
-    ~/.config/gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
+    ~/local/share/gnupg/gpg-agent/conf: gnupg/gpg-agent.conf
     # Starship
     ~/.config/starship.toml: starship/starship.toml
     # Tmux

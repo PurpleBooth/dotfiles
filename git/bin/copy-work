@@ -11,4 +11,4 @@ CONFIG_DIR="$HOME/.config/git"
 
 mkdir -p "$CONFIG_DIR"
 rm -f "$CONFIG_DIR/config"
-cp "$SCRIPT_DIR/../work-gitconfig" "$CONFIG_DIR/config"
+cp "$SCRIPT_DIR/../work-config" "$CONFIG_DIR/config"

@@ -65,7 +65,11 @@ set -gx PATH "/usr/local//texlive/2019/bin/x86_64-darwin/" $PATH
 #####################################################################
 
 brew command command-not-found-init > /dev/null; and . (brew command-not-found-init)
-kitty + complete setup fish | source
+
+if type -q kitty
+    kitty + complete setup fish | source $argv
+end
+
 
 #####################################################################
 # Terminal Style                                                    #
@@ -75,4 +79,7 @@ kitty + complete setup fish | source
 set -gx CLICOLOR 1
 set -gx LS_COLORS (dircolors -c $colorfile | string split ' ')[3]
 
-starship init fish | source
+if type -q starship
+    starship init fish | source
+end
+
