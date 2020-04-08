@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CONFIGURATION_LIST="$(gcloud config configurations list --format json --filter "name=secret-store" | jq -r ".[]")"
+function configuration_exists() {
+  CONFIGURATION_LIST="$(gcloud config configurations list --format json --filter "name=$1" | jq -r ".[]")"
+  if [ -z "$CONFIGURATION_LIST" ]; then
+    return 1
+  fi
 
-if [ -z "$CONFIGURATION_LIST" ]; then
-  gcloud config configurations create default
+  return 0
+}
+
+CURRENT_CONFIG="$(gcloud config configurations list --filter is_active:true --format json | jq -r .[].name)"
+
+if ! configuration_exists secret-store; then
   gcloud config configurations create secret-store
-  gcloud config configurations activate default
+fi
+
+if [ -n "$CURRENT_CONFIG" ]; then
+  gcloud config configurations activate "$CURRENT_CONFIG"
 fi
 
 gcloud config \
