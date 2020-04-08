@@ -117,3 +117,6 @@
       description: " Z shell: Ensure no compaudit issues"
     - command: ./zsh/bin/test
       description: " Z shell: Testing it runs"
+    # SOPS
+    - command: ./sops/bin/setup
+      description: "🔑 SOPS: Create the infrastructure needed"

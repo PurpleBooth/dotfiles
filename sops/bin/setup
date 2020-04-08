@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CONFIGURATION_LIST="$(gcloud config configurations list --format json --filter "name=secret-store" | jq -r ".[]")"
+
+if [ -z "$CONFIGURATION_LIST" ]; then
+  gcloud config configurations create default
+  gcloud config configurations create secret-store
+  gcloud config configurations activate default
+fi
+
+gcloud config \
+  set project purplebooth-secret-storage \
+  --configuration="secret-store"
+
+if ! gcloud auth print-identity-token --configuration="secret-store" >/dev/null; then
+  gcloud auth login --configuration="secret-store"
+fi
+
+SERVICE_LIST="$(gcloud services \
+  list --format json --enabled --filter "name:cloudkms.googleapis.com" \
+  --configuration="secret-store" | jq -r ".[]")"
+
+if [ -z "$SERVICE_LIST" ]; then
+  gcloud services enable cloudkms.googleapis.com --configuration="secret-store"
+fi
+
+KEYRINGS="$(gcloud kms \
+  keyrings list --location global \
+  --filter "name:projects/purplebooth-secret-storage/locations/global/keyRings/sops" --format json \
+  --configuration="secret-store" | jq -r ".[]")"
+
+if [ -z "$KEYRINGS" ]; then
+  gcloud kms \
+    keyrings create sops --location global \
+    --configuration="secret-store"
+fi
+
+KEYS="$(gcloud kms \
+  keys list --location global --keyring sops \
+  --filter "name:projects/purplebooth-secret-storage/locations/global/keyRings/sops/cryptoKeys/sops-key" \
+  --format json \
+  --configuration="secret-store" | jq -r ".[]")"
+
+if [ -z "$KEYS" ]; then
+  gcloud kms \
+    keys create sops-key --location global --keyring sops --purpose encryption \
+    --configuration="secret-store"
+fi
