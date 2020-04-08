@@ -1,5 +1,6 @@
 # Shell Name
 export SHELL_NAME="bash"
+export PATH="$HOME/.composer/vendor/bin/:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/Library/Caches/"
@@ -13,6 +14,10 @@ export HISTFILE="$XDG_DATA_HOME"/bash/history
 if [ -f "${HOME}/.config/envsecret/envsecret" ]; then
     source "${HOME}/.config/envsecret/envsecret"
 fi
+
+function ll() {
+	exa --extended --header --grid --long --all --sort=modified --git "$@"
+}
 
 function gfmfmt() {
   for I in "$@"; do
