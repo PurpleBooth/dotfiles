@@ -21,3 +21,5 @@
 	rebase = true
 [init]
   templatedir = ~/.config/git/init-template
+[diff "sopsdiffer"]
+  textconv = "sops -d"
