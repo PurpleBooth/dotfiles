@@ -45,6 +45,16 @@
     ~/.config/git/init-template/hooks/commit-msg: git/commit-msg-hook
     # Git Duet
     ~/.config/git-duet/authors.yml: git-duet/authors.yml
+    ~/.bin/git-duet: git-duet/wrap-for-sops
+    ~/.bin/git-duet-commit: git-duet/wrap-for-sops
+    ~/.bin/git-duet-install-hook: git-duet/wrap-for-sops
+    ~/.bin/git-duet-merge: git-duet/wrap-for-sops
+    ~/.bin/git-duet-post-commit: git-duet/wrap-for-sops
+    ~/.bin/git-duet-prepare-commit-msg: git-duet/wrap-for-sops
+    ~/.bin/git-duet-pre-commit: git-duet/wrap-for-sops
+    ~/.bin/git-duet-revert: git-duet/wrap-for-sops
+    ~/.bin/git-solo: git-duet/wrap-for-sops
+
     # GnuPG
     ~/local/share/gnupg/gpg-agent/conf: gnupg/gpg-agent.conf
     # Starship
