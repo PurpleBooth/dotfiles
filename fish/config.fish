@@ -13,38 +13,38 @@ end
 #####################################################################
 
 # System Defaults
-set -gx EDITOR "vim"
-set -gx VISUAL "$EDITOR"
-set -gx LC_ALL "de_DE.UTF-8"
-set -gx LANG "$LC_ALL"
+set  --universal --export EDITOR "vim"
+set  --universal --export VISUAL "$EDITOR"
+set  --universal --export LC_ALL "de_DE.UTF-8"
+set  --universal --export LANG "$LC_ALL"
 
 # XDG
-set -gx XDG_CONFIG_HOME "$HOME/.config"
-set -gx XDG_CACHE_HOME "$HOME/Library/Caches/"
-set -gx XDG_DATA_HOME "$HOME/.local/share"
-set -gx XDG_RUNTIME_DIR "$HOME/Library/Caches/run"
+set  --universal --export XDG_CONFIG_HOME "$HOME/.config"
+set  --universal --export XDG_CACHE_HOME "$HOME/Library/Caches/"
+set  --universal --export XDG_DATA_HOME "$HOME/.local/share"
+set  --universal --export XDG_RUNTIME_DIR "$HOME/Library/Caches/run"
 
 # Vim
-set -gx VIMINIT ":source $XDG_CONFIG_HOME"/vim/.vimrc
+set  --universal --export VIMINIT ":source $XDG_CONFIG_HOME"/vim/.vimrc
 
 # GPG
-set -gx GNUPGHOME "$XDG_DATA_HOME/gnupg"
-set -gx GPG_TTY (tty)
+set  --universal --export GNUPGHOME "$XDG_DATA_HOME/gnupg"
+set  --universal --export GPG_TTY (tty)
 
 # Favourites
-set -gx CODEDIR (grealpath $HOME/Code)
+set  --universal --export CODEDIR (grealpath $HOME/Code)
 
 # Golang
-set -gx GOCODEDIR "$CODEDIR/golang"
-set -gx GOPATH "$GOCODEDIR"
+set  --universal --export GOCODEDIR "$CODEDIR/golang"
+set  --universal --export GOPATH "$GOCODEDIR"
 
 # Git Duet
-set -gx GIT_DUET_CO_AUTHORED_BY "1"
-set -gx GIT_DUET_SET_GIT_USER_CONFIG "1"
-set -gx GIT_DUET_AUTHORS_FILE "$XDG_CONFIG_HOME/git-duet/authors.yml"
+set  --universal --export GIT_DUET_CO_AUTHORED_BY "1"
+set  --universal --export GIT_DUET_SET_GIT_USER_CONFIG "1"
+set  --universal --export GIT_DUET_AUTHORS_FILE "$XDG_CONFIG_HOME/git-duet/authors.yml"
 
 # Shell Name
-set -gx SHELL_NAME "fish"
+set  --universal --export SHELL_NAME "fish"
 
 # Not committed
 if [ -f "$HOME/.config/envsecret/envsecret.sourceable.fish" ]
@@ -60,10 +60,10 @@ end
 # Path                                                              #
 #####################################################################
 
-set -gx PATH "$GOCODEDIR/bin" $PATH
-set -gx PATH "$HOME/.bin" $PATH
-set -gx PATH "/usr/local/opt/mysql-client/bin" $PATH
-set -gx PATH "/usr/local//texlive/2019/bin/x86_64-darwin/" $PATH
+set  --universal --export PATH "$GOCODEDIR/bin" $PATH
+set  --universal --export PATH "$HOME/.bin" $PATH
+set  --universal --export PATH (brew --prefix)"/opt/mysql-client/bin" $PATH
+set  --universal --export PATH (brew --prefix)"/texlive/2019/bin/x86_64-darwin/" $PATH
 
 #####################################################################
 # Autocomplete                                                      #
@@ -81,8 +81,8 @@ end
 #####################################################################
 
 # Colours
-set -gx CLICOLOR 1
-set -gx LS_COLORS (dircolors -c $colorfile | string split ' ')[3]
+set  --universal --export CLICOLOR 1
+set  --universal --export LS_COLORS (dircolors -c $colorfile | string split ' ')[3]
 
 if type -q starship
     starship init fish | source
