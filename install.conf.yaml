@@ -132,3 +132,6 @@
     # SOPS
     - command: ./sops/bin/setup
       description: "🔑 SOPS: Create the infrastructure needed"
+    # 1password secrets
+    - command: ./1password/bin/generate-envsecret
+      description: "ﲘ 1password: Create the infrastructure needed"

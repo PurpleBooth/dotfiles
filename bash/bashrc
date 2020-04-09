@@ -44,6 +44,16 @@ function git() {
     hub "$@"
 }
 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
+function icat() {
+  kitty +kitten icat --align left "$@"
+}
+
+function pip() {
+  pip3 "$@"
+}
+
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] ; then
+  source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
+fi
 
 eval "$(starship init bash)"
