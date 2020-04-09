@@ -59,6 +59,8 @@
     # Kitty
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.config/kitty/dracula.conf: kitty/dracula.conf
+    # Sops
+    ~/.sops.yaml: sops/sops.yaml
 
 - create:
     - ~/Code/
