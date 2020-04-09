@@ -25,7 +25,7 @@ function ls() {
 }
 
 function cat() {
-     bat -p --paging=never "$@"
+  bat -p --paging=never "$@"
 }
 
 function ll() {
@@ -34,10 +34,14 @@ function ll() {
 
 function gfmfmt() {
   for I in "$@"; do
-    TEMPORARY_FILE="$(mktemp -d)"
-    pandoc --from=gfm --to=gfm --wrap=auto "$I" >"$TEMPORARY_FILE/$I"
-    mv "$TEMPORARY_FILE/$I" "$I"
+    TEMPORARY_FILE="$(mktemp)"
+    pandoc --from=gfm --to=gfm --wrap=auto "$I" >"$TEMPORARY_FILE"
+    mv "$TEMPORARY_FILE" "$I"
   done
+}
+
+function git() {
+    hub "$@"
 }
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
