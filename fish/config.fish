@@ -47,8 +47,13 @@ set -gx GIT_DUET_AUTHORS_FILE "$XDG_CONFIG_HOME/git-duet/authors.yml"
 set -gx SHELL_NAME "fish"
 
 # Not committed
-if [ -f "$HOME/.config/envsecret/envsecret" ]
-    source "$HOME/.config/envsecret/envsecret"
+if [ -f "$HOME/.config/envsecret/envsecret.sourceable.fish" ]
+    eval (
+      sops \
+        exec-file \
+        "$HOME/.config/envsecret/envsecret.sourceable.fish" \
+        'cat "{}"'
+    )
 end
 
 #####################################################################

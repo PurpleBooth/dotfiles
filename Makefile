@@ -21,8 +21,8 @@ setup-work: setup-home
 
 .PHONY: generate-secret-envs
 ## Generate secrets env file from 1password
-generate-secret-envs: install-packages
-	"$(ROOT_DIR)/1password/bin/generate-envsecret"
+generate-secret-envs:
+		"$(ROOT_DIR)/1password/bin/generate-envsecret"
 
 .PHONY: format
 ## Format what we can
