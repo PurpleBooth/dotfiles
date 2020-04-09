@@ -11,9 +11,22 @@ export GIT_DUET_AUTHORS_FILE="$XDG_CONFIG_HOME/git-duet/authors.yml"
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 
 # Not committed
-if [ -f "${HOME}/.config/envsecret/envsecret" ]; then
-    source "${HOME}/.config/envsecret/envsecret"
+if [ -f "${HOME}/.config/envsecret/envsecret.sourceable.sh" ]; then
+    eval "$(
+      sops \
+        exec-file \
+        "$HOME/.config/envsecret/envsecret.sourceable.sh" \
+        'cat "{}"'
+    )"
 fi
+
+function ls() {
+	exa --git "$@"
+}
+
+function cat() {
+     bat -p --paging=never "$@"
+}
 
 function ll() {
 	exa --extended --header --grid --long --all --sort=modified --git "$@"
