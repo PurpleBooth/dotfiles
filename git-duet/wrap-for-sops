@@ -5,4 +5,12 @@ set -euo pipefail
 SCRIPT_NAME="$(basename "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}")"
 DUET_HOME="$(brew --prefix)/bin"
 
-exec sops exec-file "$HOME/.config/git-duet/authors.yml" "GIT_DUET_AUTHORS_FILE=\"{}\" \"$DUET_HOME/$SCRIPT_NAME\""
+EXEC_COMMAND=(
+  'GIT_DUET_AUTHORS_FILE="{}"'
+  "$DUET_HOME/$SCRIPT_NAME"
+  "$@"
+)
+
+exec sops exec-file \
+  "$HOME/.config/git-duet/authors.yml" \
+  "${EXEC_COMMAND[*]}"
