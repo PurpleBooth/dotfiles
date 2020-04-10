@@ -28,3 +28,10 @@
 	required = true
 [diff "sopsdiffer"]
   textconv = "sops -d"
+
+[url "git@github.com:"]
+	insteadOf = http://github.com/
+	insteadOf = https://github.com/
+
+[includeIf "gitdir:Homebrew/"]
+	path = config.homebrew

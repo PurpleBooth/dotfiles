@@ -13,38 +13,38 @@ end
 #####################################################################
 
 # System Defaults
-set  --universal --export EDITOR "vim"
-set  --universal --export VISUAL "$EDITOR"
-set  --universal --export LC_ALL "de_DE.UTF-8"
-set  --universal --export LANG "$LC_ALL"
+set --global --export EDITOR "vim"
+set --global --export VISUAL "$EDITOR"
+set --global --export LC_ALL "de_DE.UTF-8"
+set --global --export LANG "$LC_ALL"
 
 # XDG
-set  --universal --export XDG_CONFIG_HOME "$HOME/.config"
-set  --universal --export XDG_CACHE_HOME "$HOME/Library/Caches/"
-set  --universal --export XDG_DATA_HOME "$HOME/.local/share"
-set  --universal --export XDG_RUNTIME_DIR "$HOME/Library/Caches/run"
+set --global --export XDG_CONFIG_HOME "$HOME/.config"
+set --global --export XDG_CACHE_HOME "$HOME/Library/Caches/"
+set --global --export XDG_DATA_HOME "$HOME/.local/share"
+set --global --export XDG_RUNTIME_DIR "$HOME/Library/Caches/run"
 
 # Vim
-set  --universal --export VIMINIT ":source $XDG_CONFIG_HOME"/vim/.vimrc
+set --global --export VIMINIT ":source $XDG_CONFIG_HOME"/vim/.vimrc
 
 # GPG
-set  --universal --export GNUPGHOME "$XDG_DATA_HOME/gnupg"
-set  --universal --export GPG_TTY (tty)
+set --global --export GNUPGHOME "$XDG_DATA_HOME/gnupg"
+set --global --export GPG_TTY (tty)
 
 # Favourites
-set  --universal --export CODEDIR (grealpath $HOME/Code)
+set --global --export CODEDIR (grealpath $HOME/Code)
 
 # Golang
-set  --universal --export GOCODEDIR "$CODEDIR/golang"
-set  --universal --export GOPATH "$GOCODEDIR"
+set --global --export GOCODEDIR "$CODEDIR/golang"
+set --global --export GOPATH "$GOCODEDIR"
 
 # Git Duet
-set  --universal --export GIT_DUET_CO_AUTHORED_BY "1"
-set  --universal --export GIT_DUET_SET_GIT_USER_CONFIG "1"
-set  --universal --export GIT_DUET_AUTHORS_FILE "$XDG_CONFIG_HOME/git-duet/authors.yml"
+set --global --export GIT_DUET_CO_AUTHORED_BY "1"
+set --global --export GIT_DUET_SET_GIT_USER_CONFIG "1"
+set --global --export GIT_DUET_AUTHORS_FILE "$XDG_CONFIG_HOME/git-duet/authors.yml"
 
 # Shell Name
-set  --universal --export SHELL_NAME "fish"
+set --global --export SHELL_NAME "fish"
 
 # Not committed
 if [ -f "$HOME/.config/envsecret/envsecret.sourceable.fish" ]
@@ -60,10 +60,10 @@ end
 # Path                                                              #
 #####################################################################
 
-set  --universal --export PATH "$GOCODEDIR/bin" $PATH
-set  --universal --export PATH "$HOME/.bin" $PATH
-set  --universal --export PATH (brew --prefix)"/opt/mysql-client/bin" $PATH
-set  --universal --export PATH (brew --prefix)"/texlive/2019/bin/x86_64-darwin/" $PATH
+set --global --export PATH "$GOCODEDIR/bin" $PATH
+set --global --export PATH "$HOME/.bin" $PATH
+set --global --export PATH (brew --prefix)"/opt/mysql-client/bin" $PATH
+set --global --export PATH (brew --prefix)"/texlive/2019/bin/x86_64-darwin/" $PATH
 
 #####################################################################
 # Autocomplete                                                      #
@@ -81,8 +81,8 @@ end
 #####################################################################
 
 # Colours
-set  --universal --export CLICOLOR 1
-set  --universal --export LS_COLORS (dircolors -c $colorfile | string split ' ')[3]
+set --global --export CLICOLOR 1
+set --global --export LS_COLORS (dircolors -c $colorfile | string split ' ')[3]
 
 # History Search
 source (brew --prefix)"/opt/fzf/shell/key-bindings.fish"
