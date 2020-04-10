@@ -1,14 +1,50 @@
-#!/usr/bin/env bash
+#!/usr/bin/env run-cargo-script
 
-set -euo pipefail
+use std::env;
+use std::fs;
+use std::process::Command;
+use std::str;
 
-FISH_PATH="$(command -v fish)"
+fn main() -> std::io::Result<()> {
+    let output = bash("command -v fish");
 
-if ! grep -q "$FISH_PATH" /etc/shells; then
-  echo | sudo gtee -a /etc/shells
-  echo "$FISH_PATH" | sudo gtee -a /etc/shells
-fi
+    let fish_path = str::from_utf8(&output.stdout).unwrap();
+    let shell_file = fs::read_to_string("/etc/shells")?;
+    let available_shells = shell_file
+        .lines()
+        .into_iter()
+        .map(|x| x.trim())
+        .filter(|x| x.len() > 0)
+        .filter(|x| "#" != format!("{}", x.chars().next().unwrap()))
+        .collect::<Vec<&str>>();
+    let fish_shell_available = available_shells
+        .into_iter()
+        .filter(|x| x == &fish_path.trim())
+        .count()
+        > 0;
 
-if [ "$SHELL" != "$FISH_PATH" ]; then
-  sudo chsh -s "$FISH_PATH" "$USER"
-fi
+    if !fish_shell_available {
+        bash(&"echo | sudo gtee -a /etc/shells");
+        bash(&format!(
+            "echo \"{}\" | sudo gtee -a /etc/shells",
+            fish_path.trim()
+        ));
+    }
+
+    let current_shell = env!("SHELL");
+    let user = env!("USER");
+
+    if current_shell.trim() != fish_path.trim() {
+        bash(&format!("sudo chsh -s \"{}\" \"{}\"", fish_path, user));
+    }
+
+    Ok(())
+}
+
+fn bash(cmd: &str) -> std::process::Output {
+    return Command::new("bash")
+        .arg("-c")
+        .arg(cmd)
+        .output()
+        .expect(&format!("failed to execute: {}", cmd));
+}
