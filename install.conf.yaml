@@ -94,6 +94,7 @@
     - command: brew cask upgrade
     - command: brew bundle cleanup --force --file="brew/Brewfile"
     - command: mas upgrade
+    - command: rustup-init -y
     - command: crontab - <"crontab/crontab"
     - command: ./fish/bin/make-default-shell
     - command: fish -c fisher

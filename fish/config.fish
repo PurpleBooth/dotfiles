@@ -64,6 +64,7 @@ set --global --export PATH "$GOCODEDIR/bin" $PATH
 set --global --export PATH "$HOME/.bin" $PATH
 set --global --export PATH (brew --prefix)"/opt/mysql-client/bin" $PATH
 set --global --export PATH (brew --prefix)"/texlive/2019/bin/x86_64-darwin/" $PATH
+set --global --export PATH "$HOME/.cargo/bin" $PATH
 
 #####################################################################
 # Autocomplete                                                      #
