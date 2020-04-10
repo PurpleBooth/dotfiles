@@ -71,6 +71,7 @@
     ~/.config/kitty/dracula.conf: kitty/dracula.conf
     # Sops
     ~/.sops.yaml: sops/sops.yaml
+    ~/.bin/1password: 1password/bin/1password
 
 - create:
     - ~/Code/
@@ -83,52 +84,27 @@
     # Tmux
     - ~/.config/tmux/plugins
 
+- brewfile:
+    - brew/Brewfile
+
 - shell:
-    # Brew
-    - command: ./brew/bin/install
-      description: "🍻 Homebrew: Installing if it's not already installed"
-    - command: ./brew/bin/bundle-install
-      description: "🍻 Homebrew: Installing, removing and updating packages"
-    - command: ./brew/bin/test
-      description: "🍻 Homebrew: Testing packages installed"
-    # Crontab
-    - command: ./crontab/bin/set-crontab
-      description: " crontab: Install a crontab"
-    # Fish
+    - command: brew update
+    - command: brew upgrade
+    - command: brew cask upgrade
+    - command: brew bundle cleanup --force --file="brew/Brewfile"
+    - command: mas upgrade
+    - command: crontab - <"crontab/crontab"
     - command: ./fish/bin/make-default-shell
-      description: "🐠 fish: Setting as the default shell"
-    - command: ./fish/bin/update-plugins
-      description: "🐠 fish: Updating plugins"
-    - command: ./fish/bin/test
-      description: "🐠 fish: Testing it runs"
-    # Bash
+    - command: fish -c fisher
     - command: ./bash/bin/test
-      description: " Bash: Testing it runs"
-    # Git \
+    - command: gcloud components update --quiet
     - command: ./git/bin/test
-      description: " Git: Testing it runs"
-    # Git Duet
     - command: ./git-duet/bin/test
-      description: "👭 git-duet: Testing it runs"
-    # GnuPG
     - command: ./gnupg/bin/fix-permissions
-      description: "🔐 GnuPG: Ensuring correct permissions on Configuration"
     - command: ./gnupg/bin/test
-      description: "🔐 GnuPG: Testing it runs"
-    # TLDR
     - command: ./tldr/bin/test
-      description: " tldr: Testing it runs"
-    # Vim
     - command: ./vim/bin/test
-      description: " Vim: Testing it runs"
-    # ZSH
     - command: ./zsh/bin/fix-compaudit
-      description: " Z shell: Ensure no compaudit issues"
     - command: ./zsh/bin/test
-      description: " Z shell: Testing it runs"
-    # SOPS
     - command: ./sops/bin/setup
-      description: "🔑 SOPS: Create the infrastructure needed"
-    # 1password secrets
     - command: ./1password/bin/generate-envsecret
-      description: "ﲘ 1password: Create the infrastructure needed"

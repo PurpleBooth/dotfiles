@@ -12,7 +12,7 @@ show-help:
 ## Install and link all packages for home
 setup-home:
 	cp dotbot/tools/git-submodule/install "$(ROOT_DIR)/install"
-	"$(ROOT_DIR)/install"
+	"$(ROOT_DIR)/install" --plugin-dir dotbot-brew
 
 .PHONY: setup-work
 ## Install and link all packages for work
