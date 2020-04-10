@@ -26,7 +26,7 @@ generate-secret-envs:
 
 .PHONY: format
 ## Format what we can
-format: format-shell format-brewfile format-markdown format-yaml
+format: format-shell format-brewfile format-markdown format-yaml format-rust
 
 .PHONY: format-markdown
 ## Format markdown files
@@ -52,6 +52,11 @@ format-brewfile:
 ## Format any yaml files
 format-yaml:
 	find . -path ./dotbot-brew -prune -o -path ./dotbot -prune -o \( -iname "*.yml" -o -iname "*.yaml" \) -exec prettier --write {} \;
+
+.PHONY: format-rust
+## Format any rust files
+format-rust:
+	grep --exclude=Makefile --exclude-dir=.git -FRil "#!/usr/bin/env run-cargo-script" $(ROOT_DIR) | xargs rustfmt
 
 .PHONY: fish-generate-gnu-utils-functions
 ## Regenerate the config files for gnu utils in fish

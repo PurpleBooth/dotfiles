@@ -97,7 +97,8 @@
     - command: brew bundle cleanup --force --file="brew/Brewfile"
     - command: mas upgrade
     - command: rustup-init -y
-    - command: cargo install --force cargo-script
+    - command: cargo install cargo-update
+    - command: cargo install-update cargo-script
     - command: crontab - <"crontab/crontab"
     - command: ./fish/bin/make-default-shell
     - command: fish -c fisher

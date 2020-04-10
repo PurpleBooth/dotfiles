@@ -1,14 +1,21 @@
-#!/usr/bin/env bash
+#!/usr/bin/env run-cargo-script
 
-set -euo pipefail
+use std::env;
+use std::fs;
+use std::path::Path;
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
-CONFIG_DIR="$HOME/.config/git"
+fn main() -> std::io::Result<()> {
+    let home = env!("HOME");
+    let config_dir = format!("{}/.config/git", home);
+    let config_file = format!("{}/config", config_dir);
+    let path = env::current_dir()?;
+    let source_file = format!("{}/git/work-config", path.display());
 
-##
-# Note: We copy these because we the default configuration is the home one.
-##
+    fs::create_dir_all(&config_dir)?;
+    if Path::new(&config_file).exists() {
+        fs::remove_file(&config_file)?;
+    }
+    fs::copy(&source_file, &config_file)?;
 
-mkdir -p "$CONFIG_DIR"
-rm -f "$CONFIG_DIR/config"
-cp "$SCRIPT_DIR/../work-config" "$CONFIG_DIR/config"
+    Ok(())
+}

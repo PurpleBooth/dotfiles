@@ -1,14 +1,36 @@
-#!/usr/bin/env bash
+#!/usr/bin/env run-cargo-script
 
-set -euo pipefail
+use std::env;
+use std::fs;
+use std::fs::File;
+use std::fs::OpenOptions;
+use std::os::unix::fs::OpenOptionsExt;
+use std::os::unix::fs::PermissionsExt;
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
+fn main() -> std::io::Result<()> {
+    let data_home = env!("XDG_DATA_HOME");
+    let gnupg_dir = format!("{}/gnupg", data_home);
+    let config_file = format!("{}/gpg-agent.conf", gnupg_dir);
+    fs::create_dir_all(&gnupg_dir);
 
-GNU_DIR="$XDG_DATA_HOME/gnupg"
-CONFIG_FILE="$GNU_DIR/gpg-agent.conf"
+    set_directory_permission(&gnupg_dir, 0o700);
+    set_file_permission(&config_file, 0o600);
 
-mkdir -p "$GNU_DIR"
-touch "$CONFIG_FILE"
-chmod 700 "$GNU_DIR"
-chmod 600 "$CONFIG_FILE"
-gpg --list-keys
+    Ok(())
+}
+
+fn set_file_permission(config_file: &str, permission: u32) {
+    fs::OpenOptions::new()
+        .create(true)
+        .write(true)
+        .append(true)
+        .mode(permission)
+        .open(config_file)
+        .unwrap();
+}
+
+fn set_directory_permission(config_file: &str, permission: u32) {
+    let mut permissions = fs::metadata(config_file).unwrap().permissions();
+    permissions.set_mode(permission); // Read/write for owner and read for others.
+    fs::set_permissions(config_file, permissions).unwrap();
+}
