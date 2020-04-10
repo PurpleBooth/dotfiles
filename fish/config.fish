@@ -84,6 +84,10 @@ end
 set  --universal --export CLICOLOR 1
 set  --universal --export LS_COLORS (dircolors -c $colorfile | string split ' ')[3]
 
+# History Search
+source (brew --prefix)"/opt/fzf/shell/key-bindings.fish"
+
+## Starship
 if type -q starship
     starship init fish | source
 end
