@@ -8,6 +8,7 @@
 
 extern crate serde;
 extern crate serde_json;
+#[macro_use]
 extern crate simple_error;
 
 use serde::{Deserialize, Serialize};
@@ -21,73 +22,95 @@ fn main() -> Result<(), SimpleError> {
     let keyring = "sops";
     let key = "sops-key";
 
-    let active_configuration = active_configuration().expect("Failed to get active configuration");
-    let configurations = configurations().expect("Failed to load configuration config");
+    let active_configuration =
+        try_with!(active_configuration(), "Failed to get active configuration");
+    let configurations = try_with!(configurations(), "Failed to load configuration config");
 
     if !configurations.contains(&configuration_name.to_string()) {
-        create_configuration(&configuration_name).expect(&format!(
+        try_with!(
+            create_configuration(&configuration_name),
             "Failed to create configuration \"{}\"",
             configuration_name
-        ));
+        );
     }
 
     match active_configuration {
         Some(active_configuration) => {
-            activate_configuration(&active_configuration).expect(&format!(
+            try_with!(
+                activate_configuration(&active_configuration),
                 "Failed to activate configuration \"{}\"",
                 configuration_name
-            ));
+            );
             ()
         }
         _ => (),
     }
 
-    set_project(secret_project, configuration_name).expect(&format!(
+    try_with!(
+        set_project(secret_project, configuration_name),
         "Failed to set project \"{}\" in configuration \"{}\"",
-        secret_project, configuration_name
-    ));
+        secret_project,
+        configuration_name
+    );
 
-    if !is_logged_in(configuration_name)
-        .expect(&format!(
-            "Login command failed with configuration \"{}\"",
-            configuration_name
-        ))
-        .success()
+    if !try_with!(
+        is_logged_in(configuration_name),
+        "Login command failed with configuration \"{}\"",
+        configuration_name
+    )
+    .success()
     {
-        login(configuration_name).expect(&format!(
+        try_with!(
+            login(configuration_name),
             "Failed to login to configuration \"{}\"",
             configuration_name
-        ));
+        );
     }
 
-    if !is_cloudkms_service_enabled(configuration_name).expect(&format!(
+    if !try_with!(
+        is_cloudkms_service_enabled(configuration_name),
         "Failed check if cloudkms is enabled with config \"{}\"",
         configuration_name
-    )) {
-        enable_cloudkms_service(configuration_name).expect(&format!(
+    ) {
+        try_with!(
+            enable_cloudkms_service(configuration_name),
             "Failed to enable cloudkms service with config \"{}\"",
             configuration_name
-        ));
+        );
     }
 
-    if !is_keyring_existent(configuration_name, secret_project, keyring).expect(&format!(
+    if !try_with!(
+        is_keyring_existent(configuration_name, secret_project, keyring),
         "Failed check if keyring \"{}\" in project \"{}\" exists with config \"{}\"",
-        keyring, secret_project, configuration_name
-    )) {
-        create_keyring(configuration_name, keyring).expect(&format!(
+        keyring,
+        secret_project,
+        configuration_name
+    ) {
+        try_with!(
+            create_keyring(configuration_name, keyring),
             "Failed create keyring \"{}\" in project \"{}\" exists with config \"{}\"",
-            keyring, secret_project, configuration_name
-        ));
+            keyring,
+            secret_project,
+            configuration_name
+        );
     }
 
-    if !is_key_existent(configuration_name, secret_project, keyring, key).expect(&format!(
+    if !try_with!(
+        is_key_existent(configuration_name, secret_project, keyring, key),
         "Failed check if key \"{}\" in keyring \"{}\" in project \"{}\" exists with config \"{}\"",
-        key, keyring, secret_project, configuration_name
-    )) {
-        create_key(configuration_name, keyring, key).expect(&format!(
+        key,
+        keyring,
+        secret_project,
+        configuration_name
+    ) {
+        try_with!(
+            create_key(configuration_name, keyring, key),
             "Failed create key \"{}\" keyring \"{}\" in project \"{}\" exists with config \"{}\"",
-            key, keyring, secret_project, configuration_name
-        ));
+            key,
+            keyring,
+            secret_project,
+            configuration_name
+        );
     }
 
     Ok(())
