@@ -104,9 +104,6 @@
     # Bash
     - command: ./bash/bin/test
       description: " Bash: Testing it runs"
-    # FZF
-    - command: ./fzf/bin/configure
-      description: " fzf: Installing shell extensions"
     # Git \
     - command: ./git/bin/test
       description: " Git: Testing it runs"
