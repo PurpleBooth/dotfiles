@@ -73,6 +73,8 @@
     # Sops
     ~/.sops.yaml: sops/sops.yaml
     ~/.bin/1password: 1password/bin/1password
+    # Cargo
+    ~/.cargo/config: cargo/config
 
 - create:
     - ~/Code/
