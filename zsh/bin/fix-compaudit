@@ -1,21 +1,50 @@
-#!/usr/bin/env bash
+#!/usr/bin/env run-cargo-script
+// cargo-deps: regex = "1"
 
-set -euo pipefail
+extern crate regex;
 
-mapfile -t AUDIT_PROBLEMS < <(zsh -c "autoload -U compaudit && compaudit" 2>/dev/null)
+use regex::Regex;
+use std::env;
+use std::process;
+use std::process::Command;
+use std::process::Stdio;
+use std::str;
 
-if [ "${#AUDIT_PROBLEMS[@]}" -eq 0 ]; then
-  exit 0
-fi
+fn main() {
+    let audit_problems = zsh(&"autoload -U compaudit && compaudit");
+    if audit_problems.status.success() {
+        process::exit(0);
+    }
 
-for FILE in "${AUDIT_PROBLEMS[@]}"; do
-  if [ "$(gstat -c '%U' "$FILE")" != "$USER" ]; then
-    echo "gaining ownership: $FILE"
-    sudo chown -R "$USER" "$FILE"
-  fi
+    let user = env!("USER");
+    let stdout = str::from_utf8(&audit_problems.stdout).unwrap();
 
-  if gstat -c "%A" "$FILE" | grep -qE '(.{2}w.{7}|.{5}w.{4})'; then
-    echo "removing non-user write: $FILE"
-    chmod -R go-w "$FILE"
-  fi
-done
+    for file in stdout.lines() {
+        let cmd = format!("gstat -c '%U' \"{}\"", file);
+        let owner = zsh(&cmd);
+
+        let owner_stdout = str::from_utf8(&owner.stdout).unwrap();
+        if owner_stdout != user {
+            println!("gaining ownership: {}", file);
+            let cmd = format!("sudo chown -R \"{}\" \"{}\"", user, file);
+            zsh(&cmd);
+        }
+
+        let permissions = zsh(&format!("gstat -c '%A' \"{}\"", file));
+        let stat_permissions = str::from_utf8(&permissions.stdout).unwrap();
+        let regex = Regex::new("(.{2}w.{7}|.{5}w.{4})").unwrap();
+
+        if regex.is_match(stat_permissions) {
+            let chmod = format!("chmod -R go-w \"{}\"", file);
+            zsh(&chmod);
+        }
+    }
+}
+
+fn zsh(cmd: &str) -> std::process::Output {
+    return Command::new("zsh")
+        .arg("-c")
+        .arg(cmd)
+        .output()
+        .expect(&format!("failed to execute: {}", cmd));
+}
