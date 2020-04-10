@@ -51,7 +51,7 @@ format-brewfile:
 .PHONY: format-yaml
 ## Format any yaml files
 format-yaml:
-	fish -c "prettier --write **.yml **.yaml"
+	find . -path ./dotbot-brew -prune -o -path ./dotbot -prune -o \( -iname "*.yml" -o -iname "*.yaml" \) -exec prettier --write {} \;
 
 .PHONY: fish-generate-gnu-utils-functions
 ## Regenerate the config files for gnu utils in fish
