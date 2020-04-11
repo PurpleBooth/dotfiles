@@ -1,17 +1,11 @@
 #!/usr/bin/env run-cargo-script
 use std::env;
-use std::process::{Command, ExitStatus, Output, Stdio};
 use std::io::{self, BufRead};
+use std::process::{Command, ExitStatus, Output, Stdio};
 
 fn main() -> std::io::Result<()> {
     let mut arguments: Vec<String> = vec![String::from("duet-prepare-commit-msg")];
-    arguments.extend(
-        env::args()
-            .skip(1)
-            .collect::<Vec<String>>()
-            .iter()
-            .cloned()
-    );
+    arguments.extend(env::args().skip(1).collect::<Vec<String>>().iter().cloned());
     let status_code = Command::new("git")
         .args(arguments)
         .status()
