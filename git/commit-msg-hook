@@ -62,7 +62,7 @@ This is an example commit without any duplicate trailers
         let commit_message = r#"
 An example commit
 
-This is an example commit without any duplicate trailers
+This is an example commit with duplicate trailers
 
 Signed-off-by: Billie Thompson <email@example.com>
 Signed-off-by: Billie Thompson <email@example.com>
@@ -121,7 +121,7 @@ Signed-off-by Billie Thompson <email@example.com>
         let commit_message = r#"
 An example commit
 
-This is an example commit without any duplicate trailers
+This is an example commit with duplicate trailers
 
 Anything: Billie Thompson <email@example.com>
 Anything: Billie Thompson <email@example.com>
