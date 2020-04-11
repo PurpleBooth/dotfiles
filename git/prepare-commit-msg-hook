@@ -1,9 +1,27 @@
-#!/usr/bin/env bash
+#!/usr/bin/env run-cargo-script
+use std::env;
+use std::process::{Command, ExitStatus, Output, Stdio};
 
-set -euo pipefail
+fn main() -> std::io::Result<()> {
 
-STDIN=$(cat /dev/stdin)
+    let mut arguments: Vec<String> = vec![String::from("duet-prepare-commit-msg")];
+    arguments.extend(
+            env::args()
+                .collect::<Vec<String>>()
+                .iter()
+                .cloned()
+        );
 
-if ! echo "$STDIN" | git duet-prepare-commit-msg "$@"; then
-  exit $?
-fi
+    let mut git_binary = Command::new("git");
+    let command = git_binary.args(arguments);
+    let output = command.output();
+    let status_code =output
+        .expect("Running command failed")
+        .status
+        .code()
+        .expect("Command did not have a status code");
+
+    std::process::exit(status_code);
+
+    Ok(())
+}
