@@ -10,7 +10,7 @@ show-help:
 
 .PHONY: setup-home
 ## Install and link all packages for home
-setup-home:
+setup-home: test-rust
 	cp dotbot/tools/git-submodule/install "$(ROOT_DIR)/install"
 	"$(ROOT_DIR)/install" --plugin-dir dotbot-brew
 
@@ -57,6 +57,11 @@ format-yaml:
 ## Format any rust files
 format-rust:
 	grep --exclude=Makefile --exclude-dir=.git -FRil "#!/usr/bin/env run-cargo-script" $(ROOT_DIR) | xargs rustfmt
+
+.PHONY: test-rust
+## Test any rust files (that have tests)
+test-rust:
+	grep --exclude=Makefile --exclude-dir=.git -FRil "#!/usr/bin/env run-cargo-script" $(ROOT_DIR) | xargs -n 1 cargo script --test
 
 .PHONY: fish-generate-gnu-utils-functions
 ## Regenerate the config files for gnu utils in fish

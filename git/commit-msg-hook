@@ -1,14 +1,14 @@
 #!/usr/bin/env run-cargo-script
 
 use std::collections::HashSet;
-use std::iter::FromIterator;
-use std::fs;
 use std::env;
+use std::fs;
+use std::iter::FromIterator;
 
 fn main() -> std::io::Result<()> {
     let args: Vec<String> = env::args().collect();
-  let commit_file_path = &args[1];
-  let commit_message =
+    let commit_file_path = &args[1];
+    let commit_message =
         fs::read_to_string(commit_file_path).expect("Something went wrong reading the file");
 
     for trailer in vec!["Signed-off-by", "Co-authored-by"] {
@@ -17,12 +17,12 @@ fn main() -> std::io::Result<()> {
                 r#"
 {}
 
-Your commit cannot have the same name duplicated in the {} field
+Your commit cannot have the same name duplicated in the \"{}\" field
 "#,
                 commit_message, trailer
             );
 
-          std::process::exit(1);
+            std::process::exit(1);
         }
     }
 

@@ -1,7 +1,6 @@
 #!/usr/bin/env run-cargo-script
 use std::env;
-use std::io::{self, BufRead};
-use std::process::{Command, ExitStatus, Output, Stdio};
+use std::process::Command;
 
 fn main() -> std::io::Result<()> {
     let mut arguments: Vec<String> = vec![String::from("duet-prepare-commit-msg")];
@@ -13,7 +12,5 @@ fn main() -> std::io::Result<()> {
         .code()
         .expect("Command did not have a status code");
 
-    std::process::exit(status_code);
-
-    Ok(())
+    std::process::exit(status_code)
 }

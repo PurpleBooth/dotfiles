@@ -2,8 +2,6 @@
 
 use std::env;
 use std::fs;
-use std::fs::File;
-use std::fs::OpenOptions;
 use std::os::unix::fs::OpenOptionsExt;
 use std::os::unix::fs::PermissionsExt;
 
@@ -11,7 +9,7 @@ fn main() -> std::io::Result<()> {
     let data_home = env!("XDG_DATA_HOME");
     let gnupg_dir = format!("{}/gnupg", data_home);
     let config_file = format!("{}/gpg-agent.conf", gnupg_dir);
-    fs::create_dir_all(&gnupg_dir);
+    fs::create_dir_all(&gnupg_dir)?;
 
     set_directory_permission(&gnupg_dir, 0o700);
     set_file_permission(&config_file, 0o600);
