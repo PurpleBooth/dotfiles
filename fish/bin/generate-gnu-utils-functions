@@ -169,16 +169,20 @@ fn generate_gnu_utils_function(
 
             (
                 path_string.to_string(),
-                template
-                    .replace("___GNU_CMD___", gnu_function)
-                    .replace(
-                        "___PREFIXED_COMMAND___",
-                        &format!("{}{}", function_prefix, gnu_function),
-                    )
-                    .to_string(),
+                replace_template(function_prefix, template, &gnu_function),
             )
         })
         .collect();
+}
+
+fn replace_template(function_prefix: &str, template: &str, gnu_function: &str) -> String {
+    template
+        .replace("___GNU_CMD___", gnu_function)
+        .replace(
+            "___PREFIXED_COMMAND___",
+            &format!("{}{}", function_prefix, gnu_function),
+        )
+        .to_string()
 }
 
 #[cfg(test)]
