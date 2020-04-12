@@ -1,0 +1,16 @@
+#!/usr/bin/env run-cargo-script
+use std::env;
+use std::process::Command;
+
+fn main() -> std::io::Result<()> {
+    let mut arguments: Vec<String> = vec![String::from("duet-pre-commit")];
+    arguments.extend(env::args().skip(1).collect::<Vec<String>>().iter().cloned());
+    let status_code = Command::new("git")
+        .args(arguments)
+        .status()
+        .expect("Running command failed")
+        .code()
+        .expect("Command did not have a status code");
+
+    std::process::exit(status_code)
+}

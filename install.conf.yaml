@@ -44,6 +44,7 @@
     ~/.config/git/ignore: git/ignore
     ~/.config/git/init-template/hooks/prepare-commit-msg: git/prepare-commit-msg-hook
     ~/.config/git/init-template/hooks/commit-msg: git/commit-msg-hook
+    ~/.config/git/init-template/hooks/pre-commit: git/pre-commit-hook
     # Git Duet
     ~/.config/git-duet/authors.yml: git-duet/authors.yml
     ~/.bin/git-duet: git-duet/wrap-for-sops
