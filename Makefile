@@ -10,7 +10,7 @@ show-help:
 
 .PHONY: setup-home
 ## Install and link all packages for home
-setup-home: test-rust
+setup-home:
 	cp dotbot/tools/git-submodule/install "$(ROOT_DIR)/install"
 	"$(ROOT_DIR)/install" --plugin-dir dotbot-brew
 
@@ -26,7 +26,7 @@ generate-secret-envs:
 
 .PHONY: format
 ## Format what we can
-format: format-shell format-brewfile format-markdown format-yaml format-rust
+format: format-shell format-brewfile format-markdown format-yaml format-rust test-rust
 
 .PHONY: format-markdown
 ## Format markdown files
