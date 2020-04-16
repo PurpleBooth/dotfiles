@@ -6,7 +6,7 @@ SCRIPT_NAME="$(basename "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}")"
 DUET_HOME="$(brew --prefix)/bin"
 
 GIT_DUET_AUTHORS_FILE="$(mktemp)"
-sops -d "$HOME/.config/git-duet/authors.yml" > "$GIT_DUET_AUTHORS_FILE"
+sops -d "$HOME/.config/git-duet/authors.yml" >"$GIT_DUET_AUTHORS_FILE"
 
 export GIT_DUET_AUTHORS_FILE
 exec "$DUET_HOME/$SCRIPT_NAME" "$@"

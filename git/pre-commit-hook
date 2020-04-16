@@ -9,5 +9,5 @@ fn main() {
 
     let cmd = "git";
     let err = process::Command::new(cmd).args(arguments).exec();
-    panic!("panic!: {}" ,err)
+    panic!("panic!: {}", err)
 }
