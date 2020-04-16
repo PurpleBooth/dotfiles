@@ -1,12 +1,67 @@
-#!/usr/bin/env bash
+#!/usr/bin/env run-cargo-script
+// cargo-deps: dirs = "2.0"
 
-set -euo pipefail
+use std::env;
+use std::fs::File;
+use std::io::prelude::*;
+use std::os::unix::process::CommandExt;
+use std::path::PathBuf;
+use std::process;
+use std::process::Command;
+use std::str;
 
-SCRIPT_NAME="$(basename "${BASH_SOURCE[${#BASH_SOURCE[@]} - 1]}")"
-DUET_HOME="$(brew --prefix)/bin"
+fn main() {
+    let mut arguments: Vec<String> = vec![];
+    arguments.extend(env::args().skip(1).collect::<Vec<String>>().iter().cloned());
+    let current_exe = env::current_exe().unwrap();
+    let script_name = current_exe.file_name().unwrap();
 
-GIT_DUET_AUTHORS_FILE="$(mktemp)"
-sops -d "$HOME/.config/git-duet/authors.yml" >"$GIT_DUET_AUTHORS_FILE"
+    let mut brew_location = match command_output("brew".to_string(), vec!["--prefix".to_string()]) {
+        Err(err) => {
+            panic!("error: {:?}", err);
+        }
+        Ok(output) => PathBuf::from(output.trim()),
+    };
 
-export GIT_DUET_AUTHORS_FILE
-exec "$DUET_HOME/$SCRIPT_NAME" "$@"
+    let mut home = match dirs::home_dir() {
+        Some(home) => PathBuf::from(home),
+        None => panic!("No home?!"),
+    };
+
+    home.push(".config");
+    home.push("git-duet");
+    home.push("authors.yml");
+
+    let decrypted_author_file = match command_output(
+        "sops".to_string(),
+        vec!["-d".to_string(), home.to_str().unwrap().to_string()],
+    ) {
+        Err(err) => {
+            panic!("error: {:?}", err);
+        }
+        Ok(output) => output,
+    };
+
+    let mut dir = env::temp_dir();
+    dir.push("authors.yml");
+
+    let mut f = File::create(&dir).unwrap();
+    f.write_all(&decrypted_author_file.as_bytes()).unwrap();
+
+    env::set_var("GIT_DUET_AUTHORS_FILE", dir);
+    brew_location.push("bin/");
+    brew_location.push(script_name);
+    let cmd = brew_location;
+    let err = process::Command::new(cmd).args(arguments).exec();
+    panic!("panic!: {}", err)
+}
+
+fn command_output(command: String, args: Vec<String>) -> Result<String, String> {
+    match Command::new(command).args(args).output() {
+        Err(err) => Err(format!("Error: {}", err)),
+        Ok(output) => match str::from_utf8(&output.stdout) {
+            Err(message) => Err(message.to_string()),
+            Ok(output) => Ok(output.to_string()),
+        },
+    }
+}
