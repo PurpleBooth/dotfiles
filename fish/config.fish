@@ -48,12 +48,16 @@ set --global --export SHELL_NAME "fish"
 
 # Not committed
 if [ -f "$HOME/.config/envsecret/envsecret.sourceable.fish" ]
-    eval (
+    set oldIFS "$IFS"
+    set IFS ""
+    set -l ENV_SECRETS (
       sops \
         exec-file \
         "$HOME/.config/envsecret/envsecret.sourceable.fish" \
         'cat "{}"'
     )
+    eval "$ENV_SECRETS"
+    set IFS "$oldIFS"
 end
 
 #####################################################################
