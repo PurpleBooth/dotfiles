@@ -13,40 +13,40 @@ use std::str;
 fn main() {
     let mut arguments: Vec<String> = vec![];
     arguments.extend(env::args().skip(1).collect::<Vec<String>>().iter().cloned());
-    let current_exe = env::current_exe().unwrap();
-    let script_name = current_exe.file_name().unwrap();
+    let current_exe = env::current_exe().expect("Couldn't get the name of the binary");
+    let script_name = current_exe
+        .file_name()
+        .expect("Couldn't get the name of the binary without the path");
 
-    let mut brew_location = match command_output("brew".to_string(), vec!["--prefix".to_string()]) {
-        Err(err) => {
-            panic!("error: {:?}", err);
-        }
-        Ok(output) => PathBuf::from(output.trim()),
-    };
+    let mut brew_location = PathBuf::from(
+        command_output("brew".to_string(), vec!["--prefix".to_string()])
+            .expect("Couldn't get the path to the brew directory")
+            .trim(),
+    );
 
-    let mut home = match dirs::home_dir() {
-        Some(home) => PathBuf::from(home),
-        None => panic!("No home?!"),
-    };
+    let mut home = PathBuf::from(dirs::home_dir().expect("No home?!"));
 
     home.push(".config");
     home.push("git-duet");
     home.push("authors.yml");
 
-    let decrypted_author_file = match command_output(
+    let decrypted_author_file = command_output(
         "sops".to_string(),
-        vec!["-d".to_string(), home.to_str().unwrap().to_string()],
-    ) {
-        Err(err) => {
-            panic!("error: {:?}", err);
-        }
-        Ok(output) => output,
-    };
+        vec![
+            "-d".to_string(),
+            home.to_str()
+                .expect("Couldn't convert config home to string")
+                .to_string(),
+        ],
+    )
+    .expect("Couldn't decrypt the authors file");
 
     let mut dir = env::temp_dir();
     dir.push("authors.yml");
 
-    let mut f = File::create(&dir).unwrap();
-    f.write_all(&decrypted_author_file.as_bytes()).unwrap();
+    let mut f = File::create(&dir).expect("Couldn't create temporary file");
+    f.write_all(&decrypted_author_file.as_bytes())
+        .expect("Couldn't write to temporary file");
 
     env::set_var("GIT_DUET_AUTHORS_FILE", dir);
     brew_location.push("bin/");
@@ -57,11 +57,12 @@ fn main() {
 }
 
 fn command_output(command: String, args: Vec<String>) -> Result<String, String> {
-    match Command::new(command).args(args).output() {
-        Err(err) => Err(format!("Error: {}", err)),
-        Ok(output) => match str::from_utf8(&output.stdout) {
-            Err(message) => Err(message.to_string()),
-            Ok(output) => Ok(output.to_string()),
-        },
-    }
+    let output = Command::new(command).args(args).output();
+    output
+        .or_else(|err| Err(format!("Error: {}", err)))
+        .and_then(|output| {
+            str::from_utf8(&output.stdout)
+                .or_else(|message| Err(message.to_string()))
+                .and_then(|output| Ok(output.to_string()))
+        })
 }
