@@ -111,7 +111,7 @@
     - command: ./gnupg/bin/test
     - command: ./tldr/bin/test
     - command: ./vim/bin/test
-    - command: ./zsh/bin/fix-compaudit
+    - command: fix-compaudit
     - command: ./zsh/bin/test
     - command: ./sops/bin/setup
     - command: ./1password/bin/generate-envsecret

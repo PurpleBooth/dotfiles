@@ -2,14 +2,6 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
-@test "fix-compaudit fixes compuaudit issues" {
-  chmod -R o+w /usr/local/share/zsh/
-  
-  run ./zsh/bin/fix-compaudit
-
-  [ "$status" -eq 0 ]
-}
-
 @test "zsh is installed and runs" {
   run zsh -c "echo hello"
 
