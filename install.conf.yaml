@@ -107,7 +107,7 @@
     - command: gcloud components update --quiet
     - command: ./git/bin/test
     - command: ./git-duet/bin/test
-    - command: ./gnupg/bin/fix-permissions
+    - command: fix-gnupg-permissions
     - command: ./gnupg/bin/test
     - command: ./tldr/bin/test
     - command: ./vim/bin/test
