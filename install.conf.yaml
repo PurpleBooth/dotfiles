@@ -113,5 +113,5 @@
     - command: ./vim/bin/test
     - command: fix-compaudit
     - command: ./zsh/bin/test
-    - command: ./sops/bin/setup
+    - command: setup-a-keyring-for-sops secret-store purplebooth-secret-storage sops sops-key
     - command: ./1password/bin/generate-envsecret
