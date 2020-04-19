@@ -11,6 +11,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/command-not-found"
 tap "homebrew/core"
+brew "mas"
 cask "1password"
 cask "1password-cli"
 cask "adoptopenjdk8"
@@ -46,6 +47,8 @@ cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 cask "zoomus"
+mas "Keynote", id: 409183694
+mas "NextDNS", id: 1464122853
 brew "PurpleBooth/repo/art-station-i-guess"
 brew "PurpleBooth/repo/fix-compaudit"
 brew "PurpleBooth/repo/fix-gnupg-permissions"
@@ -141,5 +144,3 @@ brew "yarn"
 brew "yq"
 brew "zplug"
 brew "zsh"
-mas "Keynote", id: 409183694
-mas "NextDNS", id: 1464122853

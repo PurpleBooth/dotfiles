@@ -44,9 +44,11 @@ format-shell:
 format-brewfile:
 	cat $(ROOT_DIR)/brew/Brewfile | sort | uniq | sed '/^[[:space:]]*$$/d' > $(ROOT_DIR)/brew/Brewfile.1
 	mv $(ROOT_DIR)/brew/Brewfile.1 brew/Brewfile
-	grep '^t' $(ROOT_DIR)/brew/Brewfile > brew/Brewfile.1
-	grep '^c' $(ROOT_DIR)/brew/Brewfile >> $(ROOT_DIR)/brew/Brewfile.1
-	grep -v '^[tc]' $(ROOT_DIR)/brew/Brewfile >> $(ROOT_DIR)/brew/Brewfile.1
+	grep '^tap' $(ROOT_DIR)/brew/Brewfile > brew/Brewfile.1
+	grep '^brew "mas"' $(ROOT_DIR)/brew/Brewfile >> brew/Brewfile.1
+	grep '^cask' $(ROOT_DIR)/brew/Brewfile >> $(ROOT_DIR)/brew/Brewfile.1
+	grep '^mas' $(ROOT_DIR)/brew/Brewfile >> $(ROOT_DIR)/brew/Brewfile.1
+	grep '^brew' $(ROOT_DIR)/brew/Brewfile >> $(ROOT_DIR)/brew/Brewfile.1
 	mv $(ROOT_DIR)/brew/Brewfile.1 $(ROOT_DIR)/brew/Brewfile
 
 .PHONY: format-yaml
