@@ -24,6 +24,13 @@ fn main() {
             .trim(),
     );
 
+    let mut sops_key = dirs::home_dir().map(PathBuf::from).expect("No home?!");
+    sops_key.push(".config");
+    sops_key.push("gcloud");
+    sops_key.push("application_sops_credentials.json");
+
+    env::set_var("GOOGLE_APPLICATION_CREDENTIALS", sops_key);
+
     let mut home = PathBuf::from(dirs::home_dir().expect("No home?!"));
 
     home.push(".config");
