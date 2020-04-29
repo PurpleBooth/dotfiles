@@ -61,6 +61,7 @@
       ignore-missing: true
     ~/.bin/git-duet-install-hook:
       path: /usr/local/bin/git-duet-wrap-for-sops
+      ignore-missing: true
     ~/.bin/git-duet-merge:
       path: /usr/local/bin/git-duet-wrap-for-sops
       ignore-missing: true
