@@ -40,10 +40,6 @@ function gfmfmt() {
   done
 }
 
-function git() {
-    hub "$@"
-}
-
 function icat() {
   kitty +kitten icat --align left "$@"
 }

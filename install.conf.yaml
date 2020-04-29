@@ -42,20 +42,43 @@
     ~/.config/git/config.homebrew: git/config.homebrew
     ~/.config/git/message: git/message
     ~/.config/git/ignore: git/ignore
-    ~/.config/git/init-template/hooks/prepare-commit-msg: git/prepare-commit-msg-hook
-    ~/.config/git/init-template/hooks/commit-msg: git/commit-msg-hook
-    ~/.config/git/init-template/hooks/pre-commit: git/pre-commit-hook
+    ~/.config/git/init-template/hooks/prepare-commit-msg:
+      path: /usr/local/bin/pb-prepare-commit-msg
+      ignore-missing: true
+    ~/.config/git/init-template/hooks/commit-msg:
+      path: /usr/local/bin/pb-commit-msg
+      ignore-missing: true
+    ~/.config/git/init-template/hooks/pre-commit:
+      path: /usr/local/bin/pb-pre-commit
+      ignore-missing: true
     # Git Duet
     ~/.config/git-duet/authors.yml: git-duet/authors.yml
-    ~/.bin/git-duet: git-duet/wrap-for-sops
-    ~/.bin/git-duet-commit: git-duet/wrap-for-sops
-    ~/.bin/git-duet-install-hook: git-duet/wrap-for-sops
-    ~/.bin/git-duet-merge: git-duet/wrap-for-sops
-    ~/.bin/git-duet-post-commit: git-duet/wrap-for-sops
-    ~/.bin/git-duet-prepare-commit-msg: git-duet/wrap-for-sops
-    ~/.bin/git-duet-pre-commit: git-duet/wrap-for-sops
-    ~/.bin/git-duet-revert: git-duet/wrap-for-sops
-    ~/.bin/git-solo: git-duet/wrap-for-sops
+    ~/.bin/git-duet:
+      path: /usr/local/bin/git-duet-wrap-for-sops
+      ignore-missing: true
+    ~/.bin/git-duet-commit:
+      path: /usr/local/bin/git-duet-wrap-for-sops
+      ignore-missing: true
+    ~/.bin/git-duet-install-hook:
+      path: /usr/local/bin/git-duet-wrap-for-sops
+    ~/.bin/git-duet-merge:
+      path: /usr/local/bin/git-duet-wrap-for-sops
+      ignore-missing: true
+    ~/.bin/git-duet-post-commit:
+      path: /usr/local/bin/git-duet-wrap-for-sops
+      ignore-missing: true
+    ~/.bin/git-duet-prepare-commit-msg:
+      path: /usr/local/bin/git-duet-wrap-for-sops
+      ignore-missing: true
+    ~/.bin/git-duet-pre-commit:
+      path: /usr/local/bin/git-duet-wrap-for-sops
+      ignore-missing: true
+    ~/.bin/git-duet-revert:
+      path: /usr/local/bin/git-duet-wrap-for-sops
+      ignore-missing: true
+    ~/.bin/git-solo:
+      path: /usr/local/bin/git-duet-wrap-for-sops
+      ignore-missing: true
 
     # GnuPG
     ~/local/share/gnupg/gpg-agent/conf: gnupg/gpg-agent.conf
