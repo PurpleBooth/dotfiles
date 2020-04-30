@@ -50,12 +50,15 @@ set --global --export SHELL_NAME "fish"
 if [ -f "$HOME/.config/envsecret/envsecret.sourceable.fish" ]
     set OLD_IFS "$IFS"
     set IFS ""
+    set GOOGLE_APPLICATION_CREDENTIALS_OLD "$GOOGLE_APPLICATION_CREDENTIALS"
+    set GOOGLE_APPLICATION_CREDENTIALS "$XDG_CONFIG_HOME/gcloud/application_sops_credentials.json"
     set -l ENV_SECRETS (
       sops \
         exec-file \
         "$HOME/.config/envsecret/envsecret.sourceable.fish" \
         'cat "{}"'
     )
+    set GOOGLE_APPLICATION_CREDENTIALS "$GOOGLE_APPLICATION_CREDENTIALS_OLD"
     eval "$ENV_SECRETS"
     set IFS "$OLD_IFS"
 end
