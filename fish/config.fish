@@ -2,8 +2,8 @@
 # Plugins                                                           #
 #####################################################################
 
-if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
+if not functions --query fisher
+    set --query XDG_CONFIG_HOME; or set XDG_CONFIG_HOME "$HOME/.config"
     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
     fish -c fisher
 end
@@ -50,15 +50,25 @@ set --global --export SHELL_NAME "fish"
 if [ -f "$HOME/.config/envsecret/envsecret.sourceable.fish" ]
     set OLD_IFS "$IFS"
     set IFS ""
-    set GOOGLE_APPLICATION_CREDENTIALS_OLD "$GOOGLE_APPLICATION_CREDENTIALS"
-    set GOOGLE_APPLICATION_CREDENTIALS "$XDG_CONFIG_HOME/gcloud/application_sops_credentials.json"
-    set -l ENV_SECRETS (
+
+    if set --query GOOGLE_APPLICATION_CREDENTIALS
+      set --local GOOGLE_APPLICATION_CREDENTIALS_OLD "$GOOGLE_APPLICATION_CREDENTIALS"
+      set GOOGLE_APPLICATION_CREDENTIALS_OLD "$GOOGLE_APPLICATION_CREDENTIALS"
+    end
+
+    set --global --export  GOOGLE_APPLICATION_CREDENTIALS "$XDG_CONFIG_HOME/gcloud/application_sops_credentials.json"
+    set --local ENV_SECRETS (
       sops \
         exec-file \
         "$HOME/.config/envsecret/envsecret.sourceable.fish" \
         'cat "{}"'
     )
-    set GOOGLE_APPLICATION_CREDENTIALS "$GOOGLE_APPLICATION_CREDENTIALS_OLD"
+    if set --query GOOGLE_APPLICATION_CREDENTIALS_OLD
+      set --global --export GOOGLE_APPLICATION_CREDENTIALS "$GOOGLE_APPLICATION_CREDENTIALS_OLD"
+    else
+      set --erase GOOGLE_APPLICATION_CREDENTIALS
+    end
+
     eval "$ENV_SECRETS"
     set IFS "$OLD_IFS"
 end
@@ -79,7 +89,7 @@ set --global --export PATH "$HOME/.cargo/bin" $PATH
 
 brew command command-not-found-init > /dev/null; and . (brew command-not-found-init)
 
-if type -q kitty
+if type --quiet kitty
     kitty + complete setup fish | source $argv
 end
 
@@ -96,7 +106,7 @@ set --global --export LS_COLORS (dircolors -c $colorfile | string split ' ')[3]
 source (brew --prefix)"/opt/fzf/shell/key-bindings.fish"
 
 ## Starship
-if type -q starship
+if type --quiet starship
     starship init fish | source
 end
 
