@@ -29,11 +29,11 @@
 [diff "sopsdiffer"]
   textconv = "sops -d"
 [pager]
-    show = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:none:foreground:0x50,0xFA,0x7B --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:none:foreground:0xFF,0x6E,0x6E | less -R
-    log  = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:none:foreground:0x50,0xFA,0x7B --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:none:foreground:0xFF,0x6E,0x6E | less -R
-    diff = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:none:foreground:0x50,0xFA,0x7B --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:none:foreground:0xFF,0x6E,0x6E | less -R
+    show = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:0x50,0xFA,0x7B:foreground:0x28,0x2A,0x36 --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:0xFF,0x6E,0x6E:foreground:0x28,0x2A,0x36 | less -R
+    log  = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:0x50,0xFA,0x7B:foreground:0x28,0x2A,0x36 --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:0xFF,0x6E,0x6E:foreground:0x28,0x2A,0x36 | less -R
+    diff = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:0x50,0xFA,0x7B:foreground:0x28,0x2A,0x36 --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:0xFF,0x6E,0x6E:foreground:0x28,0x2A,0x36 | less -R
 [interactive]
-    diffFilter = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:none:foreground:0x50,0xFA,0x7B --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:none:foreground:0xFF,0x6E,0x6E
+    diffFilter = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:none:foreground:0x50,0xFA,0x7B --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:0xFF,0x6E,0x6E:foreground:0x28,0x2A,0x36
 [url "git@github.com:"]
 	insteadOf = http://github.com/
 	insteadOf = https://github.com/
