@@ -39,12 +39,11 @@
   textconv = "sops -d"
 
 [pager]
-    log  = diffr --colors refine-added:none:background:0x33,0x99,0x33:bold --colors added:none:background:0x33,0x55,0x33 --colors refine-removed:none:background:0x99,0x33,0x33:bold --colors removed:none:background:0x55,0x33,0x33 | less -R
-    show = diffr --colors refine-added:none:background:0x33,0x99,0x33:bold --colors added:none:background:0x33,0x55,0x33 --colors refine-removed:none:background:0x99,0x33,0x33:bold --colors removed:none:background:0x55,0x33,0x33 | less -R
-    diff = diffr --colors refine-added:none:background:0x33,0x99,0x33:bold --colors added:none:background:0x33,0x55,0x33 --colors refine-removed:none:background:0x99,0x33,0x33:bold --colors removed:none:background:0x55,0x33,0x33 | less -R
+    show = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:none:foreground:0x50,0xFA,0x7B --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:none:foreground:0xFF,0x6E,0x6E | less -R
+    log  = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:none:foreground:0x50,0xFA,0x7B --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:none:foreground:0xFF,0x6E,0x6E | less -R
+    diff = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:none:foreground:0x50,0xFA,0x7B --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:none:foreground:0xFF,0x6E,0x6E | less -R
 [interactive]
-    diffFilter = diffr --colors refine-added:none:background:0x33,0x99,0x33:bold --colors added:none:background:0x33,0x55,0x33 --colors refine-removed:none:background:0x99,0x33,0x33:bold --colors removed:none:background:0x55,0x33,0x33
-
+    diffFilter = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:none:foreground:0x50,0xFA,0x7B --colors removed:background:none:foreground:0xFF,0x6E,0x6E --colors refine-removed:background:none:foreground:0xFF,0x6E,0x6E
 
 [url "git@github.com:"]
 	insteadOf = http://github.com/
