@@ -52,5 +52,5 @@
 [includeIf "gitdir:Homebrew/"]
 	path = config.homebrew
 
-[pb "message"]
+[pb "lint"]
 	duplicated-trailers = true
