@@ -10,7 +10,6 @@
 	email = billie@billiecodes.com
 	signingkey = 7C91D02AFA1E36EFE5D8099823CA28DE561828E0
 [core]
-	editor = "vim"
 	excludesfile = ~/.config/git/ignore
 [branch]
 	autosetupmerge = true
@@ -40,5 +39,3 @@
 
 [includeIf "gitdir:Homebrew/"]
 	path = config.homebrew
-[pb "lint"]
-	duplicated-trailers = true
