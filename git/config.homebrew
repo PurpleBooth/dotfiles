@@ -1,3 +1,0 @@
-[url "https://github.com/"]
-	insteadOf = git@github.com:
-	insteadOf = http://github.com/

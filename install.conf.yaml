@@ -39,7 +39,7 @@
       path: fish/functions/*
     # Git
     ~/.config/git/config: git/config
-    ~/.config/git/config.homebrew: git/config.homebrew
+    ~/.config/git/config.insteadofhttp: git/config.insteadofhttp
     ~/.config/git/message: git/message
     ~/.config/git/ignore: git/ignore
     ~/.config/git/init-template/hooks/prepare-commit-msg:
