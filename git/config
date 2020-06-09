@@ -18,6 +18,8 @@
 	enabled = true
 [branch "master"]
 	rebase = true
+[branch "main"]
+	rebase = true
 [init]
   templatedir = ~/.config/git/init-template
 [filter "lfs"]
