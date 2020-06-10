@@ -113,3 +113,4 @@ if type --quiet starship
     starship init fish | source
 end
 
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
