@@ -28,7 +28,6 @@ set --global --export XDG_RUNTIME_DIR "$HOME/Library/Caches/run"
 set --global --export VIMINIT ":source $XDG_CONFIG_HOME"/vim/.vimrc
 
 # GPG
-set --global --export GNUPGHOME "$XDG_DATA_HOME/gnupg"
 set --global --export GPG_TTY (tty)
 
 # Favourites

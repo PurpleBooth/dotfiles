@@ -84,7 +84,7 @@
       ignore-missing: true
 
     # GnuPG
-    ~/local/share/gnupg/gpg-agent/conf: gnupg/gpg-agent.conf
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     # Starship
     ~/.config/starship.toml: starship/starship.toml
     # Tmux
