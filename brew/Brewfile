@@ -49,13 +49,14 @@ cask "whatsapp"
 cask "zoomus"
 mas "Keynote", id: 409183694
 mas "NextDNS", id: 1464122853
+mas "Spark - Email App by Readdle", id: 1176895641
 brew "PurpleBooth/repo/art-station-i-guess"
 brew "PurpleBooth/repo/fix-compaudit"
 brew "PurpleBooth/repo/fix-gnupg-permissions"
 brew "PurpleBooth/repo/game-of-life"
 brew "PurpleBooth/repo/git-duet-wrap-for-sops"
+brew "PurpleBooth/repo/git-mit"
 brew "PurpleBooth/repo/goodreads-quotes"
-brew "PurpleBooth/repo/pb-git-hooks"
 brew "PurpleBooth/repo/setup-a-keyring-for-sops"
 brew "angular-cli"
 brew "aws-google-auth"
