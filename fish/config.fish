@@ -43,7 +43,7 @@ set --global --export GIT_DUET_SET_GIT_USER_CONFIG "1"
 set --global --export GIT_DUET_AUTHORS_FILE "$XDG_CONFIG_HOME/git-duet/authors.yml"
 
 # pb-git-hooks
-set --global --export GIT_MIT_AUTHORS_EXEC "GOOGLE_APPLICATION_CREDENTIALS=\"$XDG_CONFIG_HOME/gcloud/application_sops_credentials.json\" sops -d $XDG_CONFIG_HOME/git-mit/authors.yml"
+set --global --export GIT_MIT_AUTHORS_EXEC "CLOUDSDK_ACTIVE_CONFIG_NAME=\"secret-store\" GOOGLE_APPLICATION_CREDENTIALS=\"$XDG_CONFIG_HOME/gcloud/application_sops_credentials.json\" sops -d $XDG_CONFIG_HOME/git-mit/authors.yml"
 
 # Shell Name
 set --global --export SHELL_NAME "fish"
