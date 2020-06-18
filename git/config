@@ -5,10 +5,6 @@
 	verbose = true
 	gpgsign = true
 	template = ~/.config/git/message
-[user]
-	name = Billie Thompson
-	email = billie@billiecodes.com
-	signingkey = 89E815AD087045E024678DF81235239D92D1EF9D
 [core]
 	excludesfile = ~/.config/git/ignore
 [branch]
