@@ -51,6 +51,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-system-copy'
 Plug 'tpope/vim-sensible'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 syntax on
