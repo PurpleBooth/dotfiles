@@ -8,7 +8,7 @@
 [user]
 	name = Billie Thompson
 	email = billie@billiecodes.com
-	signingkey = CE99CAA5E2B0A8C2CE784EE9C1B4BA2DD53ACE1B
+	signingkey = 89E815AD087045E024678DF81235239D92D1EF9D
 [core]
 	excludesfile = ~/.config/git/ignore
 [branch]
