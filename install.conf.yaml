@@ -1,26 +1,26 @@
 - defaults:
     link:
-      relink: true
-      create: true
-      force: true
+        relink: true
+        create: true
+        force: true
     shell:
-      stdin: true
-      stdout: true
-      stderr: true
+        stdin: true
+        stdout: true
+        stderr: true
     clean:
-      force: true
+        force: true
 
 - clean:
     ~/:
-      force: true
+        force: true
     ~/.config:
-      recursive: true
+        recursive: true
     ~/.tmux:
-      recursive: true
+        recursive: true
     ~/.gnupg:
-      recursive: true
+        recursive: true
     ~/Documents/Code:
-      force: false
+        force: false
 
 - link:
     # Convenience
@@ -35,53 +35,53 @@
     ~/.config/fish/config.fish: fish/config.fish
     ~/.config/fish/fishfile: fish/fishfile
     ~/.config/fish/functions/:
-      glob: true
-      path: fish/functions/*
+        glob: true
+        path: fish/functions/*
     # Git
     ~/.config/git/config: git/config
     ~/.config/git/config.insteadofhttp: git/config.insteadofhttp
     ~/.config/git/message: git/message
     ~/.config/git/ignore: git/ignore
     ~/.config/git/init-template/hooks/prepare-commit-msg:
-      path: /usr/local/bin/mit-prepare-commit-msg
-      ignore-missing: true
+        path: /usr/local/bin/mit-prepare-commit-msg
+        ignore-missing: true
     ~/.config/git/init-template/hooks/commit-msg:
-      path: /usr/local/bin/mit-commit-msg
-      ignore-missing: true
+        path: /usr/local/bin/mit-commit-msg
+        ignore-missing: true
     ~/.config/git/init-template/hooks/pre-commit:
-      path: /usr/local/bin/mit-pre-commit
-      ignore-missing: true
+        path: /usr/local/bin/mit-pre-commit
+        ignore-missing: true
     # git-mit
     ~/.config/git-mit/authors.yml: git-mit/authors.yml
     # Git Duet
     ~/.config/git-duet/authors.yml: git-duet/authors.yml
     ~/.bin/git-duet:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
+        path: /usr/local/bin/git-duet-wrap-for-sops
+        ignore-missing: true
     ~/.bin/git-duet-commit:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
+        path: /usr/local/bin/git-duet-wrap-for-sops
+        ignore-missing: true
     ~/.bin/git-duet-install-hook:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
+        path: /usr/local/bin/git-duet-wrap-for-sops
+        ignore-missing: true
     ~/.bin/git-duet-merge:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
+        path: /usr/local/bin/git-duet-wrap-for-sops
+        ignore-missing: true
     ~/.bin/git-duet-post-commit:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
+        path: /usr/local/bin/git-duet-wrap-for-sops
+        ignore-missing: true
     ~/.bin/git-duet-prepare-commit-msg:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
+        path: /usr/local/bin/git-duet-wrap-for-sops
+        ignore-missing: true
     ~/.bin/git-duet-pre-commit:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
+        path: /usr/local/bin/git-duet-wrap-for-sops
+        ignore-missing: true
     ~/.bin/git-duet-revert:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
+        path: /usr/local/bin/git-duet-wrap-for-sops
+        ignore-missing: true
     ~/.bin/git-solo:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
+        path: /usr/local/bin/git-duet-wrap-for-sops
+        ignore-missing: true
 
     # GnuPG
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
