@@ -1,144 +1,144 @@
 - defaults:
-    link:
-        relink: true
-        create: true
-        force: true
-    shell:
-        stdin: true
-        stdout: true
-        stderr: true
-    clean:
-        force: true
+      link:
+          relink: true
+          create: true
+          force: true
+      shell:
+          stdin: true
+          stdout: true
+          stderr: true
+      clean:
+          force: true
 
 - clean:
-    ~/:
-        force: true
-    ~/.config:
-        recursive: true
-    ~/.tmux:
-        recursive: true
-    ~/.gnupg:
-        recursive: true
-    ~/Documents/Code:
-        force: false
+      ~/:
+          force: true
+      ~/.config:
+          recursive: true
+      ~/.tmux:
+          recursive: true
+      ~/.gnupg:
+          recursive: true
+      ~/Documents/Code:
+          force: false
 
 - link:
-    # Convenience
-    ~/Documents/Code: ~/Code
-    # Bash
-    ~/.bashrc: bash/xdg-shim
-    ~/.config/bash/bashrc: bash/bashrc
-    # Fasd
-    ~/.fasdrc: fasd/.fasdrc
-    ~/.config/fasd/.fasdrc: fasd/.fasdrc
-    # Fish
-    ~/.config/fish/config.fish: fish/config.fish
-    ~/.config/fish/fishfile: fish/fishfile
-    ~/.config/fish/functions/:
-        glob: true
-        path: fish/functions/*
-    # Git
-    ~/.config/git/config: git/config
-    ~/.config/git/config.insteadofhttp: git/config.insteadofhttp
-    ~/.config/git/message: git/message
-    ~/.config/git/ignore: git/ignore
-    ~/.config/git/init-template/hooks/prepare-commit-msg:
-        path: /usr/local/bin/mit-prepare-commit-msg
-        ignore-missing: true
-    ~/.config/git/init-template/hooks/commit-msg:
-        path: /usr/local/bin/mit-commit-msg
-        ignore-missing: true
-    ~/.config/git/init-template/hooks/pre-commit:
-        path: /usr/local/bin/mit-pre-commit
-        ignore-missing: true
-    # git-mit
-    ~/.config/git-mit/authors.yml: git-mit/authors.yml
-    # Git Duet
-    ~/.config/git-duet/authors.yml: git-duet/authors.yml
-    ~/.bin/git-duet:
-        path: /usr/local/bin/git-duet-wrap-for-sops
-        ignore-missing: true
-    ~/.bin/git-duet-commit:
-        path: /usr/local/bin/git-duet-wrap-for-sops
-        ignore-missing: true
-    ~/.bin/git-duet-install-hook:
-        path: /usr/local/bin/git-duet-wrap-for-sops
-        ignore-missing: true
-    ~/.bin/git-duet-merge:
-        path: /usr/local/bin/git-duet-wrap-for-sops
-        ignore-missing: true
-    ~/.bin/git-duet-post-commit:
-        path: /usr/local/bin/git-duet-wrap-for-sops
-        ignore-missing: true
-    ~/.bin/git-duet-prepare-commit-msg:
-        path: /usr/local/bin/git-duet-wrap-for-sops
-        ignore-missing: true
-    ~/.bin/git-duet-pre-commit:
-        path: /usr/local/bin/git-duet-wrap-for-sops
-        ignore-missing: true
-    ~/.bin/git-duet-revert:
-        path: /usr/local/bin/git-duet-wrap-for-sops
-        ignore-missing: true
-    ~/.bin/git-solo:
-        path: /usr/local/bin/git-duet-wrap-for-sops
-        ignore-missing: true
+      # Convenience
+      ~/Documents/Code: ~/Code
+      # Bash
+      ~/.bashrc: bash/xdg-shim
+      ~/.config/bash/bashrc: bash/bashrc
+      # Fasd
+      ~/.fasdrc: fasd/.fasdrc
+      ~/.config/fasd/.fasdrc: fasd/.fasdrc
+      # Fish
+      ~/.config/fish/config.fish: fish/config.fish
+      ~/.config/fish/fishfile: fish/fishfile
+      ~/.config/fish/functions/:
+          glob: true
+          path: fish/functions/*
+      # Git
+      ~/.config/git/config: git/config
+      ~/.config/git/config.insteadofhttp: git/config.insteadofhttp
+      ~/.config/git/message: git/message
+      ~/.config/git/ignore: git/ignore
+      ~/.config/git/init-template/hooks/prepare-commit-msg:
+          path: /usr/local/bin/mit-prepare-commit-msg
+          ignore-missing: true
+      ~/.config/git/init-template/hooks/commit-msg:
+          path: /usr/local/bin/mit-commit-msg
+          ignore-missing: true
+      ~/.config/git/init-template/hooks/pre-commit:
+          path: /usr/local/bin/mit-pre-commit
+          ignore-missing: true
+      # git-mit
+      ~/.config/git-mit/authors.yml: git-mit/authors.yml
+      # Git Duet
+      ~/.config/git-duet/authors.yml: git-duet/authors.yml
+      ~/.bin/git-duet:
+          path: /usr/local/bin/git-duet-wrap-for-sops
+          ignore-missing: true
+      ~/.bin/git-duet-commit:
+          path: /usr/local/bin/git-duet-wrap-for-sops
+          ignore-missing: true
+      ~/.bin/git-duet-install-hook:
+          path: /usr/local/bin/git-duet-wrap-for-sops
+          ignore-missing: true
+      ~/.bin/git-duet-merge:
+          path: /usr/local/bin/git-duet-wrap-for-sops
+          ignore-missing: true
+      ~/.bin/git-duet-post-commit:
+          path: /usr/local/bin/git-duet-wrap-for-sops
+          ignore-missing: true
+      ~/.bin/git-duet-prepare-commit-msg:
+          path: /usr/local/bin/git-duet-wrap-for-sops
+          ignore-missing: true
+      ~/.bin/git-duet-pre-commit:
+          path: /usr/local/bin/git-duet-wrap-for-sops
+          ignore-missing: true
+      ~/.bin/git-duet-revert:
+          path: /usr/local/bin/git-duet-wrap-for-sops
+          ignore-missing: true
+      ~/.bin/git-solo:
+          path: /usr/local/bin/git-duet-wrap-for-sops
+          ignore-missing: true
 
-    # GnuPG
-    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
-    # Starship
-    ~/.config/starship.toml: starship/starship.toml
-    # Tmux
-    ~/.config/tmux/tmux.conf: tmux/tmux.conf
-    # Vim
-    ~/.config/vim/.vimrc: vim/.vimrc
-    # ZSH
-    ~/.zshenv: zsh/.zshenv
-    ~/.config/zsh/.zshrc: zsh/.zshrc
-    # Kitty
-    ~/.config/kitty/kitty.conf: kitty/kitty.conf
-    ~/.config/kitty/dracula.conf: kitty/dracula.conf
-    # Sops
-    ~/.sops.yaml: sops/sops.yaml
-    ~/.bin/1password: 1password/bin/1password
-    # Cargo
-    ~/.cargo/config: cargo/config
+      # GnuPG
+      ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
+      # Starship
+      ~/.config/starship.toml: starship/starship.toml
+      # Tmux
+      ~/.config/tmux/tmux.conf: tmux/tmux.conf
+      # Vim
+      ~/.config/vim/.vimrc: vim/.vimrc
+      # ZSH
+      ~/.zshenv: zsh/.zshenv
+      ~/.config/zsh/.zshrc: zsh/.zshrc
+      # Kitty
+      ~/.config/kitty/kitty.conf: kitty/kitty.conf
+      ~/.config/kitty/dracula.conf: kitty/dracula.conf
+      # Sops
+      ~/.sops.yaml: sops/sops.yaml
+      ~/.bin/1password: 1password/bin/1password
+      # Cargo
+      ~/.cargo/config: cargo/config
 
 - create:
-    - ~/Code/
-    - ~/Downloads/
-    - ~/Documents/
-    - ~/Desktop/
-    - ~/Library/Caches/
-    - ~/Library/Caches/run/
-    - ~/.local/share/
-    # Tmux
-    - ~/.config/tmux/plugins
+      - ~/Code/
+      - ~/Downloads/
+      - ~/Documents/
+      - ~/Desktop/
+      - ~/Library/Caches/
+      - ~/Library/Caches/run/
+      - ~/.local/share/
+      # Tmux
+      - ~/.config/tmux/plugins
 
 - brewfile:
-    - brew/Brewfile
+      - brew/Brewfile
 
 - shell:
-    - command: brew update
-    - command: brew upgrade
-    - command: brew cask upgrade
-    - command: brew bundle cleanup --force --file="brew/Brewfile"
-    - command: mas upgrade
-    - command: rustup-init -y
-    - command: rustup update
-    - command: cargo install cargo-script
-    - command: crontab - <"crontab/crontab"
-    - command: ./fish/bin/make-default-shell
-    - command: fish -c fisher
-    - command: ./bash/bin/test
-    - command: gcloud components update --quiet
-    - command: ./git/bin/test
-    - command: ./git-duet/bin/test
-    - command: fix-gnupg-permissions
-    - command: ./gnupg/bin/test
-    - command: ./tldr/bin/test
-    - command: ./vim/bin/test
-    - command: fix-compaudit
-    - command: ./zsh/bin/test
-    - command: setup-a-keyring-for-sops secret-store purplebooth-secret-storage sops sops-key
-    - command: bash -c "if [[ ! -f ~/.config/gcloud/application_sops_credentials.json ]] ; then cp \"~/.config/gcloud/application_default_credentials.json\" \"~/.config/gcloud/application_sops_credentials.json\" ; fi"
-    - command: ./1password/bin/generate-envsecret
+      - command: brew update
+      - command: brew upgrade
+      - command: brew cask upgrade
+      - command: brew bundle cleanup --force --file="brew/Brewfile"
+      - command: mas upgrade
+      - command: rustup-init -y
+      - command: rustup update
+      - command: cargo install cargo-script
+      - command: crontab - <"crontab/crontab"
+      - command: ./fish/bin/make-default-shell
+      - command: fish -c fisher
+      - command: ./bash/bin/test
+      - command: gcloud components update --quiet
+      - command: ./git/bin/test
+      - command: ./git-duet/bin/test
+      - command: fix-gnupg-permissions
+      - command: ./gnupg/bin/test
+      - command: ./tldr/bin/test
+      - command: ./vim/bin/test
+      - command: fix-compaudit
+      - command: ./zsh/bin/test
+      - command: setup-a-keyring-for-sops secret-store purplebooth-secret-storage sops sops-key
+      - command: bash -c "if [[ ! -f ~/.config/gcloud/application_sops_credentials.json ]] ; then cp \"~/.config/gcloud/application_default_credentials.json\" \"~/.config/gcloud/application_sops_credentials.json\" ; fi"
+      - command: ./1password/bin/generate-envsecret
