@@ -9,7 +9,7 @@ bt-pb:
 bt-ak:
     name: ENC[AES256_GCM,data:RProSA3bw+NCzLh2zoM2,iv:LFk0ofsT/mw+RuzHMJTQNXOpKtuUvOlhYz+jtCbeR1A=,tag:n6hVy954BVTbqQg5mO6CaQ==,type:str]
     email: ENC[AES256_GCM,data:LpDRzYCSq5PHoFN11sbIieIw6nXLKauCQtfRmA==,iv:qPvNCZu9uyaQqMt96atGYRpw2lwwl8Hcic8gUg0mhkQ=,tag:jJLiS6BMAtbRcN7zDEfVyQ==,type:str]
-    signingkey: ENC[AES256_GCM,data:vyUdhiEQcMNOdUnAxg/oQu/DhaQ5/5sxMW84ZOfJzg/aWtGLPFhX9A==,iv:UOnpsYJxiQZuwp2uZFLCob8M441Iw5k3MO4XgPcbGUs=,tag:gfSgnudh+207q8Xvini9Xw==,type:str]
+    signingkey: ENC[AES256_GCM,data:/6VT+9qsdOfQfUo9RJsow7MqNPRuZAWj0aPQKPuM60EZvDXUUQn7Sw==,iv:frJ15TNdNdg5guxcwsOgCabRiZBh/yIMCopBVd1aMJY=,tag:Nd7R2ovZS1KQiiYL+TAhdg==,type:str]
 to-ak:
     name: ENC[AES256_GCM,data:ymlpIcs6diA=,iv:QoJSvz2ljyswK/DDUo1t9VYp2ZCCsCUm612rU9UU1Js=,tag:U5H0aCqiWQ1ZBpCLwUk9jA==,type:str]
     email: ENC[AES256_GCM,data:rCYbnTHV+cCk4DFNwojEYmvybUeP,iv:/tvkIDKRaFoMwhF8kvAGgMQnMyGCHwpFPYrSxrAZjQc=,tag:beEOwx/LENrCGU9lKGJLcQ==,type:str]
@@ -43,12 +43,12 @@ rg-ak:
 sops:
     kms: []
     gcp_kms:
-        - resource_id: projects/purplebooth-secret-storage/locations/global/keyRings/sops/cryptoKeys/sops-key
-          created_at: "2020-05-24T20:25:18Z"
-          enc: CiQAAO1YzeU/x+IKcv7dRa0yv+PR12kLSc0250UigG/6dbycb3sSSQDkfeNKlMiLherZQ9fvfiSZC9c10Lr30DUc0m2LnK2/huaoX7xSBfd3NtvvIecmU5IZTJ75ZfCLUoZAkX2+MvdfoFdYAX+xG6o=
+    -   resource_id: projects/purplebooth-secret-storage/locations/global/keyRings/sops/cryptoKeys/sops-key
+        created_at: '2020-05-24T20:25:18Z'
+        enc: CiQAAO1YzeU/x+IKcv7dRa0yv+PR12kLSc0250UigG/6dbycb3sSSQDkfeNKlMiLherZQ9fvfiSZC9c10Lr30DUc0m2LnK2/huaoX7xSBfd3NtvvIecmU5IZTJ75ZfCLUoZAkX2+MvdfoFdYAX+xG6o=
     azure_kv: []
-    lastmodified: "2020-06-18T06:03:54Z"
-    mac: ENC[AES256_GCM,data:5LSho0ZbFqgwU1wyyq+bsMdaIv6zBoHJxlKajcGNnoVXvsnFQVxR2tfUQavVOo4HmJVFI6TGlSi97z0RgUoLvnI8KnUK3aiJf0E405yccT56x9jDLjSyVDF+8nrwE5KN04p2o/ea7hJlOheAuHgPqJzhA54XMCUqsZE2gUpbxA8=,iv:wEHVOj1dnRa7X4wArDqzEzFFxt4hhDsso50VkPS/geA=,tag:Lb55QR20rHeBEEt5tHnxIQ==,type:str]
+    lastmodified: '2020-06-22T08:56:34Z'
+    mac: ENC[AES256_GCM,data:fJZ2cTsbENEGjRyVZm8YM87BDTWaTABotxnuMUiHJX/CxoQXqBfO5tLP3HH2XndVBCN9YIfeRvKHj1E0TFcbqibcmTK3qkEtUK4RVuFGVJgL9BOfXavMPbIn8FG5yguF4lk0AwpD7foRhGBw7Vefq+U6EmFsqOLA3s+YxWhYMjQ=,iv:d3pD4uRetVX6roa07pEYj90jFp/5Z5Lvs2ZAE2xZ94w=,tag:KM0Yo+zciaAFNrynENwpmQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.5.0
