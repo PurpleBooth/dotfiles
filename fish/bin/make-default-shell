@@ -35,7 +35,11 @@ fn main() -> std::io::Result<()> {
     let user = env!("USER");
 
     if current_shell != fish_path.trim() {
-        bash(&format!("sudo chsh -s \"{}\" \"{}\"", fish_path.trim(), user));
+        bash(&format!(
+            "sudo chsh -s \"{}\" \"{}\"",
+            fish_path.trim(),
+            user
+        ));
     }
 
     Ok(())
