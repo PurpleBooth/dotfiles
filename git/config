@@ -4,9 +4,9 @@
 [commit]
 	verbose = true
 	gpgsign = true
-	template = ~/.config/git/message
 [core]
 	excludesfile = ~/.config/git/ignore
+	commentChar = auto
 [branch]
 	autosetupmerge = true
 	sort=-committerdate # Sort branches by last commit date, descending.
