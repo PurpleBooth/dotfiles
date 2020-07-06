@@ -48,6 +48,10 @@ function pip() {
   pip3 "$@"
 }
 
+
+[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+[ -f "$(brew --prefix)/etc/bash_completion" ] && . "$(brew --prefix)/etc/bash_completion"
+
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] ; then
   source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
 fi
