@@ -37,18 +37,24 @@ ar-ak:
 tl-ak:
     name: ENC[AES256_GCM,data:zaqMIm7mNWU=,iv:BTYcnzxbY5PrGVooAgQjcQ6qc6UpxWEp7nu0k00X7l8=,tag:sRLzRtukH+4yl4JXKjkZUQ==,type:str]
     email: ENC[AES256_GCM,data:ziIgWaTGWESvcQ+wcHhooqmyzd43,iv:YZJqodZVk71jSm/XICd7JTDbf/iJXMvflqZgaFpIG/U=,tag:dq6KlUUr5S+Layof6CdnYg==,type:str]
+ag-ak:
+    name: ENC[AES256_GCM,data:PhxNV5OqT7ivbfWI,iv:49gDzipPIsc4Ucvw3T9wbRnpz7t+ItW7YxyDctBAMlk=,tag:SfC7Ohs5K49N+aZmtximQA==,type:str]
+    email: ENC[AES256_GCM,data:lT2JvvoJ2Hgmmv9jYG2bAu2BUP2vJ1CuJg==,iv:5IKYUi6zqIO90pvOfg9upW7qukDtzHk5IgapLSZRj68=,tag:CAe8EPjed3fdRk9fd8SY6w==,type:str]
 rg-ak:
     name: ENC[AES256_GCM,data:1pioTrWjFHClpFU=,iv:0ru1uCIVCFGBMToMuyFJdN9zvzQTa/ZuG8ClaVopQrs=,tag:hcbeAQHoq5HNURK1eGqiZg==,type:str]
     email: ENC[AES256_GCM,data:d3os9bi1Lbcf2zYDKGzhSZk=,iv:JpvIo3sCm5xKB8kMhMY0ICEf2AXrcopo9aKhI3G/5VA=,tag:vlAn7Rrf4JbIPdJIhPVOMw==,type:str]
+sk-ak:
+    name: ENC[AES256_GCM,data:Z5jNn9BbV3SdR0Io,iv:oCte1BGsk56pmoJZQFgCQSXENLCuUsOhhj7lhE8kF9E=,tag:XZUuU6adcrjRomWjPyqBRA==,type:str]
+    email: ENC[AES256_GCM,data:r2eWk+sxZ0jOQIpsI6srTlGgvg2FaTkHjQ==,iv:zwUcn0tqilU1bFHxDOZp0edGsM9RryoZ3suslKgYQxE=,tag:eVUmTbWP7uzAbnCLnR731w==,type:str]
 sops:
     kms: []
     gcp_kms:
-        - resource_id: projects/purplebooth-secret-storage/locations/global/keyRings/sops/cryptoKeys/sops-key
-          created_at: "2020-05-24T20:25:18Z"
-          enc: CiQAAO1YzeU/x+IKcv7dRa0yv+PR12kLSc0250UigG/6dbycb3sSSQDkfeNKlMiLherZQ9fvfiSZC9c10Lr30DUc0m2LnK2/huaoX7xSBfd3NtvvIecmU5IZTJ75ZfCLUoZAkX2+MvdfoFdYAX+xG6o=
+    -   resource_id: projects/purplebooth-secret-storage/locations/global/keyRings/sops/cryptoKeys/sops-key
+        created_at: '2020-05-24T20:25:18Z'
+        enc: CiQAAO1YzeU/x+IKcv7dRa0yv+PR12kLSc0250UigG/6dbycb3sSSQDkfeNKlMiLherZQ9fvfiSZC9c10Lr30DUc0m2LnK2/huaoX7xSBfd3NtvvIecmU5IZTJ75ZfCLUoZAkX2+MvdfoFdYAX+xG6o=
     azure_kv: []
-    lastmodified: "2020-06-22T08:56:34Z"
-    mac: ENC[AES256_GCM,data:fJZ2cTsbENEGjRyVZm8YM87BDTWaTABotxnuMUiHJX/CxoQXqBfO5tLP3HH2XndVBCN9YIfeRvKHj1E0TFcbqibcmTK3qkEtUK4RVuFGVJgL9BOfXavMPbIn8FG5yguF4lk0AwpD7foRhGBw7Vefq+U6EmFsqOLA3s+YxWhYMjQ=,iv:d3pD4uRetVX6roa07pEYj90jFp/5Z5Lvs2ZAE2xZ94w=,tag:KM0Yo+zciaAFNrynENwpmQ==,type:str]
+    lastmodified: '2020-07-08T09:15:39Z'
+    mac: ENC[AES256_GCM,data:B+S3HgCt2z7c+gYu0JBpXoRUcyQJkf+KUwozKuowgnTF9LsigYvya//OlkuvRncTOw4JelcgBe+HfUgJLpU7OwGw4BL+Lsd6CVJSmucl0AN3Kucn4NncSbCPF2yfsGNfz3C0qjKmnMVKmzxhPSFdfy0PKbNx+WGygMpXGCvCmBg=,iv:LG4J6FaBBmHOAW6UedKg54Em5vrObi0TtnKHpvIk0jo=,tag:f5p6kaDZ58oxOXIVgQQWhQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.5.0
