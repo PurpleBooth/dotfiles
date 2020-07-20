@@ -49,11 +49,11 @@ sk-ak:
 sops:
     kms: []
     gcp_kms:
-    -   resource_id: projects/purplebooth-secret-storage/locations/global/keyRings/sops/cryptoKeys/sops-key
-        created_at: '2020-05-24T20:25:18Z'
-        enc: CiQAAO1YzeU/x+IKcv7dRa0yv+PR12kLSc0250UigG/6dbycb3sSSQDkfeNKlMiLherZQ9fvfiSZC9c10Lr30DUc0m2LnK2/huaoX7xSBfd3NtvvIecmU5IZTJ75ZfCLUoZAkX2+MvdfoFdYAX+xG6o=
+        - resource_id: projects/purplebooth-secret-storage/locations/global/keyRings/sops/cryptoKeys/sops-key
+          created_at: "2020-05-24T20:25:18Z"
+          enc: CiQAAO1YzeU/x+IKcv7dRa0yv+PR12kLSc0250UigG/6dbycb3sSSQDkfeNKlMiLherZQ9fvfiSZC9c10Lr30DUc0m2LnK2/huaoX7xSBfd3NtvvIecmU5IZTJ75ZfCLUoZAkX2+MvdfoFdYAX+xG6o=
     azure_kv: []
-    lastmodified: '2020-07-08T09:15:39Z'
+    lastmodified: "2020-07-08T09:15:39Z"
     mac: ENC[AES256_GCM,data:B+S3HgCt2z7c+gYu0JBpXoRUcyQJkf+KUwozKuowgnTF9LsigYvya//OlkuvRncTOw4JelcgBe+HfUgJLpU7OwGw4BL+Lsd6CVJSmucl0AN3Kucn4NncSbCPF2yfsGNfz3C0qjKmnMVKmzxhPSFdfy0PKbNx+WGygMpXGCvCmBg=,iv:LG4J6FaBBmHOAW6UedKg54Em5vrObi0TtnKHpvIk0jo=,tag:f5p6kaDZ58oxOXIVgQQWhQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
