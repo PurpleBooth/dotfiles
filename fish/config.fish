@@ -37,6 +37,9 @@ set --global --export CODEDIR (grealpath $HOME/Code)
 set --global --export GOCODEDIR "$CODEDIR/golang"
 set --global --export GOPATH "$GOCODEDIR"
 
+# BAT Theme
+set --global --export BAT_THEME Dracula
+
 # Git Duet
 set --global --export GIT_DUET_CO_AUTHORED_BY "1"
 set --global --export GIT_DUET_SET_GIT_USER_CONFIG "1"
