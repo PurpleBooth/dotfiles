@@ -143,3 +143,5 @@
       - command: bash -c "if [[ ! -f ~/.config/gcloud/application_sops_credentials.json ]] ; then cp \"~/.config/gcloud/application_default_credentials.json\" \"~/.config/gcloud/application_sops_credentials.json\" ; fi"
       - command: ./1password/bin/generate-envsecret
       - command: cp git/HEAD ~/.config/git/init-template/HEAD
+      - command: bash -c 'if ! grep -q "auth       sufficient     pam_tid.so" /etc/pam.d/sudo ; then sudo gsed -i "2iauth       sufficient     pam_tid.so" /etc/pam.d/sudo ; fi'
+
