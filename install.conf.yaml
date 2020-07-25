@@ -97,6 +97,7 @@
       # Kitty
       ~/.config/kitty/kitty.conf: kitty/kitty.conf
       ~/.config/kitty/dracula.conf: kitty/dracula.conf
+      ~/.config/kitty/session.conf: kitty/session.conf
       # Sops
       ~/.sops.yaml: sops/sops.yaml
       ~/.bin/1password: 1password/bin/1password
@@ -126,6 +127,7 @@
       - command: rustup-init -y
       - command: rustup update
       - command: cargo install cargo-script
+      - command: cargo install tock
       - command: crontab - <"crontab/crontab"
       - command: ./fish/bin/make-default-shell
       - command: fish -c fisher
@@ -144,4 +146,3 @@
       - command: ./1password/bin/generate-envsecret
       - command: cp git/HEAD ~/.config/git/init-template/HEAD
       - command: bash -c 'if ! grep -q "auth       sufficient     pam_tid.so" /etc/pam.d/sudo ; then sudo gsed -i "2iauth       sufficient     pam_tid.so" /etc/pam.d/sudo ; fi'
-
