@@ -17,6 +17,7 @@ set --global --export EDITOR "vim"
 set --global --export VISUAL "$EDITOR"
 set --global --export LC_ALL "de_DE.UTF-8"
 set --global --export LANG "$LC_ALL"
+set --global --export TZ "Europe/Berlin"
 
 # XDG
 set --global --export XDG_CONFIG_HOME "$HOME/.config"

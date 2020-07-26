@@ -7,6 +7,7 @@
 [core]
 	excludesfile = ~/.config/git/ignore
 	commentChar = auto
+	pager = delta
 [branch]
 	autosetupmerge = true
 	sort=-committerdate # Sort branches by last commit date, descending.
@@ -24,13 +25,11 @@
 	process = git-lfs filter-process
 	required = true
 [diff "sopsdiffer"]
-  textconv = "sops -d"
-[pager]
-    show = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:0x50,0xFA,0x7B:foreground:0x28,0x2A,0x36 --colors removed:background:none:foreground:0xFF,0x55,0x55 --colors refine-removed:background:0xFF,0x55,0x55:foreground:0x28,0x2A,0x36 | less -R
-    log  = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:0x50,0xFA,0x7B:foreground:0x28,0x2A,0x36 --colors removed:background:none:foreground:0xFF,0x55,0x55 --colors refine-removed:background:0xFF,0x55,0x55:foreground:0x28,0x2A,0x36 | less -R
-    diff = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:0x50,0xFA,0x7B:foreground:0x28,0x2A,0x36 --colors removed:background:none:foreground:0xFF,0x55,0x55 --colors refine-removed:background:0xFF,0x55,0x55:foreground:0x28,0x2A,0x36 | less -R
+	textconv = "sops -d"
+[delta]
+	syntax-theme = Dracula
 [interactive]
-    diffFilter = diffr --colors added:background:none:foreground:0x50,0xFA,0x7B --colors refine-added:background:0x50,0xFA,0x7B:foreground:0x28,0x2A,0x36 --colors removed:background:none:foreground:0xFF,0x55,0x55 --colors refine-removed:background:0xFF,0x55,0x55:foreground:0x28,0x2A,0x36 
+	diffFilter = delta --color-only
 
 [includeIf "gitdir:Code/"]
 	path = config.insteadofhttp
