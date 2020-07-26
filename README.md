@@ -14,11 +14,6 @@ collaborate on.
 Setup
 -----
 
-### Color Scheme
-
-Manually install the theme
-[DotGov](https://github.com/lysyi3m/macos-terminal-themes#dotgov).
-
 ### Install packages etc
 
 To setup the home profile run
