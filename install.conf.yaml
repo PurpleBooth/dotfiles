@@ -28,15 +28,15 @@
       # Bash
       ~/.bashrc: bash/xdg-shim
       ~/.config/bash/bashrc: bash/bashrc
-      # Fasd
-      ~/.fasdrc: fasd/.fasdrc
-      ~/.config/fasd/.fasdrc: fasd/.fasdrc
       # Fish
       ~/.config/fish/config.fish: fish/config.fish
       ~/.config/fish/fishfile: fish/fishfile
       ~/.config/fish/functions/:
           glob: true
           path: fish/functions/*
+      ~/.config/fish/conf.d/:
+          glob: true
+          path: fish/conf.d/*
       # Git
       ~/.config/git/config: git/config
       ~/.config/git/config.insteadofhttp: git/config.insteadofhttp
