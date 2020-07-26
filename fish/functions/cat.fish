@@ -6,7 +6,7 @@ function cat
             case '*.md'
                 mdcat $argv
             case '*'
-                if identify $argv > /dev/null
+                if identify $argv > /dev/null 2>&1
                   icat $argv
                 else
                   bat -p --paging=never $argv
