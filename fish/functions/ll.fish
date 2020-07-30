@@ -1,3 +1,3 @@
 function ll
-    exa --extended --header --sort=modified --icons --git --long $argv
+    exa --all --header --sort=modified --icons --git --long $argv
 end

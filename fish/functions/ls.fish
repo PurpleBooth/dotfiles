@@ -1,3 +1,3 @@
 function ls
-    exa --icons --git $argv
+    exa --sort=modified --grid --long --icons --git $argv
 end

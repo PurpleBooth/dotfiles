@@ -7,4 +7,4 @@
 # | +——————– Hour (0–23)
 # +————————- Minute (0–59)
 
-0 0 * * *          gfind "$HOME/Downloads" -atime 7 -delete
+0 0 * * *          /usr/local/bin/gfind "$HOME/Downloads" -atime 7 -delete
