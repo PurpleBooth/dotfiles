@@ -31,5 +31,8 @@
 [interactive]
 	diffFilter = delta --color-only
 
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
+
 [includeIf "gitdir:Code/"]
 	path = config.insteadofhttp
