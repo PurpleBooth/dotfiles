@@ -3,7 +3,9 @@ function cat
         switch (string lower -- "$argv[1]")
             case '--version'
                 bat $argv
-            case '*.md'
+            case '*.gpx'
+                bat -p --paging=never $argv
+	    case '*.md'
                 mdcat $argv
             case '*'
                 if identify $argv > /dev/null 2>&1
