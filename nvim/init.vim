@@ -48,6 +48,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='dracula'
 
 call plug#begin()
+Plug 'dag/vim-fish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-system-copy'
