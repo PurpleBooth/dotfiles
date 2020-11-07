@@ -1,3 +1,5 @@
+set termguicolors
+
 if !isdirectory($XDG_DATA_HOME . "/vim/swap")
   call mkdir($XDG_DATA_HOME . "/vim/swap", "p")
 endif
@@ -16,17 +18,17 @@ endif
 
 set backupdir=$XDG_DATA_HOME/vim/backup
 
-set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
+set viminfo+='1000,n$XDG_DATA_HOME/nvim/viminfo
 
-if !isdirectory($XDG_DATA_HOME . "/vim/after")
-  call mkdir($XDG_DATA_HOME . "/vim/after", "p")
+if !isdirectory($XDG_DATA_HOME . "/nvim/after")
+  call mkdir($XDG_DATA_HOME . "/nvim/after", "p")
 endif
 
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/nvim/after
 
-if empty(glob($HOME . '/.config/vim/autoload/plug.vim'))
+if empty(glob($HOME . '/.config/nvim/autoload/plug.vim'))
   let s:downloadurl = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  let s:destination_directory = $HOME . "/.config/vim/autoload/"
+  let s:destination_directory = $HOME . "/.config/nvim/autoload/"
   let s:destination_file = s:destination_directory . "plug.vim"
 
   if !isdirectory(s:destination_directory)
@@ -36,7 +38,7 @@ if empty(glob($HOME . '/.config/vim/autoload/plug.vim'))
   silent execute '! curl --output ' . s:destination_file .
       \ ' --create-dirs --location --fail --silent ' . s:downloadurl
 
-  autocmd VimEnter * PlugInstall --sync | source $HOME . "/.config/vim/.vimrc"
+  autocmd VimEnter * PlugInstall --sync | source $HOME . "/.config/nvim/.vimrc"
 endif
 
 set mouse=a

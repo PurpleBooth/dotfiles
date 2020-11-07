@@ -89,8 +89,8 @@
       ~/.config/starship.toml: starship/starship.toml
       # Tmux
       ~/.config/tmux/tmux.conf: tmux/tmux.conf
-      # Vim
-      ~/.config/vim/.vimrc: vim/.vimrc
+      # Nvim
+      "~/.config/nvim/init.vim": nvim/init.vim
       # ZSH
       ~/.zshenv: zsh/.zshenv
       ~/.config/zsh/.zshrc: zsh/.zshrc

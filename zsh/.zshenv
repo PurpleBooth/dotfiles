@@ -8,5 +8,4 @@ EDITOR="vim"
 VISUAL="$EDITOR"
 LC_ALL="de_DE.UTF-8"
 LANG="$LC_ALL"
-VIMINIT=":source $XDG_CONFIG_HOME"/vim/vimrc
 GIT_DUET_AUTHORS_FILE="$XDG_CONFIG_HOME/git-duet/authors.yml"
