@@ -141,6 +141,7 @@
   - command: fix-compaudit
   - command: ./zsh/bin/test
   - command: pip3 install pynvim
+  - command: ./nvim/bin/test
   - command: pip3 install yamlfmt
   - command: cp git/HEAD ~/.config/git/init-template/HEAD
   - command: bash -c 'if ! grep -q "auth       sufficient     pam_tid.so" /etc/pam.d/sudo
