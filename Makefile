@@ -53,7 +53,7 @@ format-brewfile:
 .PHONY: format-yaml
 ## Format any yaml files
 format-yaml:
-	find . -path ./dotbot-brew -prune -o -path ./dotbot -prune -o \( -iname "*.yml" -o -iname "*.yaml" \) -exec prettier --write {} \;
+	find . -path ./dotbot-brew -prune -o -path ./dotbot -prune -o \( -iname "*.yml" -o -iname "*.yaml" \) -exec yamlfmt --write {} \;
 
 .PHONY: format-rust
 ## Format any rust files
