@@ -40,3 +40,5 @@ set --global --export GIT_MIT_AUTHORS_EXEC "CLOUDSDK_ACTIVE_CONFIG_NAME=\"secret
 # ghcup-env
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 test -f /Users/billie/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /Users/billie/.ghcup/bin $PATH
+
+

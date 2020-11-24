@@ -1,5 +1,4 @@
-Billie's Dotfiles
-=================
+# Billie's Dotfiles
 
 ![Image of my terminal](screenshot.png)
 
@@ -11,8 +10,7 @@ commit hygiene, or care about having a working pipeline. The aim here is
 to make something I can use very rapidly, not something for others to
 collaborate on.
 
-Setup
------
+## Setup
 
 ### Install packages etc
 
