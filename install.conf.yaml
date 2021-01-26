@@ -91,12 +91,13 @@
     ~/.config/tmux/tmux.conf: tmux/tmux.conf
           # Nvim
     ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.config/nvim/autoload/base16-byss-dark.vim: nvim/base16-byss-dark.vim
           # ZSH
     ~/.zshenv: zsh/.zshenv
     ~/.config/zsh/.zshrc: zsh/.zshrc
           # Kitty
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
-    ~/.config/kitty/dracula.conf: kitty/dracula.conf
+    ~/.config/kitty/dracula.conf: kitty/color.conf
     ~/.config/kitty/session.conf: kitty/session.conf
           # Sops
     ~/.sops.yaml: sops/sops.yaml
