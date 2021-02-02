@@ -97,7 +97,7 @@
     ~/.config/zsh/.zshrc: zsh/.zshrc
           # Kitty
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
-    ~/.config/kitty/dracula.conf: kitty/color.conf
+    ~/.config/kitty/color.conf: kitty/color.conf
     ~/.config/kitty/session.conf: kitty/session.conf
           # Sops
     ~/.sops.yaml: sops/sops.yaml
