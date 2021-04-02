@@ -48,7 +48,7 @@ cask "viscosity"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
-cask "zoomus"
+cask "zoom"
 mas "Keynote", id: 409183694
 mas "NextDNS", id: 1464122853
 mas "Spark - Email App by Readdle", id: 1176895641
