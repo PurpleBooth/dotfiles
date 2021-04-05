@@ -153,4 +153,6 @@
   - command: bash -c "if [[ ! -f ~/.config/gcloud/application_sops_credentials.json
       ]] ; then cp \"~/.config/gcloud/application_default_credentials.json\" \"~/.config/gcloud/application_sops_credentials.json\"
       ; fi"
+  - command: ./brew/bin/test
+  - command: ./brew/bin/brew-bundled-tests
   - command: ./1password/bin/generate-envsecret
