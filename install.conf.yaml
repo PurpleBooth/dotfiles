@@ -91,7 +91,6 @@
     ~/.config/tmux/tmux.conf: tmux/tmux.conf
           # Nvim
     ~/.config/nvim/init.vim: nvim/init.vim
-    ~/.config/nvim/autoload/base16-byss-dark.vim: nvim/base16-byss-dark.vim
           # ZSH
     ~/.zshenv: zsh/.zshenv
     ~/.config/zsh/.zshrc: zsh/.zshrc

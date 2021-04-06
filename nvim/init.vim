@@ -59,10 +59,11 @@ Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 
 syntax on
-colorscheme "base16-byss-dark"
+colorscheme "dracula"
