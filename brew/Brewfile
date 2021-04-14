@@ -54,6 +54,7 @@ cask "zoom"
 mas "Keynote", id: 409183694
 mas "NextDNS", id: 1464122853
 mas "Spark - Email App by Readdle", id: 1176895641
+brew "PurpleBooth/repo/ed-system-search"
 brew "PurpleBooth/repo/fix-compaudit"
 brew "PurpleBooth/repo/fix-gnupg-permissions"
 brew "PurpleBooth/repo/game-of-life"
