@@ -7,7 +7,6 @@
 # Icon must end with two \r
 Icon
 
-
 .git-blame-ignore-revs
 # Thumbnails
 ._*
@@ -30,6 +29,6 @@ Temporary Items
 
 ## IDEs
 stale_outputs_checked
-/.idea
+.idea
 
 .envrc
