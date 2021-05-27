@@ -37,7 +37,7 @@
     ~/.config/fish/conf.d/:
       glob: true
       path: fish/conf.d/*
-          # Git
+    # Git
     ~/.config/git/config: git/config
     ~/.config/git/config.insteadofhttp: git/config.insteadofhttp
     ~/.config/git/message: git/message
@@ -143,7 +143,10 @@
   - command: pip3 install pynvim
   - command: ./nvim/bin/test
   - command: pip3 install yamlfmt
+  - command: pip install --upgrade pip
   - command: cp git/HEAD ~/.config/git/init-template/HEAD
+  - command: bash -c "[[ "$(./somecommand)" =~ "Autoupdate is not configured" ]] &&
+      brew autoupdate start --upgrade --enable-notification"
   - command: bash -c 'if ! grep -q "auth       sufficient     pam_tid.so" /etc/pam.d/sudo
       ; then sudo gsed -i "2iauth       sufficient     pam_tid.so" /etc/pam.d/sudo
       ; fi'
@@ -152,6 +155,6 @@
   - command: bash -c "if [[ ! -f ~/.config/gcloud/application_sops_credentials.json
       ]] ; then cp \"~/.config/gcloud/application_default_credentials.json\" \"~/.config/gcloud/application_sops_credentials.json\"
       ; fi"
+  - command: ./1password/bin/generate-envsecret
   - command: ./brew/bin/test
   - command: ./brew/bin/brew-bundled-tests
-  - command: ./1password/bin/generate-envsecret
