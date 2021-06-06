@@ -45,6 +45,7 @@ format-brewfile:
 	mv $(ROOT_DIR)/brew/Brewfile.1 brew/Brewfile
 	grep '^tap' $(ROOT_DIR)/brew/Brewfile > brew/Brewfile.1
 	grep '^brew "mas"' $(ROOT_DIR)/brew/Brewfile >> brew/Brewfile.1
+	grep '^brew "svn"' $(ROOT_DIR)/brew/Brewfile >> brew/Brewfile.1
 	grep '^cask' $(ROOT_DIR)/brew/Brewfile >> $(ROOT_DIR)/brew/Brewfile.1
 	grep '^mas' $(ROOT_DIR)/brew/Brewfile >> $(ROOT_DIR)/brew/Brewfile.1
 	grep '^brew' $(ROOT_DIR)/brew/Brewfile >> $(ROOT_DIR)/brew/Brewfile.1

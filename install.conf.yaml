@@ -53,36 +53,6 @@
       ignore-missing: true
           # git-mit
     ~/.config/git-mit/authors.yml: git-mit/authors.yml
-          # Git Duet
-    ~/.config/git-duet/authors.yml: git-duet/authors.yml
-    ~/.bin/git-duet:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
-    ~/.bin/git-duet-commit:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
-    ~/.bin/git-duet-install-hook:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
-    ~/.bin/git-duet-merge:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
-    ~/.bin/git-duet-post-commit:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
-    ~/.bin/git-duet-prepare-commit-msg:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
-    ~/.bin/git-duet-pre-commit:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
-    ~/.bin/git-duet-revert:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
-    ~/.bin/git-solo:
-      path: /usr/local/bin/git-duet-wrap-for-sops
-      ignore-missing: true
-
           # GnuPG
     ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
           # Starship

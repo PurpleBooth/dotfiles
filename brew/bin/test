@@ -6,12 +6,6 @@
   [ "$status" -eq 0 ]
 }
 
-@test "btm installed" {
-  run btm --version
-
-  [ "$status" -eq 0 ]
-}
-
 @test "aws-google-auth installed" {
   run aws-google-auth --help
 
