@@ -115,6 +115,8 @@
   - command: pip3 install yamlfmt
   - command: pip install --upgrade pip
   - command: cp git/HEAD ~/.config/git/init-template/HEAD
+  - command: curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  - command: curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   - command: bash -c "[[ \"$(brew autoupdate status)\" =~ \"Autoupdate is not configured\"
       ]] && brew autoupdate start --upgrade --enable-notification"
   - command: bash -c 'if ! grep -q "auth       sufficient     pam_tid.so" /etc/pam.d/sudo
