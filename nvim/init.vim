@@ -24,30 +24,13 @@ if !isdirectory($XDG_DATA_HOME . "/nvim/after")
   call mkdir($XDG_DATA_HOME . "/nvim/after", "p")
 endif
 
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/nvim/after
-
-if empty(glob($HOME . '/.config/nvim/autoload/plug.vim'))
-  let s:downloadurl = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  let s:destination_directory = $HOME . "/.config/nvim/autoload/"
-  let s:destination_file = s:destination_directory . "plug.vim"
-
-  if !isdirectory(s:destination_directory)
-    call mkdir(s:destination_directory, "p")
-  endif
-
-  silent execute '! curl --output ' . s:destination_file .
-      \ ' --create-dirs --location --fail --silent ' . s:downloadurl
-
-  autocmd VimEnter * PlugInstall --sync | source $HOME . "/.config/nvim/.vimrc"
-endif
-
 set mouse=a
 set clipboard=unnamed
 set t_Co=256
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dracula'
 
-call plug#begin()
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'dag/vim-fish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
