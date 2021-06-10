@@ -9,4 +9,5 @@ VISUAL="$EDITOR"
 LC_ALL="de_DE.UTF-8"
 LANG="$LC_ALL"
 GIT_DUET_AUTHORS_FILE="$XDG_CONFIG_HOME/git-duet/authors.yml"
+
 . "$HOME/.cargo/env"

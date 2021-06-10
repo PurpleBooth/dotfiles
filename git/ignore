@@ -1,3 +1,5 @@
+.dcignore
+
 ## OSX Files
 # General
 .DS_Store
