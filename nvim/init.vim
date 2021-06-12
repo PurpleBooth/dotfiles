@@ -24,6 +24,7 @@ if !isdirectory($XDG_DATA_HOME . "/nvim/after")
   call mkdir($XDG_DATA_HOME . "/nvim/after", "p")
 endif
 
+set spelllang=en_gb,de_de
 set mouse=a
 set clipboard=unnamed
 set t_Co=256
