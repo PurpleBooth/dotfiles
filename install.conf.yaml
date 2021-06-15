@@ -30,7 +30,7 @@
     ~/.config/bash/bashrc: bash/bashrc
           # Fish
     ~/.config/fish/config.fish: fish/config.fish
-    ~/.config/fish/fishfile: fish/fish_plugins
+    ~/.config/fish/fish_plugins: fish/fishfile
     ~/.config/fish/functions/:
       glob: true
       path: fish/functions/*
@@ -100,7 +100,7 @@
   - command: cargo install tock
   - command: crontab - <"crontab/crontab"
   - command: ./fish/bin/make-default-shell
-  - command: fish -c fisher
+  - command: fish -c "fisher update"
   - command: ./bash/bin/test
   - command: gcloud components update --quiet
   - command: ./git/bin/test
