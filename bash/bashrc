@@ -32,14 +32,6 @@ function ll() {
 	exa --extended --header --grid --long --all --sort=modified --git "$@"
 }
 
-function gfmfmt() {
-  for I in "$@"; do
-    TEMPORARY_FILE="$(mktemp)"
-    pandoc --from=gfm --to=gfm --wrap=auto "$I" >"$TEMPORARY_FILE"
-    mv "$TEMPORARY_FILE" "$I"
-  done
-}
-
 function icat() {
   kitty +kitten icat --align left "$@"
 }
