@@ -30,7 +30,7 @@
     ~/.config/bash/bashrc: bash/bashrc
           # Fish
     ~/.config/fish/config.fish: fish/config.fish
-    ~/.config/fish/fishfile: fish/fishfile
+    ~/.config/fish/fishfile: fish/fish_plugins
     ~/.config/fish/functions/:
       glob: true
       path: fish/functions/*
