@@ -48,4 +48,7 @@ if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] ; then
   source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
 fi
 
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+
 eval "$(starship init bash)"
