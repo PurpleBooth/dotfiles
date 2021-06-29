@@ -1,4 +1,5 @@
 set termguicolors
+set background=dark
 
 if !isdirectory($XDG_DATA_HOME . "/vim/swap")
   call mkdir($XDG_DATA_HOME . "/vim/swap", "p")
@@ -24,6 +25,10 @@ if !isdirectory($XDG_DATA_HOME . "/nvim/after")
   call mkdir($XDG_DATA_HOME . "/nvim/after", "p")
 endif
 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
 set spelllang=en_gb,de_de
 set mouse=a
 set clipboard=unnamed
