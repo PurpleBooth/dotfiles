@@ -55,6 +55,9 @@ as-ak:
 pg-res:
   name: ENC[AES256_GCM,data:RcmcDtqB5VdHWwtD/ZU=,iv:+ox4BIUvpmMD0D7Uukyr0THLUL+QO4XKcaGM3aGTjiU=,tag:86ULoaWvBbFVz8sA5zQqHQ==,type:str]
   email: ENC[AES256_GCM,data:0LLn1x8+U8LOGLJxuIagzi+UEe/JxybJnU88Pg==,iv:DCInnkXNXK5GxIYr4cuL9DPErnOvaMD8oaPjb/uRXQA=,tag:B7ggvTOWwZxbNc1mVMMp8g==,type:str]
+gc-res:
+  name: ENC[AES256_GCM,data:zYzoWI3KxrjDR5IIIuY=,iv:2bWKs294sSV1Z+rd9CsEaPIRKmJEDenYR1SWOvOxNqI=,tag:gVXT5RoqEUIp42rQcOoSjQ==,type:str]
+  email: ENC[AES256_GCM,data:n2XxAVB30/1tqV2oPW8WU2e8lHV6la/E6cLEAA==,iv:ThckDSW2StaVYsunpsVurvHXD3r8iX6SfQ3qC85k690=,tag:OdUBkCarKsrobC3yfENsGA==,type:str]
 sops:
   kms: []
   gcp_kms:
@@ -64,8 +67,8 @@ sops:
   azure_kv: []
   hc_vault: []
   age: []
-  lastmodified: '2021-06-06T08:42:33Z'
-  mac: ENC[AES256_GCM,data:yyJFW/qgvhTlZuXB36ocWuA+ed6XMLlj5RltPk8A9+QAyDZz6JlexwU7XlcAVgFNxtzyNyZ36FNjIqLpbbPwuaEYijyzHQS0QqM+6KlJwnH4gSdztLUvch0Oe/8cRjbjUwDjSTSafVc/9xxqD5xmpdLlTa2HGwQ+Ol3xM6duEMc=,iv:y+lypyWHPWHz8TSHCThO7J8cIoePDoupZ1kY2AuiGEU=,tag:cUAgAqvK+8Pe/cciDgsUMQ==,type:str]
+  lastmodified: '2021-06-30T08:14:16Z'
+  mac: ENC[AES256_GCM,data:MdGMoMH8+ckqE9GauLXgFXLi5sZziQ/vCnVYG2eHlJ2zBqmtIXmbS5AOsjBC4+MycOGFnFnFA+o+pbAaG7lVVh3UOn5s18zR/4aBSoSIFvjHyVEkCFWHSo0hyfZf/vvFgwlLd9klNF3u5sUEwnSl5jaUEohhKtulTChaRtprzeE=,iv:qmHV8YdgNB3cksL/FOFWrY9oOe9vD0jZptDZocom+Mg=,tag:qiasEBqUkHIhx65E7mzYrg==,type:str]
   pgp: []
   unencrypted_suffix: _unencrypted
   version: 3.7.1
