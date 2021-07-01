@@ -34,7 +34,7 @@ set mouse=a
 set clipboard=unnamed
 set t_Co=256
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dracula'
+let g:airline_theme='onedark'
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'dag/vim-fish'
@@ -49,10 +49,11 @@ Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'navarasu/onedark.nvim'
 call plug#end()
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 
 syntax on
-colorscheme "dracula"
+colorscheme "onedark"
