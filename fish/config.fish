@@ -14,6 +14,7 @@ end
 
 set --global fish_user_paths "$GOCODEDIR/bin" $fish_user_paths
 set --global fish_user_paths "$HOME/.bin" $fish_user_paths
+set --global fish_user_paths (brew --prefix)"/opt/curl/bin" $fish_user_paths
 set --global fish_user_paths (brew --prefix)"/opt/mysql-client/bin" $fish_user_paths
 set --global fish_user_paths (brew --prefix)"/texlive/2019/bin/x86_64-darwin/" $fish_user_paths
 set --global fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
