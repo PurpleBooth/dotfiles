@@ -2,9 +2,11 @@
 
 set -euo pipefail
 
+trap "exit" INT
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
-ggrep "^brew " "$SCRIPT_DIR/../Brewfile" |
+for I in $(ggrep "^brew " "$SCRIPT_DIR/../Brewfile" |
   gsed 's/^brew "\(.*\)".*$/\1/' |
-  ggrep -v -x -F -f "$SCRIPT_DIR/../ignore-bundled-tests" |
-  xargs brew test
+  ggrep -v -x -F -f "$SCRIPT_DIR/../ignore-bundled-tests"); do
+  brew test "$I"
+done
