@@ -28,7 +28,7 @@
 [diff "sopsdiffer"]
 	textconv = "sops -d"
 [delta]
-	syntax-theme = Dracula
+	syntax-theme = TwoDark
 [interactive]
 	diffFilter = delta --color-only
 

@@ -1,3 +1,3 @@
 
 # BAT Theme
-set --global --export BAT_THEME Dracula
+set --global --export BAT_THEME TwoDark
