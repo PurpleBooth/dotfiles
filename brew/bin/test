@@ -1,11 +1,5 @@
 #!/usr/bin/env bats
 
-@test "gometalinter installed" {
-  run gometalinter
-
-  [ "$status" -eq 0 ]
-}
-
 @test "aws-google-auth installed" {
   run aws-google-auth --help
 
