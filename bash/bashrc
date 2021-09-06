@@ -7,7 +7,6 @@ export XDG_CACHE_HOME="$HOME/Library/Caches/"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_RUNTIME_DIR="$HOME/Library/Caches/run"
 
-export GIT_DUET_AUTHORS_FILE="$XDG_CONFIG_HOME/git-duet/authors.yml"
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 
 # Not committed
