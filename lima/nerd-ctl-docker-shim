@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-if ! limactl list | grep --fixed-strings --quiet "Running"; then
-  limactl start default
+if ! limactl list | grep --fixed-strings "nerdctl" | grep --fixed-strings --quiet "Running"; then
+  limactl start nerdctl
 fi
 
-exec lima nerdctl "$@"
+exec limactl shell nerdctl nerdctl "$@"

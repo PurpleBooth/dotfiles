@@ -74,6 +74,11 @@
           # Cargo
     ~/.cargo/config: cargo/config
     ~/.bin/docker: lima/nerd-ctl-docker-shim
+    ~/.lima/docker/lima.yaml: lima/docker.yaml
+    ~/.lima/nerdctl/lima.yaml: lima/nerdctl.yaml
+    ~/.ssh/config:
+        mode: 0600
+        path: ssh/config
 
 - create:
   - ~/Code/
