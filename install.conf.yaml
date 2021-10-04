@@ -73,6 +73,7 @@
     ~/.bin/1password: 1password/bin/1password
           # Cargo
     ~/.cargo/config: cargo/config
+    ~/.bin/docker: lima/nerd-ctl-docker-shim
 
 - create:
   - ~/Code/
