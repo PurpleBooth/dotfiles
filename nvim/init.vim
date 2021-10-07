@@ -50,6 +50,7 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'navarasu/onedark.nvim'
+Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
