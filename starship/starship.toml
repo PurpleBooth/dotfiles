@@ -1,5 +1,21 @@
-[env_var]
-variable = "SHELL_NAME"
-default = "unknown"
-style	= "bold white"
+[git_metrics]
+disabled = false
 
+[kubernetes]
+disabled = false
+
+[memory_usage]
+disabled = false
+
+[hg_branch]
+disabled = false
+
+[shell]
+disabled = false
+fish_indicator = ""
+
+[shlvl]
+disabled = false
+
+[status]
+disabled = false
