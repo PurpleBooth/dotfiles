@@ -1,9 +1,6 @@
 [git_metrics]
 disabled = false
 
-[kubernetes]
-disabled = false
-
 [memory_usage]
 disabled = false
 
