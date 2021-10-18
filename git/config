@@ -16,22 +16,22 @@
 [branch "master"]
 	rebase = true
 [branch "main"]
-	rebase = true
+  rebase = true
 [init]
   templatedir = ~/.config/git/init-template
-	defaultBranch = main
+  defaultBranch = main
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [diff "sopsdiffer"]
-	textconv = "sops -d"
+  textconv = "sops -d"
 [delta]
-	syntax-theme = TwoDark
+  syntax-theme = TwoDark
 [interactive]
-	diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 
 [includeIf "gitdir:Code/"]
-	path = config.insteadofhttp
+  path = config.insteadofhttp
