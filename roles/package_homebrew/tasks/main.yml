@@ -10,20 +10,10 @@
   when: not homebrew.stat.exists
   become: yes
 
-- name: Update Homebrew and other Homebrew packages
-  community.general.homebrew:
-    update_homebrew: yes
-    upgrade_all: yes
-
-- name: Upgrade all casks
-  community.general.homebrew_cask:
-      upgrade_all: true
-      greedy: true
-
 - name: Install Homebrew dependencies
   community.general.homebrew:
     name: '{{ item }}'
-    state: latest
+    
   loop:
   - mas
   - svn

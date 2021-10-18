@@ -4,7 +4,7 @@
   loop:
   - google-cloud-sdk
 - name: Update Gcloud
-  shell:
+  command:
     cmd: gcloud components update --quiet
 - name: Link fish config
   file:

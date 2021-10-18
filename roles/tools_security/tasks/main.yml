@@ -6,7 +6,7 @@
   - 1password-cli
 - name: Install packages from Homebrew
   community.general.homebrew:
-    state: latest
+    
     name: '{{ item }}'
   loop:
   - pinentry-mac
@@ -39,7 +39,7 @@
     src: '{{ inventory_dir }}/roles/tools_security/files/sops.yaml'
 
 - name: Read and set environment variables from 1password with password
-  shell:
+  command:
     cmd: '{{ inventory_dir }}/roles/tools_security/files/generate-envsecret'
     stdin: '{{ vault_password }}'
 
@@ -55,7 +55,7 @@
     mode: '700'
 
 - name: Create SOPS Key Store in Google Cloud
-  shell:
+  command:
     cmd: setup-a-keyring-for-sops secret-store purplebooth-secret-storage sops sops-key
 
 - name: Check that the SOPS credentials exist
@@ -68,4 +68,4 @@
   copy:
     dest: '{{ ansible_env.HOME }}/.config/gcloud/application_sops_credentials.json'
     src: '{{ ansible_env.HOME }}/.config/gcloud/application_default_credentials.json'
-
+    mode: "600"

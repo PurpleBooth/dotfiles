@@ -1,7 +1,7 @@
 - name: Install packages from Homebrew
   community.general.homebrew:
     name: '{{ item }}'
-    state: latest
+    
   loop:
   - curl
   - httpie
@@ -11,11 +11,11 @@
 
 - name: Install Casks from Homebrew
   community.general.homebrew_cask:
-      name: '{{ item }}'
+    name: '{{ item }}'
   loop:
-      - chromedriver
-      - google-chrome
-      - firefox-beta
+  - chromedriver
+  - google-chrome
+  - firefox-beta
 
 - name: Install applications from Mas
   community.general.mas:

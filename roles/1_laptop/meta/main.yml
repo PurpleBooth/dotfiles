@@ -1,33 +1,33 @@
 dependencies:
-    - role: user_dirs
-    - role: tools_web
-    - role: tools_ui
-    - role: tools_shell
-    - role: tools_security
-    - role: tools_av
-    - role: platform_waypoint
-    - role: platform_google_cloud
-    - role: platform_github
-    - role: platform_firebase
-    - role: platform_azure
-    - role: platform_aws
-    - role: platform_ak
-    - role: package_homebrew
-    - role: fonts
-    - role: dev_zsh
-    - role: dev_yaml
-    - role: dev_terraform
-    - role: dev_rust
-    - role: dev_ruby
-    - role: dev_python
-    - role: dev_php
-    - role: dev_kubernetes
-    - role: dev_js
-    - role: dev_java
-    - role: dev_gxx
-    - role: dev_go
-    - role: dev_git
-    - role: dev_fish
-    - role: dev_dotnet
-    - role: dev_docker
-    - role: dev_bash
+- role: user_dirs
+- role: tools_web
+- role: tools_ui
+- role: tools_shell
+- role: tools_security
+- role: tools_av
+- role: platform_waypoint
+- role: platform_google_cloud
+- role: platform_github
+- role: platform_firebase
+- role: platform_azure
+- role: platform_aws
+- role: platform_ak
+- role: package_homebrew
+- role: fonts
+- role: dev_zsh
+- role: dev_yaml
+- role: dev_terraform
+- role: dev_rust
+- role: dev_ruby
+- role: dev_python
+- role: dev_php
+- role: dev_kubernetes
+- role: dev_js
+- role: dev_java
+- role: dev_gxx
+- role: dev_go
+- role: dev_git
+- role: dev_fish
+- role: dev_dotnet
+- role: dev_docker
+- role: dev_bash

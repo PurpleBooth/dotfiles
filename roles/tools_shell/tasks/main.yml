@@ -1,11 +1,11 @@
 - name: Install casks from Homebrew
   community.general.homebrew_cask:
-      name: '{{ item }}'
+    name: '{{ item }}'
   loop:
   - mactex-no-gui
 - name: Install packages from Homebrew
   community.general.homebrew:
-    state: latest
+    
     name: '{{ item }}'
   loop:
   - gettext
@@ -86,7 +86,7 @@
   - expand
   - expr
   - factor
-  - "false"
+  - 'false'
   - find
   - fish_greeting
   - fmt
@@ -170,7 +170,7 @@
   - touch
   - tr
   - tree
-  - "true"
+  - 'true'
   - truncate
   - tsort
   - tty
@@ -242,13 +242,13 @@
   - gettext
 
 - name: TLDR Update
-  shell:
+  command:
     cmd: tldr -u
 
 - name: Install bottle python package
   pip:
     name: pynvim
-    state: latest
+    
 
 - name: Download plug.vim
   get_url:

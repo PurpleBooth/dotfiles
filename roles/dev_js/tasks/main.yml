@@ -2,7 +2,7 @@
   community.general.homebrew:
     name: '{{ item }}'
 
-    state: latest
+    
   loop:
   - node
   - prettier

@@ -1,6 +1,6 @@
 - name: Install Casks from Homebrew
   community.general.homebrew:
-    state: latest
+    
     name:
     - homebrew/cask-fonts/font-fira-code
     - homebrew/cask-fonts/font-fira-code-nerd-font

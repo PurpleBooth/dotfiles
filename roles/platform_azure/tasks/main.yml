@@ -3,5 +3,5 @@
     name:
     - azure-cli
     - azure-functions-core-tools
-    state: latest
+    
 

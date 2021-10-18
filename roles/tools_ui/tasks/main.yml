@@ -43,10 +43,10 @@
 
 - name: Is touch id sudo enabled
   lineinfile:
-      path: /etc/pam.d/sudo
-      state: absent
-      search_string: auth       sufficient     pam_tid.so
-      line: auth       sufficient     pam_tid.so
+    path: /etc/pam.d/sudo
+    state: absent
+    search_string: auth       sufficient     pam_tid.so
+    line: auth       sufficient     pam_tid.so
   check_mode: yes
   changed_when: false
   register: touch_id_sudo
