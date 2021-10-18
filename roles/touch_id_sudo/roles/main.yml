@@ -1,0 +1,8 @@
+- name: Insert the touch id into the sudo file
+  lineinfile:
+    path: /etc/pam.d/sudo
+    state: present
+    insertafter: '^# sudo: auth account password session$'
+    search_string: auth       sufficient     pam_tid.so
+    line: auth       sufficient     pam_tid.so
+  become: yes

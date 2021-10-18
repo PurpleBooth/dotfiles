@@ -1,0 +1,34 @@
+- name: Install fish from Homebrew
+  community.general.homebrew:
+    state: latest
+    name: fish
+- name: Link configuration and directories
+  file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    state: link
+  loop:
+  - dest: '{{ ansible_env.HOME }}/.config/fish/config.fish'
+    src: '{{ inventory_dir }}/fish/config.fish'
+  - dest: '{{ ansible_env.HOME }}/.config/fish/fish_plugins'
+    src: '{{ inventory_dir }}/fish/fishfile'
+
+- name: Link fish functions
+  file:
+    src: '{{ item }}'
+    dest: '{{ ansible_env.HOME }}/.config/fish/functions/{{ item | basename }}'
+    state: link
+  with_fileglob: '{{ inventory_dir }}/fish/functions/*'
+- name: Link fish config
+  file:
+    src: '{{ item }}'
+    dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/{{ item | basename }}'
+    state: link
+  with_fileglob: '{{ inventory_dir }}/fish/conf.d/*'
+- name: Set the default shell to fish
+  ansible.builtin.user:
+    name: '{{ ansible_env.USER }}'
+    shell: /usr/local/bin/fish
+- name: Update fisher
+  shell:
+    cmd: fish -c "fisher update"

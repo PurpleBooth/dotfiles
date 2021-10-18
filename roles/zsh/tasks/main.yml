@@ -1,0 +1,23 @@
+- name: Install fish from Homebrew
+  community.general.homebrew:
+    state: latest
+    name:
+    - zsh
+    - zplug
+- name: Create directories
+  file:
+    path: '{{ item }}'
+    state: directory
+    recurse: yes
+  loop:
+  - '{{ ansible_env.HOME }}/.config/zsh'
+- name: Link configuration and directories
+  file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    state: link
+  loop:
+  - dest: '{{ ansible_env.HOME }}/.zshenv'
+    src: '{{ inventory_dir }}/zsh/.zshenv'
+  - dest: '{{ ansible_env.HOME }}/.config/zsh/.zshrc'
+    src: '{{ inventory_dir }}/zsh/.zshrc'

@@ -1,0 +1,18 @@
+- name: Create directories
+  file:
+    path: '{{ item }}'
+    state: directory
+    recurse: yes
+  loop:
+  - '{{ ansible_env.HOME }}/Code/'
+  - '{{ ansible_env.HOME }}/Downloads/'
+  - '{{ ansible_env.HOME }}/Documents/'
+  - '{{ ansible_env.HOME }}/Desktop/'
+- name: Link configuration and directories
+  file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    state: link
+  loop:
+  - dest: '{{ ansible_env.HOME }}/Documents/Code'
+    src: '{{ ansible_env.HOME }}/Code'

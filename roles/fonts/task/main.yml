@@ -1,0 +1,22 @@
+- name: Tap Homebrew repositories
+  community.general.homebrew_tap:
+    name:
+    - homebrew/cask-fonts
+- name: Install Casks from Homebrew
+  community.general.homebrew_cask:
+    name:
+    - font-fira-code
+    - font-fira-code-nerd-font
+    - font-iosevka
+    - font-iosevka-aile
+    - font-iosevka-curly
+    - font-iosevka-curly-slab
+    - font-iosevka-etoile
+    - font-iosevka-nerd-font
+    - font-iosevka-slab
+    - font-jetbrains-mono
+    - font-jetbrains-mono-nerd-font
+    - font-libre-baskerville
+    - font-mate
+    - font-poppins
+    - font-source-sans-pro

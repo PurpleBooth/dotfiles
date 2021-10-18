@@ -1,0 +1,20 @@
+- name: Install packages from Homebrew
+  community.general.homebrew:
+    state: latest
+    name:
+    - starship
+- name: Create directories
+  file:
+    path: '{{ item }}'
+    state: directory
+    recurse: yes
+  loop:
+  - '{{ ansible_env.HOME }}/.config'
+- name: Link configuration and directories
+  file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    state: link
+  loop:
+  - dest: '{{ ansible_env.HOME }}/.config/starship.toml'
+    src: '{{ inventory_dir }}/starship/starship.toml'

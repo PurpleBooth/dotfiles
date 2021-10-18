@@ -1,0 +1,33 @@
+- name: Tap Homebrew repositories
+  community.general.homebrew_tap:
+    name:
+    - PurpleBooth/repo
+- name: Install packages from Homebrew
+  community.general.homebrew:
+    state: latest
+    name:
+    - sops
+    - PurpleBooth/repo/setup-a-keyring-for-sops
+- name: Link configuration and directories
+  file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    state: link
+  loop:
+  - dest: '{{ ansible_env.HOME }}/.sops.yaml'
+    src: '{{ inventory_dir }}/sops/sops.yaml'
+
+- name: Create SOPS Key Store in Google Cloud
+  shell:
+    cmd: setup-a-keyring-for-sops secret-store purplebooth-secret-storage sops sops-key
+
+- name: Check that the SOPS credentials exist
+  stat:
+    path: '{{ ansible_env.HOME }}/.config/gcloud/application_sops_credentials.json'
+  register: sops_credentials
+
+- name: Copy SOPS Auth
+  when: not sops_credentials.stat.exists
+  copy:
+    dest: '{{ ansible_env.HOME }}/.config/gcloud/application_sops_credentials.json'
+    src: '{{ ansible_env.HOME }}/.config/gcloud/application_default_credentials.json'

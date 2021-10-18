@@ -1,0 +1,19 @@
+- name: Install packages from Homebrew
+  community.general.homebrew:
+    state: latest
+    name: tmux
+- name: Create directories
+  file:
+    path: '{{ item }}'
+    state: directory
+    recurse: yes
+  loop:
+  - '{{ ansible_env.HOME }}/.config/tmux/plugins'
+- name: Link configuration and directories
+  file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    state: link
+  loop:
+  - dest: '{{ ansible_env.HOME }}/.config/tmux/tmux.conf'
+    src: '{{ inventory_dir }}/tmux/tmux.conf'

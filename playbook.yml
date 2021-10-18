@@ -1,0 +1,28 @@
+- name: Network Getting Started First Playbook
+  hosts: local
+  vars_prompt:
+     -   name: vault_password
+         prompt: Enter your 1password key
+
+  roles:
+  - user_dirs
+  - python
+  - homebrew
+  - rust
+  - fish
+  - gcloud
+  - gnupg
+  - vim
+  - yamlfmt
+  - touch_id_sudo
+  - sops
+  - 1password
+  - bash
+  - git
+  - kitty
+  - docker
+  - tldr
+  - zsh
+  - tmux
+  gather_facts: true
+
