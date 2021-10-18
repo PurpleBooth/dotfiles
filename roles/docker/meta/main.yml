@@ -1,4 +1,0 @@
-dependencies:
-- role: homebrew
-- role: ssh
-- role: bash

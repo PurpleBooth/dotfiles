@@ -1,7 +1,0 @@
-function ___GNU_CMD___
-    if ! type -q ___PREFIXED_COMMAND___
-        command ___GNU_CMD___ $argv
-    else
-        ___PREFIXED_COMMAND___ $argv
-    end
-end

@@ -1,5 +1,0 @@
-- name: Install packages from Homebrew
-  community.general.homebrew:
-    state: latest
-    name:
-    - openssh

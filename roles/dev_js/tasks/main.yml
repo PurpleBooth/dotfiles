@@ -1,0 +1,10 @@
+- name: Install Casks from Homebrew
+  community.general.homebrew:
+    name: '{{ item }}'
+
+    state: latest
+  loop:
+  - node
+  - prettier
+  - yarn
+  - jq

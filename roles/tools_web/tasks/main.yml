@@ -1,0 +1,24 @@
+- name: Install packages from Homebrew
+  community.general.homebrew:
+    name: '{{ item }}'
+    state: latest
+  loop:
+  - curl
+  - httpie
+  - rsync
+  - wget
+  - translate-shell
+
+- name: Install Casks from Homebrew
+  community.general.homebrew_cask:
+      name: '{{ item }}'
+  loop:
+      - chromedriver
+      - google-chrome
+      - firefox-beta
+
+- name: Install applications from Mas
+  community.general.mas:
+    id: '{{ item }}'
+  loop:
+  - 1176895641         # Spark

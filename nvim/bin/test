@@ -1,7 +1,0 @@
-#!/usr/bin/env bats
-
-@test "vim is installed and runs" {
-  run nvim --help
-
-  [ "$status" -eq 0 ]
-}

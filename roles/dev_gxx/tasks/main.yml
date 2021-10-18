@@ -1,0 +1,7 @@
+- name: Install packages from Homebrew
+  community.general.homebrew:
+    name: '{{ item }}'
+    state: latest
+  loop:
+  - gcc
+  - gdb

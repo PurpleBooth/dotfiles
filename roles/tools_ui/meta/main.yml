@@ -1,2 +1,3 @@
 dependencies:
 - role: package_homebrew
+- role: dev_fish

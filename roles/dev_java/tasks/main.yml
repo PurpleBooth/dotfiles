@@ -1,0 +1,13 @@
+- name: Install packages from Homebrew
+  community.general.homebrew:
+    state: latest
+    name: '{{ item }}'
+  loop:
+  - openjdk
+  - gradle
+  - kotlin
+- name: Link fish config
+  file:
+    src: '{{ inventory_dir }}/roles/dev_java/files/use_java.fish'
+    dest: '{{ ansible_env.HOME }}/.config/fish/functions/use_java.fish'
+    state: link

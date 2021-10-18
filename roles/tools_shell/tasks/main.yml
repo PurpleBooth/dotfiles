@@ -1,0 +1,261 @@
+- name: Install casks from Homebrew
+  community.general.homebrew_cask:
+      name: '{{ item }}'
+  loop:
+  - mactex-no-gui
+- name: Install packages from Homebrew
+  community.general.homebrew:
+    state: latest
+    name: '{{ item }}'
+  loop:
+  - gettext
+  - tmux
+  - nvim
+  - reattach-to-user-namespace
+  - starship
+  - terminal-notifier
+  - tldr
+  - pandoc
+  - bind
+  - coreutils
+  - PurpleBooth/repo/whatismyip
+  - zoxide
+  - fswatch
+  - watch
+  - gnu-sed
+  - findutils
+  - grep
+  - thefuck
+  - pidof
+  - less
+  - direnv
+  - pstree
+  - ffmpeg
+  - dog
+  - dust
+  - gettext
+  - fasd
+  - fd
+  - fdupes
+  - fzf
+  - fzy
+  - ripgrep
+  - sk
+  - PurpleBooth/repo/gfmfmt
+  - procs
+  - exa
+  - imagemagick
+  - jq
+  - tree
+  - bat
+  - mdcat
+- name: Link fish config
+  file:
+    src: '{{ inventory_dir }}/roles/tools_shell/files/{{ item }}.fish'
+    dest: '{{ ansible_env.HOME }}/.config/fish/functions/{{ item }}.fish'
+    state: link
+  loop:
+  - addr2line
+  - ar
+  - base64
+  - basename
+  - c++filt
+  - cat
+  - icat
+  - chcon
+  - chgrp
+  - chmod
+  - chown
+  - chroot
+  - cksum
+  - comm
+  - configure
+  - cp
+  - csplit
+  - cut
+  - date
+  - dd
+  - df
+  - dir
+  - dircolors
+  - dirname
+  - du
+  - echo
+  - elfedit
+  - env
+  - expand
+  - expr
+  - factor
+  - "false"
+  - find
+  - fish_greeting
+  - fmt
+  - fold
+  - getopt
+  - grep
+  - groups
+  - head
+  - hostid
+  - id
+  - indent
+  - install
+  - join
+  - kill
+  - libtool
+  - libtoolize
+  - ll
+  - ln
+  - locate
+  - logname
+  - ls
+  - md5sum
+  - mkdir
+  - mkfifo
+  - mknod
+  - mktemp
+  - more
+  - mv
+  - nice
+  - nl
+  - nm
+  - nohup
+  - nproc
+  - o
+  - objcopy
+  - objdump
+  - od
+  - oldfind
+  - paste
+  - pathchk
+  - pinee
+  - pip
+  - pr
+  - printenv
+  - printf
+  - ptx
+  - pwd
+  - python
+  - ranlib
+  - readelf
+  - readlink
+  - realpath
+  - rm
+  - rmdir
+  - runcon
+  - sed
+  - seq
+  - sha1sum
+  - sha224sum
+  - sha256sum
+  - sha384sum
+  - sha512sum
+  - shred
+  - shuf
+  - size
+  - sleep
+  - sort
+  - split
+  - ssh
+  - stat
+  - strings
+  - strip
+  - stty
+  - sum
+  - sync
+  - tac
+  - tail
+  - tar
+  - tee
+  - timeout
+  - touch
+  - tr
+  - tree
+  - "true"
+  - truncate
+  - tsort
+  - tty
+  - uname
+  - unexpand
+  - uniq
+  - units
+  - unlink
+  - updatedb
+  - uptime
+  - users
+  - vdir
+  - vim
+  - wc
+  - which
+  - who
+  - whoami
+  - xargs
+  - 'yes'
+- name: Tap Homebrew repositories
+  community.general.homebrew_tap:
+    name:
+    - homebrew/command-not-found
+
+
+- name: Create directories
+  file:
+    path: '{{ item }}'
+    state: directory
+    recurse: yes
+  loop:
+  - '{{ ansible_env.HOME }}/.config/nvim/autoload'
+  - '{{ ansible_env.HOME }}/.local/share/nvim/site/autoload'
+  - '{{ ansible_env.HOME }}/.config'
+  - '{{ ansible_env.HOME }}/.config/tmux/plugins'
+
+
+- name: Link configuration and directories
+  file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    state: link
+  loop:
+  - src: '{{ inventory_dir }}/roles/tools_shell/files/cfg_command_not_found.fish'
+    dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/command_not_found.fish'
+  - src: '{{ inventory_dir }}/roles/tools_shell/files/cfg_direnv.fish'
+    dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/direnv.fish'
+  - src: '{{ inventory_dir }}/roles/tools_shell/files/cfg_ls.fish'
+    dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/ls.fish'
+  - src: '{{ inventory_dir }}/roles/tools_shell/files/cfg_bat.fish'
+    dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/bat.fish'
+  - dest: '{{ ansible_env.HOME }}/.config/starship.toml'
+    src: '{{ inventory_dir }}/roles/tools_shell/files/starship.toml'
+  - src: '{{ inventory_dir }}/roles/tools_shell/files/cfg_starship.fish'
+    dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/starship.fish'
+  - dest: '{{ ansible_env.HOME }}/.config/tmux/tmux.conf'
+    src: '{{ inventory_dir }}/roles/tools_shell/files/tmux.conf'
+  - dest: '{{ ansible_env.HOME }}/.config/nvim/init.vim'
+    src: '{{ inventory_dir }}/roles/tools_shell/files/init.vim'
+  - src: '{{ inventory_dir }}/roles/tools_shell/files/cfg_nvim.fish'
+    dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/nvim.fish'
+  - src: '{{ inventory_dir }}/roles/tools_shell/files/cfg_zoxide.fish'
+    dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/zoxide.fish'
+- name: Link packages from Homebrew
+  community.general.homebrew:
+    state: linked
+    name: '{{ item }}'
+  loop:
+  - gettext
+
+- name: TLDR Update
+  shell:
+    cmd: tldr -u
+
+- name: Install bottle python package
+  pip:
+    name: pynvim
+    state: latest
+
+- name: Download plug.vim
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: '{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim'
+
+- name: Download plug.vim
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: '{{ ansible_env.HOME }}/.config/nvim/autoload/plug.vim'

@@ -1,0 +1,9 @@
+- name: Install packages from Homebrew
+  community.general.homebrew:
+    state: latest
+    name: '{{ item }}'
+  loop:
+  - pyenv
+  - python
+  - pipenv
+  - poetry

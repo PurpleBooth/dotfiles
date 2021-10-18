@@ -1,7 +1,0 @@
-- name: Install google-cloud-sdk Cask from Homebrew
-  community.general.homebrew_cask:
-    name: google-cloud-sdk
-    state: latest
-- name: Update Gcloud
-  shell:
-    cmd: gcloud components update --quiet

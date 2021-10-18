@@ -1,8 +1,0 @@
-- name: Install packages from Homebrew
-  community.general.homebrew:
-    state: latest
-    name:
-    - pyenv
-    - python
-    - pipenv
-    - poetry

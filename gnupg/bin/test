@@ -1,7 +1,0 @@
-#!/usr/bin/env bats
-
-@test "gpg is installed and runs" {
-  run gpg -h  
-
-  [ "$status" -eq 0 ]
-}

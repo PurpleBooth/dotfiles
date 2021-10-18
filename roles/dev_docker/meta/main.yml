@@ -1,0 +1,5 @@
+dependencies:
+- role: package_homebrew
+- role: tools_security
+- role: dev_bash
+- role: dev_fish

@@ -1,0 +1,12 @@
+- name: Install yamlfmt from Homebrew
+  pip:
+    state: latest
+    name: yamlfmt
+
+- name: Install Casks from Homebrew
+  community.general.homebrew:
+    name: '{{ item }}'
+    state: latest
+  loop:
+  - yq
+

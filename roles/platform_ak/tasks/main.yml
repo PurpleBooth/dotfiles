@@ -1,0 +1,16 @@
+- name: Install Casks from Homebrew
+  community.general.homebrew:
+    name:
+    - aws-google-auth
+    state: latest
+
+- name: Link fish config
+  file:
+    src: '{{ inventory_dir }}/roles/platform_ak/files/{{ item }}.fish'
+    dest: '{{ ansible_env.HOME }}/.config/fish/functions/{{ item }}.fish'
+    state: link
+  loop:
+  - aws-ak
+  - aws-ak-training
+  - aws-cr
+  - aws-practices

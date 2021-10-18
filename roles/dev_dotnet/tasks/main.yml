@@ -1,0 +1,5 @@
+- name: Install Casks from Homebrew
+  community.general.homebrew_cask:
+    name: '{{ item }}'
+  loop:
+  - dotnet-sdk

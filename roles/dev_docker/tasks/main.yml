@@ -1,0 +1,46 @@
+- name: Install packages from Homebrew
+  community.general.homebrew:
+    state: latest
+    name: '{{ item }}'
+  loop:
+  - lima
+
+- name: Link configuration and directories
+  file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    state: link
+  loop:
+  - dest: '{{ ansible_env.HOME }}/.bin/docker'
+    src: '{{ inventory_dir }}/roles/dev_docker/files/nerd-ctl-docker-shim'
+  - dest: '{{ ansible_env.HOME }}/.lima/docker/lima.yaml'
+    src: '{{ inventory_dir }}/roles/dev_docker/files/docker.yaml'
+  - dest: '{{ ansible_env.HOME }}/.lima/nerdctl/lima.yaml'
+    src: '{{ inventory_dir }}/roles/dev_docker/files/nerdctl.yaml'
+  - dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/docker.fish'
+    src: '{{ inventory_dir }}/roles/dev_docker/files/docker.fish'
+
+- name: Check ssh config exists
+  stat:
+    path: '{{ ansible_env.HOME }}/.ssh/config'
+  register: ssh_config
+
+- name: Create SSH Directory
+  file:
+    path: '{{ ansible_env.HOME }}/.ssh'
+    state: directory
+    mode: '700'
+
+- name: Create the file, if it doesnt exist already
+  file:
+    path: '{{ ansible_env.HOME }}/.ssh/config'
+    state: touch
+    mode: '600'
+  when: not ssh_config.stat.exists
+
+- name: Add skip localhost ssh validation
+  lineinfile:
+    path: '{{ ansible_env.HOME }}/.ssh/config'
+    state: present
+    search_string: NoHostAuthenticationForLocalhost yes
+    line: NoHostAuthenticationForLocalhost yes

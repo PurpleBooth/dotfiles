@@ -1,3 +1,0 @@
-dependencies:
-- role: homebrew
-- role: starship

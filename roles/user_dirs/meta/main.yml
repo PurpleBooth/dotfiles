@@ -1,1 +1,9 @@
+galaxy_info:
+     description: Setup
+     license: CC0
+     min_ansible_version: 2.11
+     platforms:
+     - name: MacOSX
+       versions:
+        - all
 dependencies: []
