@@ -5,50 +5,49 @@
   - mactex-no-gui
 - name: Install packages from Homebrew
   community.general.homebrew:
-    
     name: '{{ item }}'
   loop:
-  - gettext
-  - tmux
-  - nvim
-  - reattach-to-user-namespace
-  - starship
-  - terminal-notifier
-  - tldr
-  - pandoc
-  - bind
-  - coreutils
-  - PurpleBooth/repo/whatismyip
-  - zoxide
-  - fswatch
-  - watch
-  - gnu-sed
-  - findutils
-  - grep
-  - thefuck
-  - pidof
-  - less
-  - direnv
-  - pstree
-  - ffmpeg
-  - dog
-  - dust
-  - gettext
-  - fasd
-  - fd
-  - fdupes
-  - fzf
-  - fzy
-  - ripgrep
-  - sk
-  - PurpleBooth/repo/gfmfmt
-  - procs
-  - exa
-  - imagemagick
-  - jq
-  - tree
-  - bat
-  - mdcat
+  - - gettext
+    - tmux
+    - nvim
+    - reattach-to-user-namespace
+    - starship
+    - terminal-notifier
+    - tldr
+    - pandoc
+    - bind
+    - coreutils
+    - PurpleBooth/repo/whatismyip
+    - zoxide
+    - fswatch
+    - watch
+    - gnu-sed
+    - findutils
+    - grep
+    - thefuck
+    - pidof
+    - less
+    - direnv
+    - pstree
+    - ffmpeg
+    - dog
+    - dust
+    - gettext
+    - fasd
+    - fd
+    - fdupes
+    - fzf
+    - fzy
+    - ripgrep
+    - sk
+    - PurpleBooth/repo/gfmfmt
+    - procs
+    - exa
+    - imagemagick
+    - jq
+    - tree
+    - bat
+    - mdcat
 - name: Link fish config
   file:
     src: '{{ inventory_dir }}/roles/tools_shell/files/{{ item }}.fish'
@@ -248,7 +247,7 @@
 - name: Install bottle python package
   pip:
     name: pynvim
-    
+
 
 - name: Download plug.vim
   get_url:

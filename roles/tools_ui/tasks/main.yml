@@ -2,30 +2,30 @@
   community.general.homebrew_cask:
     name: '{{ item }}'
   loop:
-  - alfred
-  - evernote
-  - grammarly
-  - jetbrains-toolbox
-  - kitty
-  - loopback
-  - screenflow
-  - shadow-beta
-  - shiftit
-  - signal-beta
-  - skype
-  - slack-beta
-  - steam
-  - telegram
-  - tidal
-  - visual-studio-code
-  - vlc
+  - - alfred
+    - evernote
+    - grammarly
+    - jetbrains-toolbox
+    - kitty
+    - loopback
+    - screenflow
+    - shadow-beta
+    - shiftit
+    - signal-beta
+    - skype
+    - slack-beta
+    - steam
+    - telegram
+    - tidal
+    - visual-studio-code
+    - vlc
 
 - name: Install applications from Mas
   community.general.mas:
     id: '{{ item }}'
   loop:
-  - 409183694           # Keynote
-  - 1464122853           # NextDNS
+  - - 409183694             # Keynote
+    - 1464122853             # NextDNS
 - name: Link configuration and directories
   file:
     src: '{{ item.src }}'

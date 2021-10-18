@@ -1,8 +1,7 @@
 - name: Install Casks from Homebrew
   community.general.homebrew:
     name: '{{ item }}'
-    
   loop:
-  - terraform
-  - terragrunt
-  - tfsec
+  - - terraform
+    - terragrunt
+    - tfsec

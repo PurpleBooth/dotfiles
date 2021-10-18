@@ -1,21 +1,20 @@
 - name: Install packages from Homebrew
   community.general.homebrew:
     name: '{{ item }}'
-    
   loop:
-  - curl
-  - httpie
-  - rsync
-  - wget
-  - translate-shell
+  - - curl
+    - httpie
+    - rsync
+    - wget
+    - translate-shell
 
 - name: Install Casks from Homebrew
   community.general.homebrew_cask:
     name: '{{ item }}'
   loop:
-  - chromedriver
-  - google-chrome
-  - firefox-beta
+  - - chromedriver
+    - google-chrome
+    - firefox-beta
 
 - name: Install applications from Mas
   community.general.mas:

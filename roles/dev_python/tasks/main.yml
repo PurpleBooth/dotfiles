@@ -1,9 +1,8 @@
 - name: Install packages from Homebrew
   community.general.homebrew:
-    
     name: '{{ item }}'
   loop:
-  - pyenv
-  - python
-  - pipenv
-  - poetry
+  - - pyenv
+    - python
+    - pipenv
+    - poetry

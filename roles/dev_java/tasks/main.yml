@@ -1,11 +1,10 @@
 - name: Install packages from Homebrew
   community.general.homebrew:
-    
     name: '{{ item }}'
   loop:
-  - openjdk
-  - gradle
-  - kotlin
+  - - openjdk
+    - gradle
+    - kotlin
 - name: Link fish config
   file:
     src: '{{ inventory_dir }}/roles/dev_java/files/use_java.fish'

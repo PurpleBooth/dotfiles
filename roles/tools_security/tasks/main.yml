@@ -2,20 +2,19 @@
   community.general.homebrew_cask:
     name: '{{ item }}'
   loop:
-  - 1password
-  - 1password-cli
+  - - 1password
+    - 1password-cli
 - name: Install packages from Homebrew
   community.general.homebrew:
-    
     name: '{{ item }}'
   loop:
-  - pinentry-mac
-  - openssh
-  - gnupg
-  - pwgen
-  - snyk
-  - sops
-  - PurpleBooth/repo/setup-a-keyring-for-sops
+  - - pinentry-mac
+    - openssh
+    - gnupg
+    - pwgen
+    - snyk
+    - sops
+    - PurpleBooth/repo/setup-a-keyring-for-sops
 - name: Create directories
   file:
     path: '{{ item }}'
@@ -68,4 +67,4 @@
   copy:
     dest: '{{ ansible_env.HOME }}/.config/gcloud/application_sops_credentials.json'
     src: '{{ ansible_env.HOME }}/.config/gcloud/application_default_credentials.json'
-    mode: "600"
+    mode: '600'

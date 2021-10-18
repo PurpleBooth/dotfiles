@@ -1,10 +1,9 @@
 - name: Install fish from Homebrew
   community.general.homebrew:
-    
     name: '{{ item }}'
   loop:
-  - zsh
-  - zplug
+  - - zsh
+    - zplug
 - name: Create directories
   file:
     path: '{{ item }}'

@@ -10,4 +10,4 @@
 
 - name: Upgrade all installed Mac App Store apps
   community.general.mas:
-      upgrade_all: yes
+    upgrade_all: yes

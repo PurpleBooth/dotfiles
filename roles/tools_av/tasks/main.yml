@@ -2,6 +2,6 @@
   community.general.homebrew_cask:
     name: '{{ item }}'
   loop:
-  - audio-hijack
-  - loopback
-  - zoom
+  - - audio-hijack
+    - loopback
+    - zoom

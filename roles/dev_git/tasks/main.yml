@@ -1,14 +1,9 @@
 - name: Install packages from Homebrew
   community.general.homebrew:
-    
     name: '{{ item }}'
   loop:
-  - PurpleBooth/repo/git-mit
-  - PurpleBooth/repo/git-moves-together
-  - git
-  - git-crypt
-  - git-delta
-  - git-lfs
+  - [PurpleBooth/repo/git-mit, PurpleBooth/repo/git-moves-together, git, git-crypt,
+    git-delta, git-lfs]
 - name: Link configuration and directories
   file:
     src: '{{ item.src }}'

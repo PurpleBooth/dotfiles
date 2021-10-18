@@ -2,7 +2,7 @@
   community.general.homebrew:
     name:
     - aws-google-auth
-    
+
 
 - name: Link fish config
   file:

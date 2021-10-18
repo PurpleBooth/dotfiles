@@ -1,15 +1,8 @@
 - name: Install packages from Homebrew
   community.general.homebrew:
-    
     name: '{{ item }}'
   loop:
-  - bash
-  - bash-completion
-  - bats
-  - shellcheck
-  - shfmt
-  - hyperfine
-  - specdown/repo/specdown
+  - [bash, bash-completion, bats, shellcheck, shfmt, hyperfine, specdown/repo/specdown]
 - name: Create directories
   file:
     path: '{{ item }}'

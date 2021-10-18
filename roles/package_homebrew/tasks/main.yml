@@ -13,7 +13,6 @@
 - name: Install Homebrew dependencies
   community.general.homebrew:
     name: '{{ item }}'
-    
   loop:
-  - mas
-  - svn
+  - - mas
+    - svn

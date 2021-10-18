@@ -1,6 +1,5 @@
 - name: Install packages from Homebrew
   community.general.homebrew:
-    
     name: '{{ item }}'
   loop:
   - hashicorp/tap/waypoint

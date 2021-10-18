@@ -1,6 +1,5 @@
 - name: Install fish from Homebrew
   community.general.homebrew:
-    
     name: '{{ item }}'
   loop:
   - fish
