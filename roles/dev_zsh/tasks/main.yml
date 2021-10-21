@@ -4,6 +4,7 @@
   loop:
   - - zsh
     - zplug
+    - zsh-completions
 - name: Create directories
   file:
     path: '{{ item }}'
