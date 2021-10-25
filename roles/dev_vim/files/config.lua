@@ -14,6 +14,7 @@ lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 lvim.builtin.lualine.style = "default"
 lvim.lsp.automatic_servers_installation = true
+lvim.builtin.treesitter.ensure_installed = "maintained"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -76,7 +77,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "yaml",
 }
 
-lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
 -- generic LSP settings
