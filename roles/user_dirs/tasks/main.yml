@@ -8,6 +8,7 @@
   - '{{ ansible_env.HOME }}/Downloads/'
   - '{{ ansible_env.HOME }}/Documents/'
   - '{{ ansible_env.HOME }}/Desktop/'
+  - '{{ ansible_env.HOME }}/.bin/'
 - name: Link configuration and directories
   file:
     src: '{{ item.src }}'

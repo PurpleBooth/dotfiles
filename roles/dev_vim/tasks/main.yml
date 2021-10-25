@@ -1,0 +1,54 @@
+
+- name: Install packages from Homebrew
+  community.general.homebrew:
+      name: '{{ item }}'
+  loop:
+        - nvim
+
+- name: Create temporary file
+  ansible.builtin.tempfile:
+      state: file
+      suffix: install.sh
+  register: tempfile_1
+
+- name: Download LunarVim installer
+  get_url:
+      url: https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh
+      dest: "{{ tempfile_1.path }}"
+
+- name: Install or Update LunarVim
+  command:
+    stdin: |
+        y
+        y
+        y
+    argv:
+        - bash
+        - "{{ tempfile_1.path }}"
+
+- name: remove installer
+  file:
+      path: "{{ tempfile_1.path }}"
+      state: absent
+  when: tempfile_1.path is defined
+
+- name: Remove lvim default config
+  file:
+      path: "{{ ansible_env.HOME }}/.config/lvim/config.lua"
+      state: absent
+
+- name: Link configuration and directories
+  file:
+      src: '{{ item.src }}'
+      dest: '{{ item.dest }}'
+      state: link
+  loop:
+      - src: '{{ inventory_dir }}/roles/dev_vim/files/cfg_nvim.fish'
+        dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/nvim.fish'
+      - src: '{{ inventory_dir }}/roles/dev_vim/files/vim.fish'
+        dest: '{{ ansible_env.HOME }}/.config/fish/functions/vim.fish'
+      - src: '{{ inventory_dir }}/roles/dev_vim/files/config.lua'
+        dest: '{{ ansible_env.HOME }}/.config/lvim/config.lua'
+      - src: '{{ ansible_env.HOME }}/.local/bin/lvim'
+        dest: '{{ ansible_env.HOME }}/.bin/lvim'
+

@@ -9,7 +9,6 @@
   loop:
   - - gettext
     - tmux
-    - nvim
     - reattach-to-user-namespace
     - starship
     - terminal-notifier
@@ -182,7 +181,6 @@
   - uptime
   - users
   - vdir
-  - vim
   - wc
   - which
   - who
@@ -201,8 +199,6 @@
     state: directory
     recurse: yes
   loop:
-  - '{{ ansible_env.HOME }}/.config/nvim/autoload'
-  - '{{ ansible_env.HOME }}/.local/share/nvim/site/autoload'
   - '{{ ansible_env.HOME }}/.config'
   - '{{ ansible_env.HOME }}/.config/tmux/plugins'
 
@@ -227,10 +223,6 @@
     dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/starship.fish'
   - dest: '{{ ansible_env.HOME }}/.config/tmux/tmux.conf'
     src: '{{ inventory_dir }}/roles/tools_shell/files/tmux.conf'
-  - dest: '{{ ansible_env.HOME }}/.config/nvim/init.vim'
-    src: '{{ inventory_dir }}/roles/tools_shell/files/init.vim'
-  - src: '{{ inventory_dir }}/roles/tools_shell/files/cfg_nvim.fish'
-    dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/nvim.fish'
   - src: '{{ inventory_dir }}/roles/tools_shell/files/cfg_zoxide.fish'
     dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/zoxide.fish'
 - name: Link packages from Homebrew
@@ -243,18 +235,3 @@
 - name: TLDR Update
   command:
     cmd: tldr -u
-
-- name: Install bottle python package
-  pip:
-    name: pynvim
-
-
-- name: Download plug.vim
-  get_url:
-    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: '{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim'
-
-- name: Download plug.vim
-  get_url:
-    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: '{{ ansible_env.HOME }}/.config/nvim/autoload/plug.vim'

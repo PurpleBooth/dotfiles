@@ -1,0 +1,8 @@
+dependencies:
+- role: package_homebrew
+- role: user_dirs
+- role: dev_bash
+- role: dev_rust
+- role: dev_python
+- role: dev_js
+- role: dev_fish

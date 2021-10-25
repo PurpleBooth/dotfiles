@@ -5,6 +5,8 @@
     prompt: Enter your 1password key
 
   roles:
+  - role: dev_vim
+    name: Vim
   - role: user_dirs
     name: User Directories
   - role: tools_web
