@@ -4,11 +4,17 @@
   loop:
   - nvim
 
-
-- name: Git checkout
-  ansible.builtin.git:
-      repo: https://github.com/lvim-tech/lvim.git
-      dest: '{{ ansible_env.HOME }}/.config/nvim'
+- name: Create directories
+  file:
+    path: '{{ item }}'
+    state: directory
+    recurse: yes
+  loop:
+  - '{{ ansible_env.HOME }}/.config/nvim/autoload'
+- name: Download file and force basic auth
+  get_url:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: '{{ ansible_env.HOME }}/.config/nvim/autoload/plug.vim'
 
 - name: Link configuration and directories
   file:
@@ -20,4 +26,5 @@
     dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/nvim.fish'
   - src: '{{ inventory_dir }}/roles/dev_vim/files/vim.fish'
     dest: '{{ ansible_env.HOME }}/.config/fish/functions/vim.fish'
-
+  - src: '{{ inventory_dir }}/roles/dev_vim/files/init.vim'
+    dest: '{{ ansible_env.HOME }}/.config/nvim/init.vim'
