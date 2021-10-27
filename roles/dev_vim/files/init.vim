@@ -27,6 +27,8 @@ set mouse=a
 set clipboard+=unnamedplus
 colorscheme onedark
 set completeopt=menu,menuone,noselect
+set number
+set cursorline
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
