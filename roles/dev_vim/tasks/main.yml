@@ -4,33 +4,11 @@
   loop:
   - nvim
 
-- name: Create temporary file
-  ansible.builtin.tempfile:
-    state: file
-    suffix: install.sh
-  register: tempfile_1
 
-- name: Download LunarVim installer
-  get_url:
-    url: https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh
-    dest: '{{ tempfile_1.path }}'
-
-- name: Install or Update LunarVim
-  command:
-    stdin: |
-      y
-      y
-      y
-      y
-    argv:
-    - bash
-    - '{{ tempfile_1.path }}'
-
-- name: remove installer
-  file:
-    path: '{{ tempfile_1.path }}'
-    state: absent
-  when: tempfile_1.path is defined
+- name: Git checkout
+  ansible.builtin.git:
+      repo: https://github.com/lvim-tech/lvim.git
+      dest: '{{ ansible_env.HOME }}/.config/nvim'
 
 - name: Link configuration and directories
   file:
@@ -42,6 +20,4 @@
     dest: '{{ ansible_env.HOME }}/.config/fish/conf.d/nvim.fish'
   - src: '{{ inventory_dir }}/roles/dev_vim/files/vim.fish'
     dest: '{{ ansible_env.HOME }}/.config/fish/functions/vim.fish'
-  - src: '{{ ansible_env.HOME }}/.local/bin/lvim'
-    dest: '{{ ansible_env.HOME }}/.bin/lvim'
 
