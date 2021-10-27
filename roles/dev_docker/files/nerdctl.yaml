@@ -4,24 +4,24 @@
 
 # Arch: "default", "x86_64", "aarch64".
 # "default" corresponds to the host architecture.
-arch: "default"
+arch: default
 
 # An image must support systemd and cloud-init.
 # Ubuntu and Fedora are known to work.
 # Default: none (must be specified)
 images:
     # Try to use a local image first.
-    - location: "~/Downloads/hirsute-server-cloudimg-amd64.img"
-      arch: "x86_64"
-    - location: "~/Downloads/hirsute-server-cloudimg-arm64.img"
-      arch: "aarch64"
+- location: ~/Downloads/hirsute-server-cloudimg-amd64.img
+  arch: x86_64
+- location: ~/Downloads/hirsute-server-cloudimg-arm64.img
+  arch: aarch64
 
     # Download the file from the internet when the local file is missing.
     # Hint: run `limactl prune` to invalidate the "current" cache
-    - location: "https://cloud-images.ubuntu.com/hirsute/current/hirsute-server-cloudimg-amd64.img"
-      arch: "x86_64"
-    - location: "https://cloud-images.ubuntu.com/hirsute/current/hirsute-server-cloudimg-arm64.img"
-      arch: "aarch64"
+- location: https://cloud-images.ubuntu.com/hirsute/current/hirsute-server-cloudimg-amd64.img
+  arch: x86_64
+- location: https://cloud-images.ubuntu.com/hirsute/current/hirsute-server-cloudimg-arm64.img
+  arch: aarch64
 
 # CPUs: if you see performance issues, try limiting cpus to 1.
 # Default: 4
@@ -29,33 +29,33 @@ cpus: 4
 
 # Memory size
 # Default: "4GiB"
-memory: "4GiB"
+memory: 4GiB
 
 # Disk size
 # Default: "100GiB"
-disk: "100GiB"
+disk: 100GiB
 
 # Expose host directories to the guest, the mount point might be accessible from all UIDs in the guest
 # Default: none
 mounts:
-    - location: "~"
+- location: '~'
         # CAUTION: `writable` SHOULD be false for the home directory.
         # Setting `writable` to true is possible, but untested and dangerous.
-      writable: false
-    - location: "/tmp/lima"
-      writable: true
+  writable: false
+- location: /tmp/lima
+  writable: true
 
 ssh:
     # A localhost port of the host. Forwarded to port 22 of the guest.
     # Currently, this port number has to be specified manually.
     # Default: none
-    localPort: 60022
+  localPort: 60022
     # Load ~/.ssh/*.pub in addition to $LIMA_HOME/_config/user.pub .
     # This option is useful when you want to use other SSH-based
     # applications such as rsync with the Lima instance.
     # If you have an insecure key under ~/.ssh, do not use this option.
     # Default: true
-    loadDotSSHPubKeys: true
+  loadDotSSHPubKeys: true
 
 
 
@@ -66,10 +66,10 @@ ssh:
 containerd:
     # Enable system-wide (aka rootful)  containerd and its dependencies (BuildKit, Stargz Snapshotter)
     # Default: false
-    system: true
+  system: true
     # Enable user-scoped (aka rootless) containerd and its dependencies
     # Default: true
-    user: true
+  user: true
 
 # Provisioning scripts need to be idempotent because they might be called
 # multiple times, e.g. when the host VM is being restarted.
@@ -112,14 +112,14 @@ containerd:
 firmware:
     # Use legacy BIOS instead of UEFI.
     # Default: false
-    legacyBIOS: false
+  legacyBIOS: false
 
 video:
     # QEMU display, e.g., "none", "cocoa", "sdl".
     # As of QEMU v5.2, enabling this is known to have negative impact
     # on performance on macOS hosts: https://gitlab.com/qemu-project/qemu/-/issues/334
     # Default: "none"
-    display: "none"
+  display: none
 
 # The instance can get routable IP addresses from the vmnet framework using
 # https://github.com/lima-vm/vde_vmnet.

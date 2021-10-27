@@ -186,7 +186,7 @@
   - who
   - whoami
   - xargs
-  - 'yes'
+  - yes
 - name: Tap Homebrew repositories
   community.general.homebrew_tap:
     name:
