@@ -21,9 +21,16 @@
       y
       y
       y
+      y
     argv:
     - bash
     - '{{ tempfile_1.path }}'
+
+- name: remove installer
+  file:
+    path: '{{ tempfile_1.path }}'
+    state: absent
+  when: tempfile_1.path is defined
 
 - name: Link configuration and directories
   file:
