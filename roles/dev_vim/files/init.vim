@@ -4,7 +4,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'navarasu/onedark.nvim'
+Plug 'olimorris/onedarkpro.nvim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -25,7 +25,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 set mouse=a
 set clipboard+=unnamedplus
-colorscheme onedark
 set completeopt=menu,menuone,noselect
 set number
 set cursorline
@@ -108,8 +107,14 @@ require'lualine'.setup{
   options = { theme  = 'onedark' },
   ...
 }
+
+local onedarkpro = require('onedarkpro')
+onedarkpro.setup({
+  options = {
+      highlight_cursorline = true, -- Use cursorline highlighting?
+  }
+})
+onedarkpro.load()
 EOF
 
-
-
-
+colorscheme onedarkpro
