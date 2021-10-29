@@ -15,7 +15,7 @@ Plug 'hrsh7th/nvim-cmp'
 
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-
+Plug 'dense-analysis/ale'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins
@@ -103,9 +103,24 @@ lsp_installer.on_server_ready(function (server) server:setup {
   capabilities = capabilities
 } end)
 
-require'lualine'.setup{
+require 'lualine'.setup {
   options = { theme  = 'onedark' },
-  ...
+  sections = {
+    lualine_a = {
+      {
+        'diagnostics',
+        sources = {'nvim_lsp', 'ale'},
+        sections = {'error', 'warn', 'info', 'hint'},
+        diagnostics_color = {
+          error = {fg = '#282c34'},
+          warn = {fg = '#282c34'},
+          info = {fg = '#282c34'},
+          hint = {fg = '#282c34'},
+        },
+        symbols = {error = '', warn = '', info = '', hint = 'ﴕ'},
+      }
+    }
+  }
 }
 
 local onedarkpro = require('onedarkpro')
