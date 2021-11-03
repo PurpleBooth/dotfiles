@@ -86,7 +86,6 @@
   - factor
   - 'false'
   - find
-  - fish_greeting
   - fmt
   - fold
   - getopt

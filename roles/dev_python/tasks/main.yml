@@ -4,5 +4,4 @@
   loop:
   - - pyenv
     - python
-    - pipenv
     - poetry
