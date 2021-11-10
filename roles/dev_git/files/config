@@ -35,3 +35,6 @@
 
 [includeIf "gitdir:Code/"]
   path = config.insteadofhttp
+[alias]
+	ci = commit
+	fci =  -c "core.editor=fast-conventional" commit
