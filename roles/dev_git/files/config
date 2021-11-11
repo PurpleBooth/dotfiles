@@ -37,4 +37,4 @@
   path = config.insteadofhttp
 [alias]
 	ci = commit
-	fci =  -c "core.editor=fast-conventional" commit
+	fci = -c \"core.editor=fast-conventional\" commit
