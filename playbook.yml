@@ -39,6 +39,8 @@
     name: Tooling to install Homebrew packages
   - role: fonts
     name: Fonts
+  - role: dev_git
+    name: Git & Git Hooks, and Filters
   - role: dev_zsh
     name: ZSH & ZSH Tooling
   - role: dev_yaml
@@ -61,8 +63,6 @@
     name: C & C++ Tooling
   - role: dev_go
     name: GoLang & GoLang Tooling
-  - role: dev_git
-    name: Git & Git Hooks, and Filters
   - role: dev_fish
     name: Fish & Fish Tooling
   - role: dev_dotnet
