@@ -1,5 +1,0 @@
-dependencies:
-- role: package_homebrew
-- role: dev_bash
-- role: dev_fish
-- role: platform_google_cloud

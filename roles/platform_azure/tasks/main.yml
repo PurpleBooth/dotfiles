@@ -1,7 +1,0 @@
-- name: Install Casks from Homebrew
-  community.general.homebrew:
-    name:
-    - azure-cli
-    - azure-functions-core-tools
-
-

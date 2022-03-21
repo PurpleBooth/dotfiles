@@ -1,0 +1,21 @@
+NoHostAuthenticationForLocalhost yes
+
+Host *
+	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+			  
+Host diskstation
+	Port 61425
+	HostName diskstation.risk-goblin.ts.net
+	User billie
+			  
+Host media
+	HostName media.risk-goblin.ts.net
+	# HostName 142.132.151.157
+	User billie
+	Port 50838
+
+Host raspberrypi
+	HostName raspberrypi.risk-goblin.ts.net
+	User ubuntu
+
+

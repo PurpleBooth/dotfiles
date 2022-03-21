@@ -1,6 +1,0 @@
-- name: Install Casks from Homebrew
-  community.general.homebrew:
-    name: '{{ item }}'
-  loop:
-  - - rbenv
-    - ruby

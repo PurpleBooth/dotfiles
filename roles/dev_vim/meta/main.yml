@@ -1,4 +1,0 @@
-dependencies:
-- role: package_homebrew
-- role: user_dirs
-- role: dev_fish

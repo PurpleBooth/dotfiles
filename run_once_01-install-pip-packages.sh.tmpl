@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Python Deps hash: {{ include "dot_requirements.txt" | sha256sum }}
+
+pip install --upgrade pip
+pip install --upgrade --requirement "$HOME/.requirements.txt"
+

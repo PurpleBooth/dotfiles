@@ -11,8 +11,7 @@ show-help:
 .PHONY: setup-home
 ## Install and link all packages for home
 setup-home:
-	pip install ansible || true
-	ansible-playbook --ask-become-pass --inventory inventory.ini playbook.yml
+	sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply PurpleBooth
 
 .PHONY: setup-work
 ## Install and link all packages for work
@@ -21,7 +20,7 @@ setup-work: setup-home
 .PHONY: format
 ## Format any yaml files
 format:
-	find . -path ./dotbot-brew -prune -o -path ./dotbot -prune -o \( -iname "*.yml" -o -iname "*.yaml" \) -exec yamlfmt --write {} \;
-	shfmt -w -s $(shell shfmt -f $(shell find "$(ROOT_DIR)" -maxdepth 1 -mindepth 1 -type d -not -name dotbot ))
+	find . \( -iname "*.yml" -o -iname "*.yaml" \) -exec yamlfmt --write {} \;
+	shfmt -w -s $(shell shfmt -f $(shell find "$PWD" -maxdepth 1 -mindepth 1 -type d ))
 	find "$(ROOT_DIR)" -name "*.fish" -o -name "*.fish.template" -exec fish_indent -w {} \;
 	fish -c "cd $(ROOT_DIR)/ && gfmfmt **.md"

@@ -1,3 +1,0 @@
-creation_rules:
-    # gcp files using GCP KMS
-- gcp_kms: projects/purplebooth-secret-storage/locations/global/keyRings/sops/cryptoKeys/sops-key

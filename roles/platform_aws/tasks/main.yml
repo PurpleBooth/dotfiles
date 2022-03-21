@@ -1,9 +1,0 @@
-- name: Install Packages from Homebrew
-  community.general.homebrew:
-    name:
-    - aws-iam-authenticator
-    - awscli
-    - s3cmd
-    - serverless
-
-
