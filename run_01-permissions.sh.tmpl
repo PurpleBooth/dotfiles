@@ -1,0 +1,13 @@
+#!/bin/sh
+
+STAT_BIN="stat"
+if command -v gstat > /dev/null ; then
+  STAT_BIN="gstat"
+fi
+
+FILE="$HOME/.config/envsecret/envsecret.sourceable.fish"
+if [ -f "$FILE" ]; then
+    if [ "$($STAT_BIN -c %a "$FILE")" != "711" ] ; then
+        chmod +x "$FILE"
+    fi
+fi

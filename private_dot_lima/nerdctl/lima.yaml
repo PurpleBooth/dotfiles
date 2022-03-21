@@ -74,15 +74,15 @@ containerd:
 provision:
 - mode: system
   script: |
-      #!/bin/bash
-      export DEBIAN_FRONTEND=noninteractive
-      REQUIRED_PKG="kitty-terminfo"
-      PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
-      echo Checking for $REQUIRED_PKG: $PKG_OK
-      if [ "" = "$PKG_OK" ]; then
-          echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-          sudo apt-get --yes install $REQUIRED_PKG
-      fi
+    #!/bin/bash
+    export DEBIAN_FRONTEND=noninteractive
+    REQUIRED_PKG="kitty-terminfo"
+    PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
+    echo Checking for $REQUIRED_PKG: $PKG_OK
+    if [ "" = "$PKG_OK" ]; then
+        echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+        sudo apt-get --yes install $REQUIRED_PKG
+    fi
 # Provisioning scripts need to be idempotent because they might be called
 # multiple times, e.g. when the host VM is being restarted.
 # provision:
