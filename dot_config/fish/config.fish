@@ -36,9 +36,6 @@ set --global --export XDG_CACHE_HOME "$HOME/Library/Caches/"
 set --global --export XDG_DATA_HOME "$HOME/.local/share"
 set --global --export XDG_RUNTIME_DIR "$HOME/Library/Caches/run"
 
-# Git-mit
-set --global --export GIT_MIT_AUTHORS_EXEC "bash -c 'CLOUDSDK_ACTIVE_CONFIG_NAME=\"secret-store\" sops -d \"\$XDG_CONFIG_HOME/git-mit/authors.yml\"'"
-
 # ghcup-env
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 test -f /Users/billie/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /Users/billie/.ghcup/bin $PATH
