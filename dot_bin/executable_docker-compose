@@ -6,4 +6,4 @@ if ! limactl list | grep --fixed-strings "nerdctl" | grep --fixed-strings --quie
   limactl start nerdctl
 fi
 
-exec limactl shell nerdctl nerdctl compose "$@"
+exec limactl shell nerdctl -- nerdctl compose "$@"
