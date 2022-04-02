@@ -14,6 +14,12 @@ Host media-1
 	User billie
 	Port 50838
 
+Host media-2
+	# HostName media.risk-goblin.ts.net
+	HostName 142.132.198.6
+	User root
+	Port 22
+
 Host raspberrypi
 	HostName raspberrypi.risk-goblin.ts.net
 	User ubuntu
