@@ -8,21 +8,9 @@ Host diskstation
 	HostName diskstation.risk-goblin.ts.net
 	User billie
 			  
-Host media
+Host media-1
 	HostName media.risk-goblin.ts.net
 	# HostName 142.132.151.157
-	User billie
-	Port 50838
-
-Host hardworkingrusso
-	HostName hardworkingrusso.risk-goblin.ts.net
-	# HostName 2a03:b0c0:3:d0::13b9:6001
-	User billie
-	Port 50838
-
-Host brightstoller
-	HostName brightstoller.risk-goblin.ts.net
-	# HostName 2a03:b0c0:3:d0::18f9:1001
 	User billie
 	Port 50838
 
