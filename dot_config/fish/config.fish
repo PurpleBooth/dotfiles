@@ -20,6 +20,7 @@ set --global fish_user_paths (brew --prefix)"/texlive/2019/bin/x86_64-darwin/" $
 set --global fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
 set --global fish_user_paths "$HOME/.config/nvim/bin" $fish_user_paths
 set --global fish_user_paths "/usr/local/sbin" $fish_user_paths
+set -gx PATH $PATH $HOME/.krew/bin
 
 #####################################################################
 # Globals                                                           #
