@@ -26,7 +26,8 @@
   syntax-theme = TwoDark
 [interactive]
   diffFilter = delta --color-only
-
+[push]
+	autoSetupRemote = true
 
 [includeIf "gitdir:Code/"]
   path = config.insteadofhttp
