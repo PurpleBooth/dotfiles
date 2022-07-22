@@ -42,6 +42,7 @@ cask "tor-browser"
 cask "visual-studio-code"
 cask "vlc"
 cask "zoom"
+cask "plexamp"
 
 mas "", id: 1176895641
 mas "", id: 1464122853
