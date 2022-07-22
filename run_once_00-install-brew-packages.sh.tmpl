@@ -8,6 +8,12 @@ if [[ "$HOMEBREW_PREFIX" != "/opt/homebrew" ]] ; then
 fi
 {{ end }}
 
+{{- if (eq .chezmoi.arch "arm64") -}}
+if ! pgrep oahd >/dev/null 2>&1; then
+  sudo softwareupdate --install-rosetta --agree-to-license
+fi
+{{ end -}}
+
 if ! command -v brew > /dev/null ; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
