@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 {{ if eq .chezmoi.arch "arm64" }}
 if [[ "$HOMEBREW_PREFIX" != "/opt/homebrew" ]] ; then
-  eval $(/bin/brew shellenv)
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 {{ end }}
 
