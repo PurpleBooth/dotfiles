@@ -4,4 +4,8 @@
 # pinentry program from GPGtools. This is the OSX 'magic sauce',
 # allowing the gpg key's passphrase to be stored in the login
 # keychain, enabling automatic key signing.
+{{ if eq .chezmoi.arch "amd64" }}
 pinentry-program /usr/local/bin/pinentry-mac
+{{ else }}
+pinentry-program /opt/homebrew/bin/pinentry-mac
+{{ end }}
