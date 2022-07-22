@@ -5,6 +5,7 @@ tap "PurpleBooth/repo"
 brew "mas"
 brew "svn"
 
+cask "microsoft-teams"
 cask "homebrew/cask-versions/1password-cli-beta"
 cask "homebrew/cask-versions/1password-beta"
 cask "alfred"
