@@ -1,5 +1,12 @@
 #!/bin/sh
 
+{{ if eq .chezmoi.arch "arm64" }}
+if [[ "$HOMEBREW_PREFIX" != "/opt/homebrew" ]] ; then
+  eval $(/bin/brew shellenv)
+fi
+{{ end }}
+
+
 # Python Deps hash: {{ include "dot_requirements.txt" | sha256sum }}
 
 pip install --upgrade pip

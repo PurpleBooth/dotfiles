@@ -1,5 +1,11 @@
 #!/bin/sh
 
+{{ if eq .chezmoi.arch "arm64" }}
+if [[ "$HOMEBREW_PREFIX" != "/opt/homebrew" ]] ; then
+  eval $(/bin/brew shellenv)
+fi
+{{ end }}
+
 STAT_BIN="stat"
 if command -v gstat > /dev/null ; then
   STAT_BIN="gstat"

@@ -1,3 +1,9 @@
 #!/bin/sh
 
+{{ if eq .chezmoi.arch "arm64" }}
+if [[ "$HOMEBREW_PREFIX" != "/opt/homebrew" ]] ; then
+  eval $(/bin/brew shellenv)
+fi
+{{ end }}
+
 sudo chsh -s "$(which fish)" "{{ .chezmoi.username }}"
