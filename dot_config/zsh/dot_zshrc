@@ -30,6 +30,11 @@ fi
 # Path                                                              #
 #####################################################################
 
+if [ -d "/opt/homebrew" ] ; then
+    export PATH="/opt/homebrew/sbin:${PATH}"
+    export PATH="/opt/homebrew/bin:${PATH}"
+fi
+
 export PATH="${GOCODEDIR}/bin:${PATH}"
 export PATH="${HOME}/.bin:${PATH}"
 source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
@@ -139,11 +144,11 @@ alias pip=pip3
 eval "$(rbenv init -)"
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+[[ -f $(brew --prefix)/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . $(brew --prefix)/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+[[ -f $(brew --prefix)/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . $(brew --prefix)/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+[[ -f $(brew --prefix)/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . $(brew --prefix)/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+export PATH="$(brew --prefix)/opt/mysql-client/bin:$PATH"

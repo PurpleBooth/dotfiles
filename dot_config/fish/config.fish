@@ -19,7 +19,16 @@ set --global fish_user_paths (brew --prefix)"/opt/mysql-client/bin" $fish_user_p
 set --global fish_user_paths (brew --prefix)"/texlive/2019/bin/x86_64-darwin/" $fish_user_paths
 set --global fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
 set --global fish_user_paths "$HOME/.config/nvim/bin" $fish_user_paths
-set --global fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+if test -d "/usr/local/sbin"
+    set --global fish_user_paths "/usr/local/sbin" $fish_user_paths
+end
+
+if test -d "/opt/homebrew"
+    set --global fish_user_paths "/opt/homebrew/sbin" $fish_user_paths
+    set --global fish_user_paths "/opt/homebrew/bin" $fish_user_paths
+end
+
 set -gx PATH $PATH $HOME/.krew/bin
 
 #####################################################################
