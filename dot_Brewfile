@@ -6,7 +6,6 @@ brew "mas"
 brew "svn"
 
 cask "microsoft-azure-storage-explorer"
-cask "dotnet"
 cask "microsoft-teams"
 cask "homebrew/cask-versions/1password-cli-beta"
 cask "homebrew/cask-versions/1password-beta"
