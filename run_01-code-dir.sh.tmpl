@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [ -d "$HOME/Code" ]; then
+  mkdir -p "$HOME/Code"
+fi
+
+if [ -d "$HOME/Code" ]; then
+  mkdir -p "$HOME/Code"
+fi
+
+if ! [[ -L "$HOME/Documents/Code" ]]; then
+  ln -s "$HOME/Code" "$HOME/Documents/Code"
+fi
