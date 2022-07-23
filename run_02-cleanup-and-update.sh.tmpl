@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euo pipefail
+
+{{ if eq .chezmoi.arch "arm64" }}
+if [[ "$HOMEBREW_PREFIX" != "/opt/homebrew" ]] ; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+{{ end }}
+
+brew update
+brew upgrade --greedy
+brew bundle cleanup --global
