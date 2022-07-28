@@ -5,6 +5,7 @@ tap "specdown/repo"
 brew "mas"
 brew "svn"
 
+cask "lens"
 cask "alfred"
 cask "audio-hijack"
 cask "chromedriver"
