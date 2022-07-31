@@ -53,7 +53,7 @@ mas "", id: 1464122853
 mas "", id: 409183694
 mas "", id: 441258766
 
-brww "velero"
+brew "velero"
 brew "k9s"
 brew "actionlint"
 brew "ripgrep"
