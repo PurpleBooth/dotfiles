@@ -54,6 +54,7 @@ mas "", id: 409183694
 mas "", id: 441258766
 
 
+brew "kind"
 brew "clusterctl"
 brew "k9s"
 brew "actionlint"
