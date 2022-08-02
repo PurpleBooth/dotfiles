@@ -53,7 +53,8 @@ mas "", id: 1464122853
 mas "", id: 409183694
 mas "", id: 441258766
 
-brew "velero"
+
+brew "clusterctl"
 brew "k9s"
 brew "actionlint"
 brew "ripgrep"
