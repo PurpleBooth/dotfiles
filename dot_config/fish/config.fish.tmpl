@@ -23,20 +23,20 @@ end
 #####################################################################
 
 fish_add_path --global "$HOME/.bin"
-fish_add_path --global "$GOCODEDIR/bin" $fish_user_paths
-fish_add_path --global (brew --prefix)"/opt/curl/bin" $fish_user_paths
-fish_add_path --global (brew --prefix)"/opt/mysql-client/bin" $fish_user_paths
-fish_add_path --global (brew --prefix)"/texlive/2019/bin/x86_64-darwin/" $fish_user_paths
-fish_add_path --global "$HOME/.cargo/bin" $fish_user_paths
-fish_add_path --global "$HOME/.config/nvim/bin" $fish_user_paths
+fish_add_path --global "$GOCODEDIR/bin"
+fish_add_path --global (brew --prefix)"/opt/curl/bin"
+fish_add_path --global (brew --prefix)"/opt/mysql-client/bin"
+fish_add_path --global (brew --prefix)"/texlive/2019/bin/x86_64-darwin/"
+fish_add_path --global "$HOME/.cargo/bin"
+fish_add_path --global "$HOME/.config/nvim/bin"
 
 if test -d "/usr/local/sbin"
-    fish_add_path --global "/usr/local/sbin" $fish_user_paths
+    fish_add_path --global "/usr/local/sbin"
 end
 
 if test -d "/opt/homebrew"
-    fish_add_path --append --global "/opt/homebrew/sbin" $fish_user_paths
-    fish_add_path --append --global "/opt/homebrew/bin" $fish_user_paths
+    fish_add_path --append --global "/opt/homebrew/sbin"
+    fish_add_path --append --global "/opt/homebrew/bin"
 end
 
 fish_add_path --global $HOME/.krew/bin
