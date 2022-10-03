@@ -1,2 +1,2 @@
-export EDITOR="zed --wait"
-export VISUAL="$EDITOR"
+set -xg EDITOR "zed --wait"
+set -xg VISUAL "$EDITOR"
