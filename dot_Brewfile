@@ -6,6 +6,7 @@ brew "mas"
 brew "svn"
 brew "watch"
 brew "ox"
+brew "micro"
 
 cask "lens"
 cask "alfred"
