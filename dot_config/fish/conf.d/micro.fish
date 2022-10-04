@@ -1,2 +1,2 @@
-set -xg EDITOR "zed --wait"
+set -xg EDITOR "micro"
 set -xg VISUAL "$EDITOR"
