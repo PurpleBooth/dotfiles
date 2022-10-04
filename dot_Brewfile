@@ -5,6 +5,7 @@ tap "specdown/repo"
 brew "mas"
 brew "svn"
 brew "watch"
+brew "ox"
 
 cask "lens"
 cask "alfred"
