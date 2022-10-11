@@ -1,6 +1,7 @@
 tap "PurpleBooth/repo"
 tap "homebrew/command-not-found"
 tap "specdown/repo"
+tap "argoproj/tap"
 
 brew "mas"
 brew "svn"
@@ -55,6 +56,7 @@ mas "", id: 1464122853
 mas "", id: 409183694
 mas "", id: 441258766
 
+brew "argoproj/tap/kubectl-argo-rollouts"
 brew "kind"
 brew "clusterctl"
 brew "just"
